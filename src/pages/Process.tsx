@@ -5,68 +5,52 @@ import { Link } from 'react-router-dom';
 
 const steps = [
   {
+    id: "strategy-call",
     icon: PhoneCall,
     title: "Strategy Call",
     purpose: "Evaluate alignment between your facility's goals and our systems.",
-    deliverables: ["Initial Capacity Assessment", "Market Density Review", "Goal Alignment Check"],
-    outcome: "Clear decision on whether our growth system fits your current operational reality.",
-    why: "We don't take on clients we can't scale. This filter ensures mutual profitability."
   },
   {
+    id: "gym-growth-audit",
     icon: Search,
     title: "Gym Growth Audit",
     purpose: "Analyze your current marketing infrastructure, pricing, and historical conversion metrics.",
-    deliverables: ["Offer Review", "Competitor Analysis", "Historical Funnel Audit"],
-    outcome: "Identify the leaks in your current acquisition and retention pipelines.",
-    why: "Prescription without diagnosis is malpractice. We build on facts, not assumptions."
   },
   {
+    id: "offer-positioning",
     icon: Target,
     title: "Offer Positioning",
     purpose: "Engineer a highly compelling, low-friction introductory offer tailored to your local demographic.",
-    deliverables: ["Front-End Offer Creation", "Unique Value Proposition Refinement", "Ad Copy Frameworks"],
-    outcome: "An irresistible local offer that drives immediate action without commoditizing your brand.",
-    why: "Your offer dictates your lead cost. A weak offer destroys ad budgets."
   },
   {
+    id: "marketing-system-setup",
     icon: Settings,
     title: "Marketing System Setup",
     purpose: "Deploy the backend infrastructure required to capture, track, and nurture traffic.",
-    deliverables: ["Conversion Funnels", "CRM Integration", "Pixel & API Tracking Setup", "Automated SMS/Email Sequences"],
-    outcome: "A fully built, highly optimized capture and conversion machine ready for traffic.",
-    why: "Without tracking and automations, you bleed leads. We close the gaps before spending a dime."
   },
   {
+    id: "campaign-launch",
     icon: Rocket,
     title: "Campaign Launch",
     purpose: "Release tactical, scroll-stopping creative assets across Meta and search platforms.",
-    deliverables: ["A/B Testing Framework", "Audience Segmentation", "Creative Asset Deployment"],
-    outcome: "Immediate injection of targeted local traffic into your newly built funnel.",
-    why: "Execution is everything. We launch with precision to exit the learning phase quickly."
   },
   {
+    id: "lead-management",
     icon: Users,
     title: "Lead Management",
     purpose: "Bridge the gap between a digital opt-in and a physical front-door walk-in.",
-    deliverables: ["Speed-to-Lead Automations", "Front Desk Scripting Guidance", "Pipeline Tracking"],
-    outcome: "Leads turn into booked appointments naturally and efficiently.",
-    why: "A lead is useless if they don't show up. We optimize the middle of the funnel to maximize show rates."
   },
   {
+    id: "optimization",
     icon: Activity,
     title: "Optimization",
     purpose: "Aggressively manage campaign budgets to lower Cost Per Acquisition (CPA).",
-    deliverables: ["Daily Ad Optimization", "Split Testing Review", "Funnel Conversion Rate Optimization (CRO)"],
-    outcome: "Steadily decreasing lead costs and higher closing percentages.",
-    why: "What works on day 1 rarely works on day 30. Continuous iteration maintains profitability."
   },
   {
+    id: "scaling",
     icon: TrendingUp,
     title: "Scaling",
     purpose: "Increase budget and market penetration once predictability is established.",
-    deliverables: ["Budget Scaling Strategies", "Lifetime Value (LTV) Maximization", "Quarterly Expansion Plans"],
-    outcome: "Pushing your facility to maximum capacity with predictable, compounding MRR.",
-    why: "Once the machine works, we feed it. We scale your business predictably."
   }
 ];
 
@@ -144,41 +128,25 @@ export default function Process() {
               </motion.div>
               
               {/* Content Box */}
-              <div className="w-[calc(100%-6rem)] md:w-[calc(50%-4rem)] bg-white border border-brand-border p-5 sm:p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl hover:border-brand-red/30 transition-all duration-300 relative z-10">
+              <Link 
+                to={`/process/${step.id}`}
+                className="w-[calc(100%-6rem)] md:w-[calc(50%-4rem)] bg-white border border-brand-border p-5 sm:p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-2xl hover:border-brand-red transition-all duration-300 relative z-10 group/card block overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-red/5 rounded-full blur-[40px] pointer-events-none group-hover/card:bg-brand-red/10 transition-colors" />
+
                 <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 mb-4 sm:mb-6">
-                  <span className="text-2xl sm:text-3xl font-black text-gray-200 group-hover:text-brand-red/20 transition-colors shrink-0">0{index + 1}</span>
+                   <span className="text-2xl sm:text-3xl font-black text-gray-200 group-hover/card:text-brand-red/20 transition-colors shrink-0">0{index + 1}</span>
                   <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-black break-words min-w-0">{step.title}</h3>
                 </div>
                 
                 <div className="flex flex-col gap-5">
-                  <div>
-                    <span className="text-brand-red font-bold uppercase tracking-widest text-[10px] sm:text-xs block mb-1">Purpose</span>
-                    <p className="text-gray-600 font-medium text-sm sm:text-base">{step.purpose}</p>
-                  </div>
-                  
-                  <div>
-                    <span className="text-brand-red font-bold uppercase tracking-widest text-[10px] sm:text-xs block mb-2">Deliverables</span>
-                    <ul className="flex flex-col gap-1.5">
-                      {step.deliverables.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="text-gray-400 mt-[2px] shrink-0" size={14} />
-                          <span className="text-gray-600 font-medium text-xs sm:text-sm">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <p className="text-gray-600 font-medium text-sm sm:text-base leading-relaxed">{step.purpose}</p>
 
-                  <div className="pt-4 border-t border-brand-border/50">
-                    <span className="text-black font-black uppercase tracking-widest text-[10px] sm:text-xs block mb-1">Expected Outcome</span>
-                    <p className="text-gray-800 font-semibold text-sm sm:text-base">{step.outcome}</p>
-                  </div>
-
-                  <div className="bg-brand-gray/50 rounded-lg p-4 mt-2">
-                    <span className="text-black font-black uppercase tracking-widest text-[10px] sm:text-xs block mb-1">Why It Matters</span>
-                    <p className="text-gray-600 font-medium text-xs sm:text-sm italic">{step.why}</p>
+                  <div className="flex items-center text-brand-red font-bold uppercase tracking-widest text-sm mt-4">
+                    View Process Detail <ArrowRight size={16} className="ml-2 group-hover/card:translate-x-2 transition-transform" />
                   </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>

@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
+import ProcessDetail from './pages/ProcessDetail';
 import Results from './pages/Results';
 import Process from './pages/Process';
 import Contact from './pages/Contact';
@@ -34,6 +35,7 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/:id" element={<ServiceDetail />} />
+            <Route path="/process/:id" element={<ProcessDetail />} />
             <Route path="/results" element={<Results />} />
             <Route path="/process" element={<Process />} />
             <Route path="/contact" element={<Contact />} />

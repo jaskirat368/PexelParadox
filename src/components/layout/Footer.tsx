@@ -74,10 +74,11 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-black mb-6">Services</h4>
             <ul className="flex flex-col gap-4">
-              <li><Link to="/services/paid-ads" className="text-gray-600 hover:text-black transition-colors">Paid Advertising</Link></li>
-              <li><Link to="/services/lead-nurture" className="text-gray-600 hover:text-black transition-colors">Lead Nurturing Systems</Link></li>
-              <li><Link to="/services/content" className="text-gray-600 hover:text-black transition-colors">Performance Content</Link></li>
-              <li><Link to="/services/retention" className="text-gray-600 hover:text-black transition-colors">Retention Strategies</Link></li>
+              <li><Link to="/services/performance-marketing" className="text-gray-600 hover:text-black transition-colors">Performance Marketing</Link></li>
+              <li><Link to="/services/meta-ads" className="text-gray-600 hover:text-black transition-colors">Meta Ads</Link></li>
+              <li><Link to="/services/lead-generation" className="text-gray-600 hover:text-black transition-colors">Lead Generation</Link></li>
+              <li><Link to="/services/conversion-funnels" className="text-gray-600 hover:text-black transition-colors">Conversion Funnels</Link></li>
+              <li><Link to="/services" className="text-brand-red font-semibold hover:text-red-700 transition-colors">View All Services →</Link></li>
             </ul>
           </div>
 
@@ -88,7 +89,7 @@ export default function Footer() {
                 Chandigarh & Mohali<br />
                 India
               </li>
-              <li><a href="mailto:hello@pexelparadox.com" className="text-gray-600 hover:text-black transition-colors">hello@pexelparadox.com</a></li>
+              <li><a href="mailto:jaskiratforbusiness@gmail.com" className="text-gray-600 hover:text-black transition-colors">jaskiratforbusiness@gmail.com</a></li>
             </ul>
           </div>
         </div>

@@ -1,4 +1,5 @@
-import { motion } from 'motion/react';
+import { useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { PhoneCall, Search, Target, Settings, Rocket, Users, Activity, TrendingUp, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -70,6 +71,21 @@ const steps = [
 ];
 
 export default function Process() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
+
+  const smoothYProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const lineHeight = useTransform(smoothYProgress, [0, 1], ["0%", "100%"]);
+
   return (
     <div className="w-full relative bg-brand-gray min-h-screen pb-20">
       {/* Hero Section */}
@@ -96,26 +112,42 @@ export default function Process() {
 
       {/* Grid of steps */}
       <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto relative z-10 overflow-hidden">
-        <div className="flex flex-col gap-12 relative before:absolute before:inset-0 before:ml-[39px] md:before:ml-[55px] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-brand-border before:via-brand-border before:to-transparent">
+        <div ref={containerRef} className="flex flex-col gap-12 sm:gap-24 relative">
+          
+          {/* The Static Background Line */}
+          <div className="absolute top-0 bottom-0 left-[39px] md:left-1/2 w-[2px] bg-brand-border md:-translate-x-1/2 z-0" />
+          
+          {/* The Animated Red Line */}
+          <motion.div 
+            className="absolute top-0 left-[39px] md:left-1/2 w-[2px] bg-brand-red md:-translate-x-1/2 shadow-[0_0_15px_rgba(220,53,53,0.8)] z-0 origin-top"
+            style={{ height: lineHeight }}
+          />
+
           {steps.map((step, index) => (
             <motion.div 
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5 }}
-              className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active"
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
             >
               {/* Timeline dot */}
-              <div className="flex items-center justify-center w-20 h-20 rounded-full border-4 border-brand-gray bg-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10 group-hover:border-brand-red/20 transition-colors">
-                <step.icon className="text-brand-red" size={28} />
-              </div>
+              <motion.div 
+                initial={{ borderColor: '#E5E7EB', color: '#9CA3AF' }}
+                whileInView={{ borderColor: '#DC3535', color: '#DC3535' }}
+                viewport={{ once: false, margin: "-50% 0px -50% 0px" }}
+                transition={{ duration: 0.3 }}
+                className="flex items-center justify-center w-20 h-20 rounded-full border-4 bg-white shadow-xl shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10"
+              >
+                <step.icon size={28} />
+              </motion.div>
               
               {/* Content Box */}
-              <div className="w-[calc(100%-6rem)] md:w-[calc(50%-4rem)] bg-white border border-brand-border p-8 rounded-2xl shadow-sm hover:shadow-xl hover:border-brand-red/30 transition-all duration-300">
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="text-3xl font-black text-gray-200 group-hover:text-brand-red/20 transition-colors">0{index + 1}</span>
-                  <h3 className="text-2xl font-black uppercase tracking-tighter text-black">{step.title}</h3>
+              <div className="w-[calc(100%-6rem)] md:w-[calc(50%-4rem)] bg-white border border-brand-border p-5 sm:p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-xl hover:border-brand-red/30 transition-all duration-300 relative z-10">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 mb-4 sm:mb-6">
+                  <span className="text-2xl sm:text-3xl font-black text-gray-200 group-hover:text-brand-red/20 transition-colors shrink-0">0{index + 1}</span>
+                  <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-black break-words min-w-0">{step.title}</h3>
                 </div>
                 
                 <div className="flex flex-col gap-5">

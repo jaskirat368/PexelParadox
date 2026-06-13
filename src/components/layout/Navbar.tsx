@@ -9,6 +9,7 @@ const navLinks = [
   { name: 'Services', path: '/services' },
   { name: 'Results', path: '/results' },
   { name: 'Process', path: '/process' },
+  { name: 'Contact', path: '/contact' },
 ];
 
 export default function Navbar() {
@@ -57,7 +58,7 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`text-sm font-medium tracking-wide transition-colors duration-200 ${
+                  className={`text-base font-semibold tracking-wide transition-colors duration-200 ${
                     isActive ? 'text-white font-bold drop-shadow-md' : 'text-white/80 hover:text-white'
                   }`}
                 >
@@ -92,36 +93,55 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-full left-4 right-4 mt-2 bg-brand-red/95 backdrop-blur-md border border-white/20 rounded-2xl md:hidden overflow-hidden pointer-events-auto shadow-2xl text-white"
+            initial={{ opacity: 0, scale: 0.95, y: -10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -10 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute top-full left-4 right-4 mt-4 bg-[#0F1012] border border-gray-800 rounded-3xl md:hidden overflow-hidden pointer-events-auto shadow-2xl text-white outline outline-1 outline-white/5"
           >
-            <div className="p-4 flex flex-col gap-2">
-              {navLinks.map((link) => {
-                 const isActive = location.pathname === link.path || 
-                              (link.path !== '/' && location.pathname.startsWith(link.path));
-                return (
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    className={`px-4 py-3 rounded-xl text-base font-medium transition-colors ${
-                      isActive ? 'bg-white/20 font-bold text-white' : 'text-white/80 hover:bg-white/10 hover:text-white'
-                    }`}
-                    onClick={closeMenu}
-                  >
-                    {link.name}
-                  </Link>
-                );
-              })}
-              <Link
-                to="/contact"
-                className="mt-2 w-full h-12 inline-flex items-center justify-center rounded-xl bg-white text-brand-red font-bold text-base hover:bg-gray-100 transition-colors shadow-lg"
-                onClick={closeMenu}
+            <div className="p-6 md:p-8 flex flex-col gap-6">
+              
+              <div className="flex flex-col gap-2">
+                <span className="text-gray-500 font-bold tracking-widest uppercase text-xs mb-2">Navigation</span>
+                {navLinks.map((link, index) => {
+                   const isActive = location.pathname === link.path || 
+                                (link.path !== '/' && location.pathname.startsWith(link.path));
+                  return (
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 + 0.1, duration: 0.3 }}
+                      key={link.name}
+                    >
+                      <Link
+                        to={link.path}
+                        className={`group flex items-center justify-between px-4 py-3 rounded-2xl text-lg font-bold transition-all duration-300 ${
+                          isActive ? 'bg-brand-red text-white' : 'bg-gray-900/50 hover:bg-gray-800 text-gray-300 hover:text-white'
+                        }`}
+                        onClick={closeMenu}
+                      >
+                        {link.name}
+                        {isActive && <motion.div layoutId="mobile-indicator" className="w-2 h-2 rounded-full bg-white" />}
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.3 }}
+                className="pt-6 border-t border-gray-800"
               >
-                Book Strategy Call
-              </Link>
+                <Link
+                  to="/contact"
+                  className="w-full h-14 inline-flex items-center justify-center rounded-2xl bg-white text-brand-red font-black text-lg hover:bg-gray-100 transition-colors shadow-lg"
+                  onClick={closeMenu}
+                >
+                  Book Strategy Call
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}

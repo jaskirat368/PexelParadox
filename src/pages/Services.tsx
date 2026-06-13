@@ -67,8 +67,8 @@ export default function Services() {
               animate={{ opacity: 1, y: 0 }}
               className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-8"
             >
-              Growth <br className="hidden md:block"/>
-              <span className="text-gray-400">Engines.</span>
+              Our <br className="hidden md:block"/>
+              <span className="text-gray-400">Services.</span>
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}

@@ -219,7 +219,7 @@ export default function ServiceDetail() {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
             <div className="lg:col-span-8">
-              <span className="text-brand-red font-bold tracking-widest uppercase mb-4 block">Growth Engine</span>
+              <span className="text-brand-red font-bold tracking-widest uppercase mb-4 block">Service Details</span>
               <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

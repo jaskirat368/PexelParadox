@@ -1,0 +1,6 @@
+{
+  "name": "Pexel Paradox",
+  "description": "We Don't Just Run Ads. We Fill Gyms.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

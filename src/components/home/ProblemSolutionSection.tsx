@@ -59,24 +59,56 @@ export default function ProblemSolutionSection() {
              ))}
         </div>
 
-        {/* Full Bleed Image Block */}
+        {/* Sleek Custom Card without Image */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative w-full h-[500px] border border-brand-border overflow-hidden group"
+          transition={{ duration: 0.6 }}
+          className="relative w-full bg-black border border-brand-border rounded-[2rem] p-8 md:p-16 overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-8 group hover:border-brand-red transition-all duration-300 shadow-2xl"
         >
-          <div className="absolute inset-0 bg-brand-black/40 z-10 group-hover:bg-brand-black/10 transition-colors duration-700" />
-          <div className="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full flex justify-between items-end">
-            <div>
-              <span className="bg-brand-red text-white text-sm font-bold uppercase tracking-widest py-2 px-4 mb-6 inline-block shadow-lg">High-Intensity</span>
-              <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tighter">Data-Driven Domination</h3>
+          {/* Subtle geometric pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#161616_1px,transparent_1px),linear-gradient(to_bottom,#161616_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40 pointer-events-none" />
+          
+          <div className="relative z-20 flex flex-col items-start max-w-2xl text-left">
+            <span className="bg-brand-red text-white text-xs font-black uppercase tracking-widest py-1.5 px-3.5 mb-6 inline-block rounded shadow-[0_4px_15px_rgba(220,53,53,0.3)]">
+              High-Intensity Blueprint
+            </span>
+            <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white mb-4 leading-none">
+              UNVEIL THE <span className="text-brand-red">PEXEL PROTOCOL</span>
+            </h3>
+            <p className="text-gray-400 text-base md:text-lg font-medium leading-relaxed max-w-lg mb-8">
+              We engineered a predictable client acquisition engine specifically for gym facilities. Walk through our step-by-step blueprint that turns empty spaces into overbooked training sessions.
+            </p>
+
+            {/* Unique, Zero-Image CSS Process Grid Timeline */}
+            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-gray-500 uppercase tracking-widest pt-2">
+              <div className="flex items-center gap-2 bg-neutral-950 border border-neutral-850 px-3 py-2 rounded-xl text-white">
+                <span className="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse" />
+                <span className="font-bold text-[10px]">01 / TARGET</span>
+              </div>
+              <div className="hidden sm:block h-[1px] w-6 bg-neutral-800" />
+              <div className="flex items-center gap-2 bg-neutral-950 border border-neutral-850 px-3 py-2 rounded-xl text-white">
+                <span className="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse" />
+                <span className="font-bold text-[10px]">02 / CAPTURE</span>
+              </div>
+              <div className="hidden sm:block h-[1px] w-6 bg-neutral-800" />
+              <div className="flex items-center gap-2 bg-neutral-950 border border-neutral-850 px-3 py-2 rounded-xl text-white">
+                <span className="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse" />
+                <span className="font-bold text-[10px]">03 / SCALE</span>
+              </div>
             </div>
-            <Link to="/process" className="w-16 h-16 rounded-full bg-white text-black flex items-center justify-center hover:scale-110 transition-transform hidden md:flex">
-              <ArrowRight size={24} />
+          </div>
+
+          <div className="relative z-20 w-full md:w-auto shrink-0 flex flex-col mt-4 md:mt-0">
+            <Link 
+              to="/process" 
+              className="w-full md:w-auto h-16 px-8 rounded-full bg-brand-red text-white flex items-center justify-center gap-3 font-black uppercase tracking-wider text-sm hover:bg-neutral-900 hover:text-white hover:scale-[1.03] active:scale-95 transition-all duration-200 shadow-[0_10px_25px_rgba(220,53,53,0.3)]"
+            >
+              <span>Discover Our Process</span>
+              <ArrowRight size={18} strokeWidth={2.5} />
             </Link>
           </div>
-          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 transform group-hover:scale-105" />
         </motion.div>
 
       </div>

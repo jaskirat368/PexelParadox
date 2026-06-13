@@ -58,7 +58,7 @@ export default function PrivacyPolicy() {
 
         <h2 className="text-2xl font-semibold text-black mt-8 mb-4">6. Contact Us</h2>
         <p className="mb-4">
-          If you have questions regarding this Privacy Policy, please contact us at <a href="mailto:jaskiratforbusiness@gmail.com" className="text-brand-red hover:underline">jaskiratforbusiness@gmail.com</a>.
+          If you have questions regarding this Privacy Policy, please contact us at <a href="mailto:info@pexelparadox.com" className="text-brand-red hover:underline">info@pexelparadox.com</a>.
         </p>
       </motion.div>
     </section>

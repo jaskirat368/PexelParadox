@@ -96,42 +96,387 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Services Grid Section */}
+      {/* Services Bento Grid Section */}
       <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {servicesData.map((service, index) => (
-             <motion.div 
-               key={index}
-               initial={{ opacity: 0, y: 40 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true, margin: "-50px" }}
-               transition={{ duration: 0.5, delay: index * 0.1 }}
-               className="group flex flex-col h-full"
-             >
-                <Link 
-                  to={`/services/${service.slug}`} 
-                  className="bg-white border border-brand-border rounded-[2rem] p-8 md:p-10 flex flex-col h-full transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-brand-red relative overflow-hidden"
-                >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-brand-red/5 rounded-full blur-[40px] pointer-events-none group-hover:bg-brand-red/10 transition-colors" />
-                  
-                  <div className="w-16 h-16 rounded-2xl bg-brand-gray border border-brand-border flex items-center justify-center mb-8 group-hover:border-brand-red/30 transition-colors">
-                    <service.icon className="text-brand-red" size={32} strokeWidth={1.5} />
-                  </div>
-                  
-                  <h3 className="text-2xl font-black uppercase tracking-tighter text-black mb-4">
-                    {service.title}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          
+          {/* Card 1: Performance Marketing (Flagship Large Dark Block) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+            className="col-span-1 md:col-span-2 bg-neutral-950 border border-neutral-850 rounded-[2.5rem] p-8 md:p-12 text-white flex flex-col justify-between relative overflow-hidden group hover:border-brand-red hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 min-h-[380px] shadow-2xl"
+          >
+            {/* Subtle background glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/10 rounded-full blur-[80px] pointer-events-none group-hover:bg-brand-red/15 transition-all duration-500" />
+            
+            <div>
+              <div className="flex justify-between items-start mb-8">
+                <div className="w-16 h-16 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center">
+                  <Target className="text-brand-red animate-pulse" size={32} strokeWidth={1.5} />
+                </div>
+                <span className="text-[10px] font-black uppercase tracking-widest bg-brand-red text-white py-1.5 px-3 rounded-full shadow-[0_4px_10px_rgba(220,53,53,0.3)]">
+                  Flagship Engine
+                </span>
+              </div>
+              
+              <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-white mb-4">
+                Performance Marketing
+              </h3>
+              <p className="text-neutral-400 font-medium text-base md:text-lg leading-relaxed max-w-2xl mb-8">
+                A comprehensive, multi-channel approach focused strictly on profitable member acquisition. We handle every step of your local visibility and conversion flow to turn cold traffic into active memberships.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 sm:items-center justify-between mt-auto pt-6 border-t border-neutral-900">
+              <ul className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-mono text-neutral-500 uppercase tracking-wider">
+                <li className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-brand-red" /> Omni-channel</li>
+                <li className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-brand-red" /> Lead Arbitrage</li>
+                <li className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-brand-red" /> Guaranteed KPIs</li>
+              </ul>
+              
+              <Link 
+                to="/services/performance-marketing" 
+                className="inline-flex items-center text-brand-red group-hover:text-white font-bold uppercase tracking-widest text-xs transition-colors shrink-0"
+              >
+                <span>Explore Engine</span> 
+                <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Card 2: Meta Ads (Light Block) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-white border border-brand-border rounded-[2.5rem] p-8 flex flex-col justify-between group hover:border-brand-red hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl"
+          >
+            <div>
+              <div className="flex justify-between items-start mb-8">
+                <div className="w-14 h-14 rounded-2xl bg-brand-gray border border-brand-border flex items-center justify-center">
+                  <Users className="text-brand-red" size={26} strokeWidth={1.5} />
+                </div>
+                {/* Visual Radial Targeting Tag */}
+                <span className="text-[10px] font-bold tracking-widest text-gray-400 uppercase font-mono">
+                  Radius: 10 KM
+                </span>
+              </div>
+              
+              <h3 className="text-2xl font-black uppercase tracking-tighter text-black mb-3">
+                Meta Ads
+              </h3>
+              <p className="text-gray-500 font-medium leading-relaxed text-sm mb-6">
+                Highly targeted Facebook & Instagram advertising campaigns calibrated specifically for local fitness demographics, maximizing signups inside your immediate facility radius.
+              </p>
+            </div>
+
+            <div className="mt-auto">
+              {/* Micro-visual mock targeting element */}
+              <div className="bg-brand-gray rounded-xl p-3 mb-6 border border-brand-border/40 flex items-center justify-between text-[11px] font-mono text-gray-500 uppercase">
+                <span>Direct Targeting</span>
+                <span className="text-black font-semibold">Active Gym Goers</span>
+              </div>
+              
+              <Link 
+                to="/services/meta-ads" 
+                className="inline-flex items-center text-brand-red font-bold uppercase tracking-widest text-xs"
+              >
+                <span>Explore Engine</span> 
+                <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Card 3: Lead Generation (Light Block) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+            className="bg-white border border-brand-border rounded-[2.5rem] p-8 flex flex-col justify-between group hover:border-brand-red hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl"
+          >
+            <div>
+              <div className="flex justify-between items-start mb-8">
+                <div className="w-14 h-14 rounded-2xl bg-brand-gray border border-brand-border flex items-center justify-center">
+                  <Zap className="text-brand-red animate-bounce" size={26} strokeWidth={1.5} />
+                </div>
+                <span className="text-[10px] bg-red-50 text-brand-red border border-red-100 font-black tracking-widest uppercase py-1 px-2.5 rounded-full select-none">
+                  +240% Growth
+                </span>
+              </div>
+              
+              <h3 className="text-2xl font-black uppercase tracking-tighter text-black mb-3">
+                Lead Generation
+              </h3>
+              <p className="text-gray-500 font-medium leading-relaxed text-sm mb-6">
+                End-to-end capture mechanisms designed to extract name, phone, and specific fitness goals from cold local traffic, pre-qualifying prospects before contact.
+              </p>
+            </div>
+
+            <div className="mt-auto">
+              <div className="bg-brand-gray rounded-xl p-3 mb-6 border border-brand-border/40 flex items-center justify-between text-[11px] font-mono text-gray-500 uppercase">
+                <span>Prospect Filter</span>
+                <span className="text-black font-semibold">Goal-Oriented</span>
+              </div>
+              
+              <Link 
+                to="/services/lead-generation" 
+                className="inline-flex items-center text-brand-red font-bold uppercase tracking-widest text-xs"
+              >
+                <span>Explore Engine</span> 
+                <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Card 4: Content Creation (Bento Wide Horizontal Light Block) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="col-span-1 md:col-span-1 lg:col-span-2 bg-white border border-brand-border rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between group hover:border-brand-red hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl relative overflow-hidden"
+          >
+            <div>
+              <div className="flex justify-between items-start mb-8">
+                <div className="w-14 h-14 rounded-2xl bg-brand-gray border border-brand-border flex items-center justify-center">
+                  <Presentation className="text-brand-red" size={26} strokeWidth={1.5} />
+                </div>
+                <span className="text-[10px] font-mono text-neutral-400 tracking-wider">SECURE ASPECT RATIO (9:16)</span>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                <div className="lg:col-span-7">
+                  <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-black mb-3">
+                    Content Creation
                   </h3>
-                  
-                  <p className="text-gray-600 font-medium leading-relaxed mb-8 flex-grow">
-                    {service.what}
+                  <p className="text-gray-500 font-medium leading-relaxed text-sm mb-6 max-w-lg">
+                    Gritty, high-converting visual assets that position physical facilities as undisputed premium authorities. Stock photos don't convert; authentic, high-intensity creative assets sell memberships.
                   </p>
-                  
-                  <div className="flex items-center text-brand-red font-bold uppercase tracking-widest text-sm mt-auto">
-                    Explore Engine <ArrowRight size={16} className="ml-2 group-hover:translate-x-2 transition-transform" />
+                </div>
+
+                {/* Simulated Content phone viewfinder preview (pure CSS) */}
+                <div className="lg:col-span-5 flex justify-center lg:justify-end w-full mt-6 lg:mt-0">
+                  <div className="relative mx-auto lg:mr-0 w-[270px] lg:w-[155px] aspect-[18.5/9] lg:aspect-[9/18.5] rounded-[1.8rem] lg:rounded-[2.2rem] border-8 border-neutral-900 bg-neutral-950 p-3 lg:p-2.5 flex flex-col justify-between text-neutral-400 font-mono text-[8px] shadow-2xl overflow-hidden ring-1 ring-neutral-800">
+                    
+                    {/* Simulated Camera Dynamic Island Notch (Rotated dynamically on mobile vs. desktop) */}
+                    <div className="absolute left-1.5 top-1/2 -translate-y-1/2 w-2.5 h-10 lg:left-1/2 lg:top-1.5 lg:-translate-x-1/2 lg:translate-y-0 lg:w-10 lg:h-2.5 bg-neutral-900 rounded-full z-30 flex items-center justify-center">
+                      <div className="w-1 h-1 rounded-full bg-blue-950/40" />
+                    </div>
+
+                    {/* Camera Focus Gridlines Overlap */}
+                    <div className="absolute inset-0 pointer-events-none opacity-25 z-0 my-3 mx-8 lg:my-8 lg:mx-0">
+                      <div className="grid grid-cols-3 grid-rows-3 h-full w-full border border-neutral-850">
+                        <div className="border-r border-b border-neutral-850" />
+                        <div className="border-r border-b border-neutral-850" />
+                        <div className="border-b border-neutral-850" />
+                        <div className="border-r border-b border-neutral-850" />
+                        <div className="border-r border-b border-neutral-850" />
+                        <div className="border-b border-neutral-850" />
+                      </div>
+                    </div>
+
+                    {/* Concentric Autofocus Target in center */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                      <div className="w-6 h-6 border border-brand-red/50 rounded flex items-center justify-center">
+                        <div className="w-1 h-1 rounded-full bg-brand-red animate-ping" />
+                      </div>
+                    </div>
+
+                    {/* Recording Header */}
+                    <div className="flex justify-between items-center text-[7px] text-neutral-400 font-bold z-20 mt-1 lg:mt-3 px-4 lg:px-0">
+                      <div className="flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-brand-red animate-pulse inline-block" />
+                        <span className="text-white">REC</span>
+                      </div>
+                      <span>4K 60FPS</span>
+                    </div>
+
+                    {/* Audio Waveforms & Camera Controls at Bottom */}
+                    <div className="flex flex-row lg:flex-col gap-3 lg:gap-2 justify-between lg:justify-start items-center lg:items-stretch z-20 mt-auto px-4 lg:px-0">
+                      {/* Interactive Waveform Level Indicator */}
+                      <div className="flex items-end justify-center gap-[3px] h-6 lg:h-7 bg-neutral-900/95 border border-neutral-800 rounded-lg p-1 w-20 lg:w-full shrink-0">
+                        <span className="w-0.5 bg-brand-red h-3 rounded-full animate-pulse" style={{ animationDuration: '0.6s' }} />
+                        <span className="w-0.5 bg-white h-4.5 rounded-full animate-pulse" style={{ animationDuration: '0.8s' }} />
+                        <span className="w-0.5 bg-white h-2 rounded-full animate-pulse" style={{ animationDuration: '0.5s' }} />
+                        <span className="w-0.5 bg-brand-red h-5 rounded-full animate-pulse" style={{ animationDuration: '0.7s' }} />
+                        <span className="w-0.5 bg-white h-3.5 rounded-full animate-pulse" style={{ animationDuration: '0.9s' }} />
+                        <span className="w-0.5 bg-white h-1.5 rounded-full animate-pulse" style={{ animationDuration: '0.4s' }} />
+                      </div>
+
+                      {/* Phone Shutter Control Bar */}
+                      <div className="flex justify-between items-center gap-4 lg:gap-0 px-0.5 pt-0.5 border-t lg:border-t-0 lg:border-neutral-900 w-full lg:w-auto">
+                        <span className="text-[6px] text-white font-medium">100% Lenses</span>
+                        <div className="w-4 h-4 rounded-full border border-white flex items-center justify-center shrink-0">
+                          <div className="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse" />
+                        </div>
+                        <span className="text-[6px] text-neutral-400 font-medium">00:14</span>
+                      </div>
+                    </div>
+
                   </div>
-                </Link>
-             </motion.div>
-          ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-6 pt-6 border-t border-brand-gray flex justify-between items-center">
+              <span className="text-[10px] font-bold tracking-widest text-neutral-400 uppercase font-mono">100% Custom Media Assets</span>
+              <Link 
+                to="/services/content-creation" 
+                className="inline-flex items-center text-brand-red font-bold uppercase tracking-widest text-xs"
+              >
+                <span>Explore Engine</span> 
+                <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Card 5: Conversion Funnels (Light Block) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+            className="bg-white border border-brand-border rounded-[2.5rem] p-8 flex flex-col justify-between group hover:border-brand-red hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl"
+          >
+            <div>
+              <div className="flex justify-between items-start mb-8">
+                <div className="w-14 h-14 rounded-2xl bg-brand-gray border border-brand-border flex items-center justify-center">
+                  <LayoutDashboard className="text-brand-red" size={26} strokeWidth={1.5} />
+                </div>
+                <span className="text-[10px] font-mono text-emerald-600 bg-emerald-50 border border-emerald-100 font-bold px-2 py-1 rounded-full uppercase">
+                  94% Bounce Reduction
+                </span>
+              </div>
+              
+              <h3 className="text-2xl font-black uppercase tracking-tighter text-black mb-3">
+                Conversion Funnels
+              </h3>
+              <p className="text-gray-500 font-medium leading-relaxed text-sm mb-6">
+                Strategic, single-purpose landing pages optimized ruthlessly to intercept interest and obtain instant lead data instead of general passive browsing.
+              </p>
+            </div>
+
+            <div className="mt-auto">
+              {/* Funnel chart preview */}
+              <div className="flex flex-col gap-1.5 bg-brand-gray p-3 rounded-xl border border-brand-border/40 mb-6 font-mono text-[9px] uppercase tracking-wider text-gray-500">
+                <div className="flex items-center justify-between"><div className="w-[80%] bg-brand-red h-2.5 rounded-full opacity-100" /> <span className="pl-2 shrink-0">100% Visit</span></div>
+                <div className="flex items-center justify-between"><div className="w-[50%] bg-brand-red h-2.5 rounded-full opacity-80" /> <span className="pl-2 shrink-0">50% Engage</span></div>
+                <div className="flex items-center justify-between"><div className="w-[25%] bg-brand-red h-2.5 rounded-full opacity-60" /> <span className="pl-2 shrink-0">25% Action</span></div>
+              </div>
+              
+              <Link 
+                to="/services/conversion-funnels" 
+                className="inline-flex items-center text-brand-red font-bold uppercase tracking-widest text-xs"
+              >
+                <span>Explore Engine</span> 
+                <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Card 6: Follow-Up Systems (Light Block) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bg-white border border-brand-border rounded-[2.5rem] p-8 flex flex-col justify-between group hover:border-brand-red hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl"
+          >
+            <div>
+              <div className="flex justify-between items-start mb-8">
+                <div className="w-14 h-14 rounded-2xl bg-brand-gray border border-brand-border flex items-center justify-center">
+                  <MessageSquare className="text-brand-red" size={26} strokeWidth={1.5} />
+                </div>
+                <span className="text-[10px] font-mono text-black font-semibold bg-brand-gray px-2 py-1 rounded-full uppercase">
+                  &lt; 5m Speed-To-Lead
+                </span>
+              </div>
+              
+              <h3 className="text-2xl font-black uppercase tracking-tighter text-black mb-3">
+                Follow-Up Systems
+              </h3>
+              <p className="text-gray-500 font-medium leading-relaxed text-sm mb-6">
+                Automated CRM, SMS pipelines, and rapid email systems that engage active gym prospects within moments of opt-in, converting interest when it is most intense.
+              </p>
+            </div>
+
+            <div className="mt-auto">
+              <div className="bg-brand-gray rounded-xl p-3 mb-6 border border-brand-border/40 flex items-center justify-between text-[11px] font-mono text-gray-500 uppercase">
+                <span>Response Target</span>
+                <span className="text-black font-bold">Immediate Auto-Dial</span>
+              </div>
+              
+              <Link 
+                to="/services/follow-up-systems" 
+                className="inline-flex items-center text-brand-red font-bold uppercase tracking-widest text-xs"
+              >
+                <span>Explore Engine</span> 
+                <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Card 7: Gym Growth Strategy (Underpinned Full-Width Bento block) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="col-span-1 md:col-span-2 lg:col-span-3 bg-gradient-to-br from-neutral-900 to-black text-white border border-neutral-800 rounded-[3rem] p-8 md:p-12 flex flex-col justify-between relative overflow-hidden group hover:border-brand-red hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20 pointer-events-none" />
+            
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
+              <div className="lg:col-span-8 text-left">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-neutral-800/85 border border-neutral-750 flex items-center justify-center">
+                    <LineChart className="text-brand-red" size={26} strokeWidth={1.5} />
+                  </div>
+                  <span className="text-[10px] font-black uppercase tracking-widest bg-brand-red text-white py-1 px-3.5 rounded-full shadow-[0_4px_10px_rgba(220,53,53,0.3)]">
+                    Enterprise Scaling
+                  </span>
+                </div>
+                
+                <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4">
+                  Gym Growth Strategy
+                </h3>
+                <p className="text-neutral-400 font-medium leading-relaxed text-sm md:text-base max-w-2xl">
+                  Strategic roadmap deployment for complete local market absolute dominance, analyzing pricing parameters, scalable gym group offers, structural lifetime value calculations, and member retention pipelines.
+                </p>
+              </div>
+
+              {/* Dynamic stats right side segment */}
+              <div className="lg:col-span-4 flex flex-col justify-end lg:items-end w-full">
+                <div className="bg-neutral-950 border border-neutral-850 p-6 rounded-2xl w-full max-w-sm flex flex-col gap-3 font-mono text-xs uppercase tracking-wider text-neutral-400">
+                  <div className="flex justify-between items-center text-left">
+                    <span>Target LTV</span>
+                    <span className="text-white font-bold font-sans">₹18,500+</span>
+                  </div>
+                  <div className="h-[1px] bg-neutral-850 w-full" />
+                  <div className="flex justify-between items-center text-left">
+                    <span>Churn Cap Limit</span>
+                    <span className="text-brand-red font-bold font-sans">&lt; 4% Monthly</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative z-10 mt-10 pt-6 border-t border-neutral-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <span className="text-xs font-semibold text-neutral-400">Macro-Level Gym Group Operations Map</span>
+              <Link 
+                to="/services/gym-growth-strategy" 
+                className="inline-flex items-center text-brand-red group-hover:text-white font-bold uppercase tracking-widest text-xs transition-colors"
+              >
+                <span>Explore Engine</span> 
+                <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
+              </Link>
+            </div>
+          </motion.div>
+
         </div>
 
         {/* Global CTA */}

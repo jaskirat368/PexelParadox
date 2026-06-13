@@ -15,11 +15,27 @@ const servicesList = [
 
 export default function ServicesSection() {
   return (
-    <section className="py-24 px-6 md:px-12 w-full max-w-[1400px] mx-auto">
-      <div className="bg-[#1AE1C] rounded-[2rem] relative flex flex-col lg:flex-row overflow-hidden shadow-2xl">
-        
-        {/* Background color of the card - very dark, almost black/dark grey */}
-        <div className="absolute inset-0 bg-[#0F1012] z-0" />
+    <section className="py-28 px-6 md:px-12 w-full max-w-[1400px] mx-auto relative">
+      {/* Outer wrapper with the custom fold clip-path to create a dual-fold folder tab look */}
+      <div 
+        className="relative flex flex-col lg:flex-row overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-[0_20px_50px_rgba(220,53,53,0.15)] bg-neutral-800"
+        style={{
+          clipPath: 'polygon(0% 24px, 48px 24px, 72px 0px, calc(100% - 72px) 0px, calc(100% - 48px) 24px, 100% 24px, 100% calc(100% - 24px), calc(100% - 48px) calc(100% - 24px), calc(100% - 72px) 100%, 72px 100%, 48px calc(100% - 24px), 0% calc(100% - 24px))'
+        }}
+      >
+        {/* Flawless Inner Content Container with matching clip-path to form a sharp 1px border outline */}
+        <div 
+          className="absolute inset-[1px] bg-[#0F1012] z-0"
+          style={{
+            clipPath: 'polygon(0% 24px, 48px 24px, 72px 0px, calc(100% - 72px) 0px, calc(100% - 48px) 24px, 100% 24px, 100% calc(100% - 24px), calc(100% - 48px) calc(100% - 24px), calc(100% - 72px) 100%, 72px 100%, 48px calc(100% - 24px), 0% calc(100% - 24px))'
+          }}
+        />
+
+        {/* 3D Fold Crease Visual Accent Lines at the angled vertices */}
+        <div className="absolute left-[47px] top-0 w-[26px] h-6 border-r border-[#ffffff20] bg-[#ffffff05] skew-x-[45deg] origin-bottom-left pointer-events-none z-10" />
+        <div className="absolute right-[47px] top-0 w-[26px] h-6 border-l border-[#ffffff20] bg-[#ffffff05] -skew-x-[45deg] origin-bottom-right pointer-events-none z-10" />
+        <div className="absolute left-[47px] bottom-0 w-[26px] h-6 border-r border-[#ffffff20] bg-[#ffffff05] -skew-x-[45deg] origin-top-left pointer-events-none z-10" />
+        <div className="absolute right-[47px] bottom-0 w-[26px] h-6 border-l border-[#ffffff20] bg-[#ffffff05] skew-x-[45deg] origin-top-right pointer-events-none z-10" />
 
         {/* Vertical Tag - Absolute positioned on left */}
         <div className="hidden lg:flex absolute left-0 top-16 bg-brand-red py-6 px-2 rounded-r-lg z-10 flex-col items-center">

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react
 import { useEffect } from 'react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import FloatingContactButtons from './components/layout/FloatingContactButtons';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -16,6 +17,7 @@ import PrivacyPolicy from './pages/legal/PrivacyPolicy';
 import TermsOfService from './pages/legal/TermsOfService';
 import Disclaimer from './pages/legal/Disclaimer';
 import RefundPolicy from './pages/legal/RefundPolicy';
+import ErrorPage from './pages/ErrorPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -49,10 +51,13 @@ export default function App() {
             <Route path="/refund" element={<RefundPolicy />} />
             <Route path="/blog" element={<GenericPage title="Growth Insights" subtitle="Tactical articles on gym marketing and predictable systems." />} />
             <Route path="/thank-you" element={<GenericPage title="Application Received" subtitle="Your strategy call request has been received. Our team will contact you shortly." />} />
+            <Route path="/error" element={<ErrorPage />} />
+            <Route path="/page-not-found-error" element={<ErrorPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
+        <FloatingContactButtons />
       </div>
     </Router>
   );

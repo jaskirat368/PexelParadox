@@ -63,30 +63,18 @@ export default function Footer() {
                 Chandigarh & Mohali<br />
                 India
               </li>
-              <li><a href="mailto:jaskiratforbusiness@gmail.com" className="text-gray-400 hover:text-brand-red transition-colors">jaskiratforbusiness@gmail.com</a></li>
+              <li><a href="mailto:info@pexelparadox.com" className="text-gray-400 hover:text-brand-red transition-colors">info@pexelparadox.com</a></li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Section */}
-        <div className="flex flex-col gap-8 py-8 border-t border-gray-900 text-sm text-gray-500">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-xs text-gray-500">
-            <div>
-               <Link to="/privacy" className="font-semibold text-gray-400 hover:text-white transition-colors block mb-2">Privacy Policy</Link>
-               <p>We respect your data and never sell it. Your information is used securely and solely to provide our services.</p>
-            </div>
-            <div>
-               <Link to="/terms" className="font-semibold text-gray-400 hover:text-white transition-colors block mb-2">Terms of Service</Link>
-               <p>By using our site and services, you agree to our standard operating procedures and professional guidelines.</p>
-            </div>
-            <div>
-               <Link to="/disclaimer" className="font-semibold text-gray-400 hover:text-white transition-colors block mb-2">Disclaimer</Link>
-               <p>Results are not guaranteed. Past performance in marketing does not guarantee future results for your facility.</p>
-            </div>
-            <div>
-               <Link to="/refund" className="font-semibold text-gray-400 hover:text-white transition-colors block mb-2">Refund Policy</Link>
-               <p>Due to the digital, service-based nature of our agency, payments for completed work and active retainers are non-refundable.</p>
-            </div>
+        <div className="flex flex-col gap-6 py-6 border-t border-gray-900 text-sm text-gray-500">
+          <div className="flex flex-wrap gap-x-8 gap-y-3 justify-center md:justify-start text-xs font-bold uppercase tracking-widest text-gray-400">
+             <Link to="/privacy" className="hover:text-white hover:text-brand-red transition-colors border-b border-transparent hover:border-brand-red pb-1">Privacy Policy</Link>
+             <Link to="/terms" className="hover:text-white hover:text-brand-red transition-colors border-b border-transparent hover:border-brand-red pb-1">Terms of Service</Link>
+             <Link to="/disclaimer" className="hover:text-white hover:text-brand-red transition-colors border-b border-transparent hover:border-brand-red pb-1">Disclaimer</Link>
+             <Link to="/refund" className="hover:text-white hover:text-brand-red transition-colors border-b border-transparent hover:border-brand-red pb-1">Refund Policy</Link>
           </div>
           <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-gray-900">
             <p>&copy; {currentYear} Pexel Paradox. All rights reserved.</p>

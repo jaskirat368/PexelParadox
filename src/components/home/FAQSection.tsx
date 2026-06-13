@@ -25,58 +25,56 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-20 px-6 max-w-4xl mx-auto w-full">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4">
-          Frequently <span className="text-brand-red">Asked.</span>
-        </h2>
-        <p className="text-gray-400">Everything you need to know about our growth systems.</p>
-      </div>
+    <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto w-full border-t border-brand-border">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+        <div className="lg:col-span-1">
+          <span className="text-brand-red font-bold tracking-widest uppercase mb-4 block">Information</span>
+          <h2 className="text-5xl font-black uppercase tracking-tighter">
+            FAQ
+          </h2>
+        </div>
 
-      <div className="flex flex-col gap-4">
-        {faqs.map((faq, index) => {
-          const isOpen = openIndex === index;
+        <div className="lg:col-span-3 flex flex-col border-t-2 border-brand-border">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
 
-          return (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className={`border rounded-2xl overflow-hidden transition-colors duration-300 ${
-                isOpen ? 'bg-brand-gray border-brand-red/50' : 'bg-black border-brand-border hover:bg-white/5'
-              }`}
-            >
-              <button
-                className="w-full px-6 py-6 flex items-center justify-between text-left"
-                onClick={() => setOpenIndex(isOpen ? null : index)}
+            return (
+              <motion.div
+                key={index}
+                className={`border-b-2 transition-colors duration-300 ${
+                  isOpen ? 'border-brand-red' : 'border-brand-border'
+                }`}
               >
-                <span className="font-bold text-lg">{faq.question}</span>
-                <span className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
-                  isOpen ? 'bg-brand-red text-white' : 'bg-brand-gray border border-brand-border text-gray-400'
-                }`}>
-                  {isOpen ? <Minus size={16} /> : <Plus size={16} />}
-                </span>
-              </button>
-              
-              <AnimatePresence>
-                {isOpen && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="px-6 pb-6 text-gray-400 leading-relaxed pt-2">
-                      {faq.answer}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          );
-        })}
+                <button
+                  className="w-full py-8 text-left flex justify-between items-center group"
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                >
+                  <span className={`text-2xl md:text-3xl font-black uppercase tracking-tight transition-colors ${isOpen ? 'text-brand-red' : 'text-black group-hover:text-gray-600'}`}>
+                    {faq.question}
+                  </span>
+                  <span className={`flex-shrink-0 ml-6 text-2xl transition-colors ${isOpen ? 'text-brand-red' : 'text-gray-400 group-hover:text-black'}`}>
+                    {isOpen ? <Minus size={32} /> : <Plus size={32} />}
+                  </span>
+                </button>
+                
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="pb-8 text-xl text-gray-600 font-medium leading-relaxed max-w-3xl">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

@@ -20,10 +20,10 @@ export default function StatsSection() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="flex flex-col items-center justify-center text-center px-4"
           >
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-white mb-2">
+            <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-black mb-2">
               {stat.value}
             </h3>
-            <p className="text-gray-400 text-sm md:text-base font-medium uppercase tracking-widest text-brand-red">
+            <p className="text-gray-600 text-sm md:text-base font-medium uppercase tracking-widest text-brand-red">
               {stat.label}
             </p>
           </motion.div>

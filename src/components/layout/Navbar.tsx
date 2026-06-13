@@ -28,19 +28,19 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 pointer-events-none px-4 sm:px-6 md:px-8 mt-4`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 pointer-events-none px-4 sm:px-6 md:px-8 mt-6`}
     >
       <div 
-        className={`max-w-7xl mx-auto rounded-full pointer-events-auto transition-all duration-500 ${
+        className={`max-w-5xl mx-auto rounded-full pointer-events-auto transition-all duration-500 py-4 px-6 md:px-8 shadow-2xl ${
           isScrolled 
-            ? 'bg-black/80 backdrop-blur-md border border-brand-border py-4 px-6 md:px-8 shadow-2xl shadow-brand-red/5' 
-            : 'bg-transparent py-6 px-4 md:px-8 border border-transparent'
+            ? 'border border-white/20 shadow-brand-red/50 bg-brand-red/95 backdrop-blur-md text-white' 
+            : 'border border-transparent bg-brand-red/90 backdrop-blur-md text-white'
         }`}
       >
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group" onClick={closeMenu}>
-            <div className="w-8 h-8 md:w-10 md:h-10 border-2 border-brand-red rounded flex items-center justify-center bg-black overflow-hidden relative">
-               <div className="absolute inset-0 bg-brand-red/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            <div className="w-8 h-8 md:w-10 md:h-10 border-2 border-white rounded flex items-center justify-center bg-transparent overflow-hidden relative">
+               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                <span className="font-bold text-lg md:text-xl tracking-tighter text-white relative z-10">P</span>
             </div>
             <span className="font-bold text-lg md:text-xl tracking-tight hidden sm:block">
@@ -58,7 +58,7 @@ export default function Navbar() {
                   key={link.name}
                   to={link.path}
                   className={`text-sm font-medium tracking-wide transition-colors duration-200 ${
-                    isActive ? 'text-brand-red' : 'text-gray-300 hover:text-white'
+                    isActive ? 'text-white font-bold drop-shadow-md' : 'text-white/80 hover:text-white'
                   }`}
                 >
                   {link.name}
@@ -71,14 +71,14 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <Link
               to="/contact"
-              className="hidden md:inline-flex h-10 px-6 items-center justify-center rounded-full bg-brand-red text-white font-medium text-sm transition-transform hover:scale-105 hover:shadow-[0_0_20px_rgba(220,53,53,0.4)] active:scale-95"
+              className="hidden md:inline-flex h-10 px-6 items-center justify-center rounded-full bg-white text-brand-red font-bold text-sm transition-transform hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] active:scale-95"
               onClick={closeMenu}
             >
               Book Strategy Call
             </Link>
 
             <button
-              className="md:hidden p-2 text-white hover:text-brand-red transition-colors"
+              className="md:hidden p-2 text-white hover:text-white/80 transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -96,7 +96,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-4 right-4 mt-2 bg-brand-gray border border-brand-border rounded-2xl md:hidden overflow-hidden pointer-events-auto shadow-2xl"
+            className="absolute top-full left-4 right-4 mt-2 bg-brand-red/95 backdrop-blur-md border border-white/20 rounded-2xl md:hidden overflow-hidden pointer-events-auto shadow-2xl text-white"
           >
             <div className="p-4 flex flex-col gap-2">
               {navLinks.map((link) => {
@@ -107,7 +107,7 @@ export default function Navbar() {
                     key={link.name}
                     to={link.path}
                     className={`px-4 py-3 rounded-xl text-base font-medium transition-colors ${
-                      isActive ? 'bg-brand-red/10 text-brand-red' : 'text-gray-300 hover:bg-white/5 hover:text-white'
+                      isActive ? 'bg-white/20 font-bold text-white' : 'text-white/80 hover:bg-white/10 hover:text-white'
                     }`}
                     onClick={closeMenu}
                   >
@@ -117,7 +117,7 @@ export default function Navbar() {
               })}
               <Link
                 to="/contact"
-                className="mt-2 w-full h-12 inline-flex items-center justify-center rounded-xl bg-brand-red text-white font-medium text-base hover:bg-red-600 transition-colors"
+                className="mt-2 w-full h-12 inline-flex items-center justify-center rounded-xl bg-white text-brand-red font-bold text-base hover:bg-gray-100 transition-colors shadow-lg"
                 onClick={closeMenu}
               >
                 Book Strategy Call

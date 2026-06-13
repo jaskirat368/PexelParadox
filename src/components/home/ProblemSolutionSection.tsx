@@ -1,102 +1,83 @@
 import { motion } from 'motion/react';
-import { Target, Users, TrendingUp } from 'lucide-react';
+import { Target, Users, TrendingUp, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function ProblemSolutionSection() {
   return (
-    <section className="py-20 px-6 max-w-7xl mx-auto border-t border-brand-border">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-brand-border">
+      <div className="flex flex-col gap-12 lg:gap-20">
         
-        {/* Text Side */}
-        <div className="flex flex-col gap-6">
-          <motion.h2 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold tracking-tighter leading-tight"
-          >
-            Turning Empty <br /> 
-            <span className="text-gray-500">Into Overbooked.</span>
-          </motion.h2>
+        {/* Massive Headline Group */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+          <div className="lg:col-span-8">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-[0.9]"
+            >
+              Turning Empty <br className="hidden md:block" /> 
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-black/50">Into Overbooked.</span>
+            </motion.h2>
+          </div>
+          <div className="lg:col-span-4 border-l-2 border-brand-red pl-6 py-2">
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-gray-600 text-lg md:text-xl font-medium tracking-tight"
+            >
+              Most agencies focus on vanity metrics. We focus on <strong className="text-black">Active Memberships</strong>.
+            </motion.p>
+          </div>
+        </div>
 
-          <motion.p 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-gray-400 text-lg leading-relaxed max-w-lg"
-          >
-            Most marketing agencies focus on likes, clicks, and brand awareness. We are a performance growth team focusing on one metric: <strong className="text-white">Active Memberships</strong>. By deploying aggressive, tactical campaigns, we turn independent gyms into market leaders.
-          </motion.p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+        {/* Structural Grid Content */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-y border-brand-border divide-y md:divide-y-0 md:divide-x divide-brand-border">
              {[
-               { icon: Target, title: 'Tactical Precision', desc: 'Granular targeting targeting only high-intent locals.' },
-               { icon: TrendingUp, title: 'Predictability', desc: 'Scalable systems that generate consistent leads daily.' }
+               { icon: Target, title: 'Tactical Precision', desc: 'Granular targeting targeting only high-intent locals. No wasted ad spend on unqualified leads.' },
+               { icon: Users, title: 'Audience Capture', desc: 'Gym Owners, Fitness Studios, Personal Trainers. The right people, the right time.' },
+               { icon: TrendingUp, title: 'Predictable Scale', desc: 'Scalable systems that generate consistent leads daily, turning your front desk into a bottleneck.' }
              ].map((feature, i) => (
                 <motion.div 
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 + (i * 0.1) }}
-                  className="bg-brand-gray border border-brand-border p-6 rounded-2xl flex flex-col gap-4"
+                  className="p-8 md:p-12 hover:bg-brand-red hover:text-black transition-colors group flex flex-col justify-between"
                 >
-                  <div className="w-12 h-12 bg-brand-red/10 rounded-xl flex items-center justify-center text-brand-red">
-                    <feature.icon size={24} />
+                  <div className="mb-12">
+                    <feature.icon size={40} className="text-brand-red group-hover:text-white transition-colors" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <h4 className="text-white font-bold mb-1">{feature.title}</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">{feature.desc}</p>
+                    <h4 className="text-black group-hover:text-white font-black text-2xl uppercase tracking-tight mb-4">{feature.title}</h4>
+                    <p className="text-gray-600 group-hover:text-white/80 font-medium leading-relaxed">{feature.desc}</p>
                   </div>
                 </motion.div>
              ))}
-          </div>
         </div>
 
-        {/* Image/Bento Side */}
-        <div className="grid grid-cols-2 gap-4 h-[600px]">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="rounded-[2rem] overflow-hidden relative col-span-1 h-full bg-brand-gray border border-brand-border"
-          >
-             <div className="absolute inset-0 bg-brand-black/20 z-10" />
-             <div className="absolute inset-0 flex flex-col justify-end p-8 z-20">
-               <span className="bg-brand-red text-white text-xs font-bold uppercase tracking-widest py-1 px-3 inline-block w-max mb-4">High-Intensity</span>
-               <h3 className="text-xl font-bold">Gritty Content</h3>
-             </div>
-             {/* Placeholder for Gym image */}
-             <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center grayscale opacity-50 transition-opacity hover:opacity-100 hover:grayscale-0 duration-500" />
-          </motion.div>
-
-          <div className="flex flex-col gap-4 col-span-1 h-full">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="rounded-[2rem] overflow-hidden relative flex-1 bg-brand-gray border border-brand-border p-8 flex flex-col justify-center"
-            >
-               <Users className="text-brand-red mb-4" size={32} />
-               <h3 className="text-2xl font-bold mb-2">Target Audience</h3>
-               <p className="text-gray-400 text-sm">Gym Owners, Fitness Studios, Personal Trainers.</p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-               className="rounded-[2rem] overflow-hidden relative flex-1 bg-brand-black border border-brand-border"
-            >
-              <div className="absolute inset-0 flex flex-col justify-end p-8 z-20">
-               <h3 className="text-xl font-bold">Data-Driven</h3>
-             </div>
-             <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center grayscale opacity-30 transition-opacity hover:opacity-80 duration-500" />
-            </motion.div>
+        {/* Full Bleed Image Block */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="relative w-full h-[500px] border border-brand-border overflow-hidden group"
+        >
+          <div className="absolute inset-0 bg-brand-black/40 z-10 group-hover:bg-brand-black/10 transition-colors duration-700" />
+          <div className="absolute bottom-0 left-0 p-8 md:p-12 z-20 w-full flex justify-between items-end">
+            <div>
+              <span className="bg-brand-red text-white text-sm font-bold uppercase tracking-widest py-2 px-4 mb-6 inline-block shadow-lg">High-Intensity</span>
+              <h3 className="text-4xl md:text-5xl font-black uppercase tracking-tighter">Data-Driven Domination</h3>
+            </div>
+            <Link to="/process" className="w-16 h-16 rounded-full bg-white text-black flex items-center justify-center hover:scale-110 transition-transform hidden md:flex">
+              <ArrowRight size={24} />
+            </Link>
           </div>
-        </div>
+          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 transform group-hover:scale-105" />
+        </motion.div>
 
       </div>
     </section>

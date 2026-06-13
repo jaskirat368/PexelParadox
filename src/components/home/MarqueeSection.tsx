@@ -10,9 +10,9 @@ export default function MarqueeSection() {
   ];
 
   return (
-    <section className="py-12 border-y border-brand-border bg-black overflow-hidden flex items-center relative">
-      <div className="absolute left-0 w-32 h-full bg-gradient-to-r from-black to-transparent z-10" />
-      <div className="absolute right-0 w-32 h-full bg-gradient-to-l from-black to-transparent z-10" />
+    <section className="py-12 border-y border-brand-border bg-brand-gray overflow-hidden flex items-center relative">
+      <div className="absolute left-0 w-32 h-full bg-gradient-to-r from-brand-gray to-transparent z-10" />
+      <div className="absolute right-0 w-32 h-full bg-gradient-to-l from-brand-gray to-transparent z-10" />
       
       <motion.div
         animate={{ x: ["0%", "-50%"] }}
@@ -23,7 +23,7 @@ export default function MarqueeSection() {
           <span 
             key={i} 
             className={`text-4xl md:text-6xl font-black uppercase tracking-tighter mx-8 ${
-              word === '+' ? 'text-brand-red' : 'text-white'
+              word === '+' ? 'text-brand-red' : 'text-black'
             }`}
           >
             {word}

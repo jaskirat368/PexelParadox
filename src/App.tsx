@@ -26,7 +26,7 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen bg-brand-black w-full overflow-hidden">
+      <div className="flex flex-col min-h-screen bg-brand-gray w-full overflow-hidden">
         <Navbar />
         <main className="flex-grow flex flex-col w-full relative z-10">
           <Routes>

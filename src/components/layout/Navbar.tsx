@@ -39,14 +39,12 @@ export default function Navbar() {
         }`}
       >
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group" onClick={closeMenu}>
-            <div className="w-8 h-8 md:w-10 md:h-10 border-2 border-white rounded flex items-center justify-center bg-transparent overflow-hidden relative">
-               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-               <span className="font-bold text-lg md:text-xl tracking-tighter text-white relative z-10">P</span>
-            </div>
-            <span className="font-bold text-lg md:text-xl tracking-tight hidden sm:block">
-              Pexel Paradox
-            </span>
+          <Link to="/" className="flex items-center gap-2 group w-40 md:w-56 h-8 md:h-10 relative" onClick={closeMenu}>
+            <img 
+              src="https://i.ibb.co/JRMTckSp/file-0000000040047208885869e9a710d1ab.png" 
+              alt="Pexel Paradox Logo" 
+              className="absolute w-full h-[400%] max-w-none object-contain inset-0 -top-[150%] pointer-events-none brightness-0 invert"
+            />
           </Link>
 
           {/* Desktop Nav */}

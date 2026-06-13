@@ -12,6 +12,10 @@ import Process from './pages/Process';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import GenericPage from './components/layout/GenericPage';
+import PrivacyPolicy from './pages/legal/PrivacyPolicy';
+import TermsOfService from './pages/legal/TermsOfService';
+import Disclaimer from './pages/legal/Disclaimer';
+import RefundPolicy from './pages/legal/RefundPolicy';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -39,9 +43,10 @@ export default function App() {
             <Route path="/results" element={<Results />} />
             <Route path="/process" element={<Process />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/privacy" element={<GenericPage title="Privacy Policy" subtitle="Legal information regarding your data." />} />
-            <Route path="/terms" element={<GenericPage title="Terms of Service" subtitle="Rules and guidelines for using our services." />} />
-            <Route path="/disclaimer" element={<GenericPage title="Disclaimer" subtitle="Legal disclaimers regarding fitness and marketing results." />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/disclaimer" element={<Disclaimer />} />
+            <Route path="/refund" element={<RefundPolicy />} />
             <Route path="/blog" element={<GenericPage title="Growth Insights" subtitle="Tactical articles on gym marketing and predictable systems." />} />
             <Route path="/thank-you" element={<GenericPage title="Application Received" subtitle="Your strategy call request has been received. Our team will contact you shortly." />} />
             <Route path="*" element={<NotFound />} />

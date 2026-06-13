@@ -238,10 +238,10 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="col-span-1 md:col-span-1 lg:col-span-2 bg-white border border-brand-border rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between group hover:border-brand-red hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl relative overflow-hidden"
+            className="col-span-1 md:col-span-1 lg:col-span-2 bg-white border border-brand-border rounded-[2.5rem] p-6 md:p-8 md:pb-6 flex flex-col justify-between group hover:border-brand-red hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl relative overflow-hidden"
           >
             <div>
-              <div className="flex justify-between items-start mb-8">
+              <div className="flex justify-between items-start mb-4">
                 <div className="w-14 h-14 rounded-2xl bg-brand-gray border border-brand-border flex items-center justify-center">
                   <Presentation className="text-brand-red" size={26} strokeWidth={1.5} />
                 </div>
@@ -250,16 +250,16 @@ export default function Services() {
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                 <div className="lg:col-span-7">
-                  <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-black mb-3">
+                  <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-black mb-2">
                     Content Creation
                   </h3>
-                  <p className="text-gray-500 font-medium leading-relaxed text-sm mb-6 max-w-lg">
+                  <p className="text-gray-500 font-medium leading-relaxed text-sm mb-4 max-w-lg">
                     Gritty, high-converting visual assets that position physical facilities as undisputed premium authorities. Stock photos don't convert; authentic, high-intensity creative assets sell memberships.
                   </p>
                 </div>
 
                 {/* Simulated Content phone viewfinder preview (pure CSS) */}
-                <div className="lg:col-span-5 flex justify-center lg:justify-end w-full mt-6 lg:mt-0">
+                <div className="lg:col-span-5 flex justify-center lg:justify-end w-full mt-4 lg:mt-0">
                   <div className="relative mx-auto lg:mr-0 w-[270px] lg:w-[155px] aspect-[18.5/9] lg:aspect-[9/18.5] rounded-[1.8rem] lg:rounded-[2.2rem] border-8 border-neutral-900 bg-neutral-950 p-3 lg:p-2.5 flex flex-col justify-between text-neutral-400 font-mono text-[8px] shadow-2xl overflow-hidden ring-1 ring-neutral-800">
                     
                     {/* Simulated Camera Dynamic Island Notch (Rotated dynamically on mobile vs. desktop) */}
@@ -322,7 +322,7 @@ export default function Services() {
               </div>
             </div>
 
-            <div className="mt-6 pt-6 border-t border-brand-gray flex justify-between items-center">
+            <div className="mt-4 pt-4 border-t border-brand-gray flex justify-between items-center">
               <span className="text-[10px] font-bold tracking-widest text-neutral-400 uppercase font-mono">100% Custom Media Assets</span>
               <Link 
                 to="/services/content-creation" 
@@ -334,40 +334,84 @@ export default function Services() {
             </div>
           </motion.div>
 
-          {/* Card 5: Conversion Funnels (Light Block) */}
+          {/* Card 5: Conversion Funnels (Bento Wide Horizontal Light Block) */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5 }}
-            className="bg-white border border-brand-border rounded-[2.5rem] p-8 flex flex-col justify-between group hover:border-brand-red hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl"
+            className="col-span-1 md:col-span-1 lg:col-span-2 bg-white border border-brand-border rounded-[2.5rem] p-6 md:p-8 md:pb-6 flex flex-col justify-between group hover:border-brand-red hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl relative overflow-hidden"
           >
             <div>
-              <div className="flex justify-between items-start mb-8">
+              <div className="flex justify-between items-start mb-4">
                 <div className="w-14 h-14 rounded-2xl bg-brand-gray border border-brand-border flex items-center justify-center">
                   <LayoutDashboard className="text-brand-red" size={26} strokeWidth={1.5} />
                 </div>
-                <span className="text-[10px] font-mono text-emerald-600 bg-emerald-50 border border-emerald-100 font-bold px-2 py-1 rounded-full uppercase">
+                <span className="text-[10px] font-mono text-emerald-600 bg-emerald-50 border border-emerald-100 font-bold px-2.5 py-1.5 rounded-full uppercase tracking-wider">
                   94% Bounce Reduction
                 </span>
               </div>
               
-              <h3 className="text-2xl font-black uppercase tracking-tighter text-black mb-3">
-                Conversion Funnels
-              </h3>
-              <p className="text-gray-500 font-medium leading-relaxed text-sm mb-6">
-                Strategic, single-purpose landing pages optimized ruthlessly to intercept interest and obtain instant lead data instead of general passive browsing.
-              </p>
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                <div className="lg:col-span-7">
+                  <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-black mb-2">
+                    Conversion Funnels
+                  </h3>
+                  <p className="text-gray-500 font-medium leading-relaxed text-sm mb-4 max-w-lg">
+                    Strategic, single-purpose landing pages optimized ruthlessly to intercept interest and obtain instant lead data instead of general passive browsing.
+                  </p>
+                </div>
+
+                {/* Elegant interactive Funnel/Landing page Mockup in the right column */}
+                <div className="lg:col-span-5 flex justify-center lg:justify-end w-full mt-4 lg:mt-0">
+                  <div className="relative mx-auto lg:mr-0 w-full max-w-[270px] lg:max-w-[210px] aspect-[14/9] rounded-[1.2rem] border-4 border-neutral-900 bg-neutral-950 p-2 flex flex-col justify-between text-neutral-400 font-mono text-[8px] shadow-xl overflow-hidden ring-1 ring-neutral-850">
+                    
+                    {/* Browser top-bar */}
+                    <div className="flex items-center gap-1 pb-1.5 border-b border-neutral-900">
+                      <span className="w-1.5 h-1.5 rounded-full bg-red-500/80 inline-block" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-yellow-500/80 inline-block" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-500/80 inline-block" />
+                      <span className="text-[5px] text-neutral-600 ml-1">secure-funnel.com</span>
+                    </div>
+
+                    {/* Browser mock content */}
+                    <div className="flex-1 py-1.5 px-0.5 flex flex-col gap-1 justify-center relative">
+                      <div className="h-1.5 w-10 bg-brand-red rounded animate-pulse" />
+                      <div className="text-[5px] text-neutral-500 font-black tracking-widest uppercase">JOIN THE ELITE 1%</div>
+                      <div className="h-1 w-20 bg-neutral-800 rounded-sm" />
+                      
+                      {/* Micro chart funnel element */}
+                      <div className="flex flex-col gap-1 bg-neutral-900/90 rounded p-1.5 border border-neutral-850 mt-1">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="text-[5px] text-neutral-500 uppercase">Visits</span>
+                          <div className="flex-1 bg-neutral-850 h-1 rounded-full overflow-hidden">
+                            <div className="bg-brand-red h-full w-[85%] animate-pulse" />
+                          </div>
+                          <span className="text-[5px] text-white">85%</span>
+                        </div>
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="text-[5px] text-neutral-500 uppercase">Opt-In</span>
+                          <div className="flex-1 bg-neutral-105 h-1 rounded-full overflow-hidden">
+                            <div className="bg-brand-red h-full w-[45%] animate-pulse" style={{ animationDelay: '0.2s' }} />
+                          </div>
+                          <span className="text-[5px] text-white">45%</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* SSL Secure status */}
+                    <div className="flex justify-between items-center text-[5px] text-neutral-600 border-t border-neutral-900 pt-1 font-mono uppercase tracking-wider">
+                      <span>SSL ENCRYPTED</span>
+                      <span className="text-emerald-500 font-bold font-mono">● SECURE</span>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="mt-auto">
-              {/* Funnel chart preview */}
-              <div className="flex flex-col gap-1.5 bg-brand-gray p-3 rounded-xl border border-brand-border/40 mb-6 font-mono text-[9px] uppercase tracking-wider text-gray-500">
-                <div className="flex items-center justify-between"><div className="w-[80%] bg-brand-red h-2.5 rounded-full opacity-100" /> <span className="pl-2 shrink-0">100% Visit</span></div>
-                <div className="flex items-center justify-between"><div className="w-[50%] bg-brand-red h-2.5 rounded-full opacity-80" /> <span className="pl-2 shrink-0">50% Engage</span></div>
-                <div className="flex items-center justify-between"><div className="w-[25%] bg-brand-red h-2.5 rounded-full opacity-60" /> <span className="pl-2 shrink-0">25% Action</span></div>
-              </div>
-              
+            <div className="mt-4 pt-4 border-t border-brand-gray flex justify-between items-center">
+              <span className="text-[10px] font-bold tracking-widest text-neutral-400 uppercase font-mono">94% Bounce Reduction</span>
               <Link 
                 to="/services/conversion-funnels" 
                 className="inline-flex items-center text-brand-red font-bold uppercase tracking-widest text-xs"

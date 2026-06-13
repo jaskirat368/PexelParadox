@@ -137,54 +137,59 @@ export default function Contact() {
            initial={{ opacity: 0, scale: 0.95 }}
            animate={{ opacity: 1, scale: 1 }}
            transition={{ delay: 0.4 }}
-           className="bg-brand-gray border border-brand-border rounded-[2rem] p-8 md:p-10"
         >
-          <h3 className="text-2xl font-bold mb-8 text-black">Request a Strategy Call</h3>
-          <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
-            <div className="flex flex-col gap-2">
-              <label className="text-sm text-gray-500 font-semibold">Name</label>
-              <input 
-                type="text" 
-                name="name"
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="bg-white border border-brand-border rounded-xl px-4 py-4 text-black focus:outline-none focus:border-brand-red transition-colors" 
-                placeholder="John Doe" 
-              />
-            </div>
-             <div className="flex flex-col gap-2">
-              <label className="text-sm text-gray-500 font-semibold">Gym Name</label>
-              <input 
-                type="text" 
-                name="gymName"
-                required
-                value={gymName}
-                onChange={(e) => setGymName(e.target.value)}
-                className="bg-white border border-brand-border rounded-xl px-4 py-4 text-black focus:outline-none focus:border-brand-red transition-colors" 
-                placeholder="Iron Fitness" 
-              />
-            </div>
-            <div className="flex flex-col gap-2">
-              <label className="text-sm text-gray-500 font-semibold">Email</label>
-              <input 
-                type="email" 
-                name="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-white border border-brand-border rounded-xl px-4 py-4 text-black focus:outline-none focus:border-brand-red transition-colors" 
-                placeholder="john@ironfitness.com" 
-              />
-            </div>
-            <button 
-              type="submit"
-              disabled={loading}
-              className="h-16 rounded-xl bg-brand-red text-white font-bold text-lg hover:bg-red-600 active:scale-95 transition-all mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading ? "Sending..." : "Submit Request"}
-            </button>
-          </form>
+          <motion.div
+             animate={{ y: [0, -10, 0] }}
+             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+             className="bg-brand-gray border border-brand-border rounded-[2rem] p-8 md:p-10 shadow-lg"
+          >
+            <h3 className="text-2xl font-bold mb-8 text-black">Request a Strategy Call</h3>
+            <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+              <div className="flex flex-col gap-2">
+                <label className="text-sm text-gray-500 font-semibold">Name</label>
+                <input 
+                  type="text" 
+                  name="name"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="bg-white border border-brand-border rounded-xl px-4 py-4 text-black focus:outline-none focus:border-brand-red transition-colors" 
+                  placeholder="John Doe" 
+                />
+              </div>
+               <div className="flex flex-col gap-2">
+                <label className="text-sm text-gray-500 font-semibold">Gym Name</label>
+                <input 
+                  type="text" 
+                  name="gymName"
+                  required
+                  value={gymName}
+                  onChange={(e) => setGymName(e.target.value)}
+                  className="bg-white border border-brand-border rounded-xl px-4 py-4 text-black focus:outline-none focus:border-brand-red transition-colors" 
+                  placeholder="Iron Fitness" 
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label className="text-sm text-gray-500 font-semibold">Email</label>
+                <input 
+                  type="email" 
+                  name="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-white border border-brand-border rounded-xl px-4 py-4 text-black focus:outline-none focus:border-brand-red transition-colors" 
+                  placeholder="john@ironfitness.com" 
+                />
+              </div>
+              <button 
+                type="submit"
+                disabled={loading}
+                className="h-16 rounded-xl bg-brand-red text-white font-bold text-lg hover:bg-red-600 active:scale-95 transition-all mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? "Sending..." : "Submit Request"}
+              </button>
+            </form>
+          </motion.div>
         </motion.div>
       </div>
     </section>

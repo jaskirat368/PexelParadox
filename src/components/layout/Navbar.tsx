@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const navLinks = [
@@ -67,13 +67,20 @@ export default function Navbar() {
           </nav>
 
           {/* CTA & Mobile Toggle */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 lg:gap-4">
+            <a 
+              href="tel:+919833000052" 
+              className="hidden lg:flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm font-semibold mr-2"
+            >
+              <Phone size={16} />
+              <span>+91 9833-0000-52</span>
+            </a>
             <Link
-              to="/contact"
-              className="hidden md:inline-flex h-10 px-6 items-center justify-center rounded-full bg-white text-brand-red font-bold text-sm transition-transform hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] active:scale-95"
+              to="/contact#contact-form"
+              className="hidden md:inline-flex h-10 px-6 items-center justify-center rounded-full bg-white text-brand-red font-bold text-sm transition-transform hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] active:scale-95 shrink-0"
               onClick={closeMenu}
             >
-              Book Strategy Call
+              Request Project
             </Link>
 
             <button
@@ -130,15 +137,23 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.3 }}
-                className="pt-6 border-t border-gray-800"
+                className="pt-6 border-t border-gray-800 flex flex-col gap-4"
               >
                 <Link
-                  to="/contact"
+                  to="/contact#contact-form"
                   className="w-full h-14 inline-flex items-center justify-center rounded-2xl bg-white text-brand-red font-black text-lg hover:bg-gray-100 transition-colors shadow-lg"
                   onClick={closeMenu}
                 >
-                  Book Strategy Call
+                  Request Project
                 </Link>
+                
+                <a 
+                  href="tel:+919833000052" 
+                  className="w-full h-14 inline-flex items-center justify-center gap-2 rounded-2xl border border-gray-700 bg-transparent text-white font-bold text-lg hover:bg-gray-800 transition-colors"
+                >
+                  <Phone size={20} />
+                  Call Now
+                </a>
               </motion.div>
             </div>
           </motion.div>

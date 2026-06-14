@@ -54,8 +54,8 @@ export default function PremiumInteractiveCard({
   const y = useMotionValue(0.5);
 
   // Tilt settings - keeping the effect ultra-smooth, premium, and subtle
-  const rotateX = useSpring(useTransform(y, [0, 1], [6, -6]), { stiffness: 120, damping: 22 });
-  const rotateY = useSpring(useTransform(x, [0, 1], [-6, 6]), { stiffness: 120, damping: 22 });
+  const rotateX = useSpring(useTransform(y, [0, 1], [15, -15]), { stiffness: 200, damping: 15 });
+  const rotateY = useSpring(useTransform(x, [0, 1], [-15, 15]), { stiffness: 200, damping: 15 });
 
   // Elastic pointer positioning for the dynamic glow highlighting overlay
   const glowX = useSpring(useTransform(x, [0, 1], [0, 100]), { stiffness: 120, damping: 22 });
@@ -142,60 +142,22 @@ export default function PremiumInteractiveCard({
       }}
       {...motionProps}
     >
-      {/* Electric Border Glow SVG Overlay - Only rendered when in view to ensure absolute buttery high-speed performance */}
+      {/* High-Performance Electricity Flow Border (Pure CSS) */}
       {isInView && (
-        <svg 
-          className="absolute -inset-[1px] w-[calc(100%+2px)] h-[calc(100%+2px)] pointer-events-none z-40 overflow-visible"
-          style={{
-            borderRadius: borderRadius,
-            transform: 'translate3d(0,0,0)',
-            backfaceVisibility: 'hidden',
-            willChange: 'transform',
-            // Applying high contrast composited drop-shadow for white glow on light backgrounds in a single GPU-cached pass
-            filter: isWhiteGlow ? 'drop-shadow(0px 0px 1.5px rgba(0,0,0,0.85)) drop-shadow(0px 0px 4px rgba(0,0,0,0.3))' : undefined,
-          }}
-          aria-hidden="true"
+        <div 
+          className={cn(
+            "absolute -inset-[1.5px] pointer-events-none z-40 rounded-[inherit] overflow-hidden p-[1.5px] transition-opacity duration-300 electric-border-mask",
+            isHovered ? "opacity-100" : "opacity-60"
+          )}
         >
-          <defs>
-            <filter id={`electric-glow-blur-${uniqueId}`} x="-40%" y="-40%" width="180%" height="180%">
-              {/* Soft outer glow and intense core glow blended in a single native filter */}
-              <feGaussianBlur in="SourceGraphic" stdDeviation="3.0" result="blur1" />
-              <feGaussianBlur in="SourceGraphic" stdDeviation="0.8" result="blur2" />
-              <feMerge>
-                <feMergeNode in="blur1" />
-                <feMergeNode in="blur2" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-
-          {/* High-Performance Unified Glowing Trail Layer */}
-          <rect
-            x="1"
-            y="1"
-            rx={rx}
-            ry={rx}
-            fill="none"
-            stroke={strokeColor}
-            strokeWidth={isHovered ? "4.5" : "3.0"}
-            pathLength="100"
-            strokeLinecap="round"
-            className={cn(
-              "transition-opacity duration-300 pointer-events-none",
-              isHovered ? "opacity-100" : "opacity-80"
-            )}
+          <div 
+            className="absolute -inset-[100%] animate-spin pointer-events-none"
             style={{
-              width: 'calc(100% - 2px)',
-              height: 'calc(100% - 2px)',
-              strokeDasharray: '10 90', // Short, high-intensity glowing pulse
-              animation: `electric-flow-single ${isHovered ? '2.5s' : '3.8s'} linear infinite`, // Ultra fast and crisp loop
-              filter: `url(#electric-glow-blur-${uniqueId})`,
-              transform: 'translate3d(0,0,0)',
-              backfaceVisibility: 'hidden',
-              willChange: 'stroke-dashoffset',
+              background: `conic-gradient(from 0deg, transparent 70%, ${isWhiteGlow ? 'rgba(255,255,255,0.2) 95%, #ffffff 100%' : 'rgba(220, 53, 53, 0.2) 95%, #DC3535 100%'})`,
+              animationDuration: isHovered ? '2.5s' : '3.8s',
             }}
           />
-        </svg>
+        </div>
       )}
 
       {/* Floating Pointer Shadow Flare (Follows the mouse location dynamically inside the hover state) */}

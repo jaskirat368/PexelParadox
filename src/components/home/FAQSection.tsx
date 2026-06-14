@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     question: "How much ad spend do we need?",
-    answer: "We recommend a minimum starting ad spend of $1,000/month to generate statistically significant data and consistent lead flow."
+    answer: "We recommend a starting ad spend that allows us to generate statistically significant data and consistent lead flow. This amount typically varies depending on your market size, location, and specific growth goals."
   },
   {
     question: "Do you work with gym franchises?",

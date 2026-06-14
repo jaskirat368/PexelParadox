@@ -173,10 +173,10 @@ export default function Process() {
             Ready to transition from random acts of marketing to a predictable growth machine?
           </p>
           <Link 
-            to="/contact" 
+            to="/contact#contact-form" 
             className="inline-flex h-14 md:h-16 px-8 md:px-10 items-center justify-center rounded-full bg-brand-red text-white font-bold text-sm md:text-xl uppercase tracking-[0.15em] transition-transform hover:scale-105 hover:shadow-[0_0_30px_rgba(220,53,53,0.4)] relative z-10 whitespace-nowrap w-full sm:w-auto max-w-[280px] sm:max-w-none"
           >
-            <span>Start The Process</span>
+            <span>Request Project</span>
             <ArrowRight className="ml-3 flex-shrink-0" size={20} />
           </Link>
         </PremiumInteractiveCard>

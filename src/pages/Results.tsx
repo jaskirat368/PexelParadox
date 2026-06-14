@@ -141,10 +141,10 @@ export default function Results() {
             If you are ready to implement a data-backed acquisition engine that scales your facility to capacity, it's time to talk.
           </p>
           <Link 
-            to="/contact" 
+            to="/contact#contact-form" 
             className="inline-flex h-16 px-10 items-center justify-center rounded-full bg-brand-red text-white font-bold text-xl uppercase tracking-widest transition-transform hover:scale-105 hover:shadow-[0_0_30px_rgba(220,53,53,0.4)] relative z-10 whitespace-nowrap"
           >
-            Apply For Partnership
+            Request Project
             <ArrowRight className="ml-3" size={24} />
           </Link>
         </PremiumInteractiveCard>

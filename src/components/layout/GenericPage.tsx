@@ -35,10 +35,10 @@ export default function GenericPage({ title, subtitle }: { title: string, subtit
         transition={{ delay: 0.2 }}
       >
         <Link 
-          to="/contact" 
+          to="/contact#contact-form" 
           className="inline-flex h-14 px-8 items-center justify-center rounded-full bg-brand-red text-white font-semibold text-lg transition-transform hover:scale-105"
         >
-          Book Strategy Call Instead
+          Request Project Instead
         </Link>
       </motion.div>
     </section>

@@ -42,7 +42,7 @@ export default function ServicesSection() {
               <Link
                 key={service.id}
                 to={`/services/${service.id}`}
-                className="group flex items-center justify-between px-6 py-4 border border-neutral-800 bg-neutral-950/40 hover:bg-neutral-900 hover:border-neutral-700 transition-all duration-300 rounded-2xl"
+                className={`group flex items-center justify-between px-6 py-4 border border-neutral-800 bg-neutral-950/40 hover:bg-neutral-900 hover:border-neutral-700 transition-all duration-300 rounded-2xl ${index >= 6 ? 'lg:hidden' : ''}`}
               >
                 <div className="flex items-center gap-4">
                   <span className="text-brand-red font-black text-lg">0{index + 1}</span>
@@ -57,8 +57,37 @@ export default function ServicesSection() {
         {/* Right Column - Image and Cards */}
         <div className="relative z-10 flex-1 flex flex-col gap-6">
           
-          {/* Row 1: Buttons/Cards sitting horizontally on PC and larger screens */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full order-2 sm:order-1">
+          {/* Row 1: Horizontal Image */}
+          <div className="w-full h-[280px] sm:h-[320px] relative border border-neutral-850 rounded-[2rem] overflow-hidden group/img order-1">
+            <img 
+              src="https://i.ibb.co/hxX4mPyT/dad70d8b79998b686eab8f852e611a91-webp.webp" 
+              alt="Gym services preview" 
+              className="absolute inset-0 w-full h-full object-cover object-center grayscale-[20%] transition-transform duration-500 group-hover/img:scale-105"
+            />
+            {/* Overlay gradient */}
+            <div className="absolute inset-0 bg-neutral-950/20 mix-blend-overlay transition-opacity duration-500 group-hover/img:opacity-10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+          </div>
+
+          {/* Row 2: Last 2 Services placed below the image to fill space (Desktop Only) */}
+          <div className="hidden lg:grid grid-cols-1 sm:grid-cols-2 gap-4 w-full order-2">
+            {servicesList.slice(6, 8).map((service, index) => (
+              <Link
+                key={service.id}
+                to={`/services/${service.id}`}
+                className="group flex items-center justify-between px-5 py-4 border border-neutral-800 bg-neutral-950/40 hover:bg-neutral-900 hover:border-neutral-700 transition-all duration-300 rounded-2xl"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="text-brand-red font-black text-base">0{index + 7}</span>
+                  <span className="text-white font-semibold text-base">{service.title}</span>
+                </div>
+                <ArrowRight className="text-gray-500 group-hover:text-white transition-colors" size={16} />
+              </Link>
+            ))}
+          </div>
+          
+          {/* Row 3: Buttons/Cards sitting horizontally on PC and larger screens */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full order-3">
             {/* Left Card - Dark */}
             <Link to="/process" className="flex flex-col group h-full">
               <PremiumInteractiveCard 
@@ -82,7 +111,7 @@ export default function ServicesSection() {
             </Link>
  
             {/* Right Card - Red */}
-            <Link to="/contact" className="flex flex-col group h-full">
+            <Link to="/contact#contact-form" className="flex flex-col group h-full">
               <PremiumInteractiveCard 
                 className="h-full bg-brand-red p-6 flex flex-col justify-between min-h-[160px] md:min-h-[180px]"
                 borderRadius="2rem"
@@ -94,7 +123,7 @@ export default function ServicesSection() {
                 </div>
                 <div className="flex items-end justify-between mt-auto">
                   <span className="text-white font-black text-xl leading-tight w-2/3">
-                    Contact Us
+                    Request Project
                   </span>
                   <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
                     <ArrowUpRight className="text-brand-red" size={20} />
@@ -102,18 +131,6 @@ export default function ServicesSection() {
                 </div>
               </PremiumInteractiveCard>
             </Link>
-          </div>
- 
-          {/* Row 2: Horizontal Image */}
-          <div className="w-full h-[320px] sm:h-[350px] relative border border-neutral-850 rounded-[2rem] overflow-hidden group/img order-1 sm:order-2">
-            <img 
-              src="https://i.ibb.co/hxX4mPyT/dad70d8b79998b686eab8f852e611a91-webp.webp" 
-              alt="Gym services preview" 
-              className="absolute inset-0 w-full h-full object-cover object-center grayscale-[20%] transition-transform duration-500 group-hover/img:scale-105"
-            />
-            {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-neutral-950/20 mix-blend-overlay transition-opacity duration-500 group-hover/img:opacity-10" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
           </div>
  
         </div>

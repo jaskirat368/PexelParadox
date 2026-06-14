@@ -72,28 +72,42 @@ export default function ProblemSolutionSection() {
           {/* Subtle geometric pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#161616_1px,transparent_1px),linear-gradient(to_bottom,#161616_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40 pointer-events-none" />
           
-          <div className="relative z-20 flex flex-col items-start max-w-2xl text-left">
-            <span className="bg-brand-red text-white text-xs font-black uppercase tracking-widest py-1.5 px-3.5 mb-6 inline-block rounded shadow-[0_4px_15px_rgba(220,53,53,0.3)]">
-              High-Intensity Blueprint
-            </span>
-            <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white mb-4 leading-none font-sans">
-              UNVEIL THE <span className="text-brand-red">PEXEL PROTOCOL</span>
-            </h3>
-            <p className="text-gray-400 text-base md:text-lg font-medium leading-relaxed max-w-lg mb-8">
-              We engineered a predictable client acquisition engine specifically for gym facilities. Walk through our step-by-step blueprint that turns empty spaces into overbooked training sessions.
-            </p>
+          <div className="relative z-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full">
+            <div className="flex flex-col items-start text-left">
+              <span className="bg-brand-red text-white text-xs font-black uppercase tracking-widest py-1.5 px-3.5 mb-6 inline-block rounded shadow-[0_4px_15px_rgba(220,53,53,0.3)]">
+                High-Intensity Blueprint
+              </span>
+              <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white mb-4 leading-none font-sans">
+                UNVEIL THE <span className="text-brand-red">PEXEL PROTOCOL</span>
+              </h3>
+              <p className="text-gray-400 text-base md:text-lg font-medium leading-relaxed max-w-lg mb-8">
+                We engineered a predictable client acquisition engine specifically for gym facilities. Walk through our step-by-step blueprint that turns empty spaces into overbooked training sessions.
+              </p>
+              
+              <Link 
+                to="/process" 
+                className="w-full md:w-auto h-14 px-8 rounded-full bg-brand-red text-white flex items-center justify-center gap-3 font-black uppercase tracking-wider text-sm hover:bg-neutral-900 hover:text-white hover:scale-[1.03] active:scale-95 transition-all duration-200 shadow-[0_10px_25px_rgba(220,53,53,0.3)]"
+              >
+                <span>Discover Our Process</span>
+                <ArrowRight size={18} strokeWidth={2.5} />
+              </Link>
+            </div>
 
-
-          </div>
-
-          <div className="relative z-20 w-full md:w-auto shrink-0 flex flex-col mt-4 md:mt-0">
-            <Link 
-              to="/process" 
-              className="w-full md:w-auto h-16 px-8 rounded-full bg-brand-red text-white flex items-center justify-center gap-3 font-black uppercase tracking-wider text-sm hover:bg-neutral-900 hover:text-white hover:scale-[1.03] active:scale-95 transition-all duration-200 shadow-[0_10px_25px_rgba(220,53,53,0.3)]"
-            >
-              <span>Discover Our Process</span>
-              <ArrowRight size={18} strokeWidth={2.5} />
-            </Link>
+            <div className="flex flex-col gap-3 md:pl-8 border-t md:border-t-0 md:border-l border-neutral-800 pt-8 md:pt-0">
+              {[
+                { step: "01", label: "Traffic Architecture", val: "Omni-Channel" },
+                { step: "02", label: "Capture Mechanics", val: "High-Intent" },
+                { step: "03", label: "Automated Nurture", val: "< 5 Min SLA" },
+              ].map((s, i) => (
+                <div key={i} className="flex items-center justify-between p-4 md:p-5 rounded-[1.2rem] border border-neutral-800 bg-neutral-950/50 hover:bg-neutral-900 hover:border-brand-red/50 transition-colors">
+                  <div className="flex items-center gap-4">
+                    <span className="text-brand-red font-mono font-bold">{s.step}</span>
+                    <span className="text-white font-medium">{s.label}</span>
+                  </div>
+                  <span className="text-gray-500 font-mono text-xs uppercase tracking-wider hidden sm:block">{s.val}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </PremiumInteractiveCard>
 

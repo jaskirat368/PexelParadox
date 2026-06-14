@@ -87,7 +87,7 @@ export default function Services() {
             className="hidden lg:flex flex-col items-center gap-4 shrink-0"
           >
              <Link 
-                to="/contact" 
+                to="/contact#contact-form" 
                 className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-brand-red text-white transition-transform hover:scale-105 shadow-[0_0_20px_rgba(220,53,53,0.3)]"
               >
                 <ArrowRight size={32} />
@@ -459,10 +459,10 @@ export default function Services() {
             Stop relying on hope as a strategy. Let's install a predictable client acquisition system in your facility today.
           </p>
           <Link 
-            to="/contact" 
+            to="/contact#contact-form" 
             className="inline-flex h-16 w-full sm:w-auto px-10 items-center justify-center rounded-full bg-brand-red text-white font-bold text-lg transition-transform hover:scale-105 hover:shadow-[0_0_20px_rgba(220,53,53,0.3)] gap-2 relative z-10 whitespace-nowrap"
           >
-            Book Strategy Call <ArrowRight size={20} />
+            Request Project <ArrowRight size={20} />
           </Link>
         </PremiumInteractiveCard>
       </section>

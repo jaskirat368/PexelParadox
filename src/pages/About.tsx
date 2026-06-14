@@ -155,10 +155,10 @@ export default function About() {
 
                <div className="relative z-10 shrink-0">
                   <Link 
-                    to="/contact" 
+                    to="/contact#contact-form" 
                     className="inline-flex h-16 px-10 items-center justify-center rounded-full bg-white text-brand-red font-bold text-lg uppercase tracking-widest hover:scale-105 transition-transform shadow-xl w-full md:w-auto"
                   >
-                    Start Now
+                    Request Project
                     <ArrowRight className="ml-3" size={24} />
                   </Link>
                </div>

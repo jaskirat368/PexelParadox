@@ -38,7 +38,7 @@ export default function ErrorPage() {
         transition={{ delay: 0.3 }}
       >
         <Link 
-          to="/contact" 
+          to="/contact#contact-form" 
           className="inline-flex h-14 px-8 items-center justify-center rounded-full bg-brand-red text-white font-bold uppercase tracking-wider text-sm transition-transform hover:scale-105 hover:shadow-[0_0_30px_rgba(220,53,53,0.4)]"
         >
           <ArrowLeft size={18} className="mr-2" /> Try Re-submitting

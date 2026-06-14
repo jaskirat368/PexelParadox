@@ -27,10 +27,10 @@ export default function CtaSection() {
           </div>
 
           <Link
-            to="/contact"
-            className="group relative flex items-center justify-center w-full md:w-40 h-20 md:h-40 rounded-2xl md:rounded-full bg-brand-red text-white hover:bg-red-700 transition-colors md:hover:scale-105 md:transition-transform md:duration-300 shadow-[0_0_30px_rgba(220,53,53,0.3)] shrink-0 mt-8 md:mt-0"
+            to="/contact#contact-form"
+            className="group relative flex flex-col items-center justify-center w-full md:w-44 h-20 md:h-44 rounded-2xl md:rounded-full bg-brand-red text-white hover:bg-red-700 transition-colors md:hover:scale-105 md:transition-transform md:duration-300 shadow-[0_0_30px_rgba(220,53,53,0.3)] shrink-0 mt-8 md:mt-0 px-2 text-center"
           >
-            <span className="font-bold text-xl md:text-xl uppercase tracking-wider md:normal-case md:tracking-normal">Let's Talk</span>
+            <span className="font-bold text-lg md:text-xl uppercase tracking-wider md:normal-case md:tracking-normal leading-tight">Request<br className="hidden md:block"/>Project</span>
             <ArrowUpRight 
               className="absolute right-6 opacity-100 hidden md:block md:top-8 md:right-8 md:opacity-0 md:-translate-x-4 md:translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-x-0 md:group-hover:translate-y-0 transition-all duration-300" 
               size={24} 

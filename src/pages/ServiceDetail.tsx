@@ -302,10 +302,10 @@ export default function ServiceDetail() {
               </p>
 
               <Link 
-                to="/contact" 
+                to="/contact#contact-form" 
                 className="inline-flex h-16 w-full items-center justify-between px-6 rounded-xl bg-brand-red text-white font-bold text-lg transition-transform hover:shadow-[0_0_20px_rgba(220,53,53,0.3)] group"
               >
-                Book Strategy Call
+                Request Project
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
               </Link>
             </div>

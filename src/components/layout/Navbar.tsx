@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import ResponsiveLogo from '../ui/ResponsiveLogo';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -39,13 +40,7 @@ export default function Navbar() {
         }`}
       >
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group w-40 md:w-56 h-8 md:h-10 relative shrink-0" onClick={closeMenu}>
-            <img 
-              src="https://i.ibb.co/JRMTckSp/file-0000000040047208885869e9a710d1ab.png" 
-              alt="Pexel Paradox Logo" 
-              className="absolute w-full h-[400%] max-w-none object-contain inset-0 -top-[150%] pointer-events-none brightness-0 invert"
-            />
-          </Link>
+          <ResponsiveLogo onClick={closeMenu} />
 
           {/* Desktop Nav */}
           <nav className="hidden xl:flex items-center gap-8">

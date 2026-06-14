@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { ArrowUpRight, Linkedin, Instagram, Twitter } from 'lucide-react';
+import ResponsiveLogo from '../ui/ResponsiveLogo';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,13 +13,7 @@ export default function Footer() {
         {/* Middle Section - Links */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-1">
-             <Link to="/" className="flex items-center gap-2 mb-6 group inline-flex h-12 w-48 md:w-64 relative">
-              <img 
-                src="https://i.ibb.co/JRMTckSp/file-0000000040047208885869e9a710d1ab.png" 
-                alt="Pexel Paradox Logo" 
-                className="absolute w-full h-[400%] max-w-none object-contain inset-0 -top-[150%] pointer-events-none brightness-0 invert"
-              />
-            </Link>
+             <ResponsiveLogo className="mb-6 mb-8 w-48 md:w-64" />
             <p className="text-gray-400 text-sm max-w-xs leading-relaxed mb-8">
               We Don't Just Run Ads. We Fill Gyms. A specialized growth partner for independent gym owners focused on predictable systems.
             </p>

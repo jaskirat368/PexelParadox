@@ -4,7 +4,7 @@ import { ArrowRight, Trophy, Users, TrendingUp, Target, Dumbbell, ShieldCheck, Z
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-36 pb-12 md:pt-40 md:pb-16 lg:pt-32 lg:pb-8 xl:pt-40 xl:pb-16 px-6 overflow-hidden w-full bg-white text-black rounded-b-[3rem] md:rounded-b-[5rem] z-20 transition-all duration-500">
+    <section className="relative pt-36 pb-12 md:pt-40 md:pb-16 lg:pt-[7.5rem] lg:pb-6 xl:pt-36 xl:pb-10 px-6 overflow-hidden w-full bg-white text-black rounded-b-[3rem] md:rounded-b-[5rem] z-20 transition-all duration-500">
       
       {/* Dynamic Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -78,7 +78,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem] font-black tracking-tighter text-black leading-[0.95] mb-6 lg:mb-4 xl:mb-6"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-[4.5rem] xl:text-[5.5rem] font-black tracking-tighter text-black leading-[0.95] mb-6 lg:mb-3 xl:mb-6"
         >
           We Don't Just<br/>Run Ads. <br className="hidden md:block"/>
           <span className="text-brand-red relative inline-block mt-2">
@@ -158,7 +158,7 @@ export default function HeroSection() {
       </div>
 
       {/* Floating Stat Cards (Out of the Box Interactive Element) */}
-      <div className="max-w-6xl mx-auto mt-12 lg:mt-6 xl:mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 relative z-10 px-2 md:px-6">
+      <div className="max-w-6xl mx-auto mt-12 lg:mt-4 xl:mt-8 grid grid-cols-2 lg:grid-cols-4 gap-4 relative z-10 px-2 md:px-6">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

@@ -24,12 +24,12 @@ export default function HeroSection() {
 
       <div className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto">
         
-        {/* Floating "Live Leads" Element (Out of the box nice touch) */}
+        {/* Floating "Live Leads" Element (Desktop) */}
         <motion.div 
           initial={{ opacity: 0, x: -50, rotate: -15 }}
           animate={{ opacity: 1, x: 0, rotate: -12 }}
           transition={{ duration: 0.8, delay: 0.5, type: 'spring' }}
-          className="absolute -left-12 lg:-left-24 top-1/4 hidden md:flex flex-col items-center gap-2 bg-white/80 backdrop-blur-md border border-brand-border p-3 rounded-2xl shadow-xl z-20"
+          className="absolute -left-4 lg:-left-24 top-1/4 hidden md:flex flex-col items-center gap-2 bg-white/80 backdrop-blur-md border border-brand-border p-3 rounded-2xl shadow-xl z-20 origin-top-left"
         >
             <div className="flex -space-x-3">
               <img src="https://i.pravatar.cc/100?img=11" alt="avatar" className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" />
@@ -41,12 +41,12 @@ export default function HeroSection() {
             <p className="text-[10px] font-bold text-gray-500 uppercase text-center mt-1 leading-tight">Live Leads<br/><span className="text-[#25D366] flex items-center justify-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse"></span> Generated</span></p>
         </motion.div>
 
-        {/* Floating "ROAS" Element */}
+        {/* Floating "ROAS" Element (Desktop) */}
         <motion.div 
           initial={{ opacity: 0, x: 50, rotate: 15 }}
           animate={{ opacity: 1, x: 0, rotate: 12 }}
           transition={{ duration: 0.8, delay: 0.7, type: 'spring' }}
-          className="absolute -right-12 lg:-right-24 top-1/3 hidden md:flex flex-col items-center gap-2 bg-[#0F1012] p-4 rounded-2xl shadow-xl z-20 border border-neutral-800"
+          className="absolute -right-4 lg:-right-24 top-1/3 hidden md:flex flex-col items-center gap-2 bg-[#0F1012] p-4 rounded-2xl shadow-xl z-20 border border-neutral-800 origin-top-right"
         >
             <div className="flex items-center gap-2 bg-brand-red/20 px-3 py-1.5 rounded-full">
               <Zap size={14} className="text-brand-red fill-current" />
@@ -60,11 +60,11 @@ export default function HeroSection() {
 
         {/* Dynamic Subheading Badge */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-brand-gray border border-brand-border mb-6 shadow-sm"
-        >
+           initial={{ opacity: 0, y: -20 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.5 }}
+           className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-brand-gray border border-brand-border mb-6 shadow-sm"
+         >
           <div className="relative flex items-center justify-center w-3 h-3">
             <span className="absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75 animate-ping"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-red"></span>
@@ -102,8 +102,43 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
+          className="relative w-full"
         >
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+          {/* Floating "Live Leads" Element (Mobile) */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30, rotate: -15 }}
+            animate={{ opacity: 1, x: 0, rotate: -12 }}
+            transition={{ duration: 0.8, delay: 0.5, type: 'spring' }}
+            className="absolute -left-2 sm:left-4 top-[10%] flex md:hidden flex-col items-center gap-1.5 bg-white/90 backdrop-blur-md border border-brand-border p-2 rounded-xl shadow-xl z-20 scale-[0.70] origin-left pointer-events-none"
+          >
+              <div className="flex -space-x-2">
+                <img src="https://i.pravatar.cc/100?img=11" alt="avatar" className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm" />
+                <img src="https://i.pravatar.cc/100?img=32" alt="avatar" className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm" />
+                <div className="w-8 h-8 rounded-full border-2 border-white bg-brand-red flex items-center justify-center shadow-sm">
+                  <span className="text-white text-[9px] font-bold">+12</span>
+                </div>
+              </div>
+              <p className="text-[9px] font-bold text-gray-500 uppercase text-center mt-0.5 leading-tight">Live Leads<br/><span className="text-[#25D366] flex items-center justify-center gap-1 mt-0.5"><span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse"></span> Generated</span></p>
+          </motion.div>
+
+          {/* Floating "ROAS" Element (Mobile) */}
+          <motion.div 
+            initial={{ opacity: 0, x: 30, rotate: 15 }}
+            animate={{ opacity: 1, x: 0, rotate: 12 }}
+            transition={{ duration: 0.8, delay: 0.7, type: 'spring' }}
+            className="absolute -right-2 sm:right-4 top-[40%] flex md:hidden flex-col items-center gap-1.5 bg-[#0F1012]/95 backdrop-blur-md p-2 rounded-xl shadow-xl z-20 border border-neutral-800 scale-[0.70] origin-right pointer-events-none"
+          >
+              <div className="flex items-center gap-1.5 bg-brand-red/20 px-2 py-1 rounded-full">
+                <Zap size={12} className="text-brand-red fill-current" />
+                <span className="text-brand-red text-[10px] font-bold tracking-wider">ACTIVE CAMPAIGN</span>
+              </div>
+              <div>
+                <p className="text-xl font-black text-white text-center leading-none mt-1">4.2x</p>
+                <p className="text-[9px] font-bold text-gray-400 uppercase text-center mt-1">Avg ROAS <br/>This Week</p>
+              </div>
+          </motion.div>
+
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center relative z-10 w-full px-6 sm:px-0">
             <Link 
               to="/contact#contact-form" 
               className="inline-flex h-14 w-full sm:w-auto px-8 items-center justify-center rounded-full bg-brand-red text-white font-bold text-lg transition-transform hover:scale-105 hover:shadow-[0_0_20px_rgba(220,53,53,0.3)] relative overflow-hidden group"
@@ -123,7 +158,7 @@ export default function HeroSection() {
       </div>
 
       {/* Floating Stat Cards (Out of the Box Interactive Element) */}
-      <div className="max-w-6xl mx-auto mt-12 hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 relative z-10 px-6">
+      <div className="max-w-6xl mx-auto mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 relative z-10 px-2 md:px-6">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

@@ -117,12 +117,12 @@ export default function ServicesSection() {
           </div>
  
           {/* Row 3: Last 2 Services placed below the cards to fill space (Desktop Only) */}
-          <div className="hidden lg:flex flex-col gap-3 w-full order-3">
+          <div className="hidden lg:flex flex-col gap-3 w-full order-3 flex-1 mt-auto">
             {servicesList.slice(6, 8).map((service, index) => (
               <Link
                 key={service.id}
                 to={`/services/${service.id}`}
-                className="group flex items-center justify-between px-6 py-4 border border-neutral-800 bg-neutral-950/40 hover:bg-neutral-900 hover:border-neutral-700 transition-all duration-300 rounded-2xl w-full"
+                className="group flex items-center justify-between px-6 py-4 border border-neutral-800 bg-neutral-950/40 hover:bg-neutral-900 hover:border-neutral-700 transition-all duration-300 rounded-2xl w-full flex-1"
               >
                 <div className="flex items-center gap-4">
                   <span className="text-brand-red font-black text-lg">0{index + 7}</span>

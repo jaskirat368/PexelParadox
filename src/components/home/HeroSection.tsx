@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-24 pb-20 md:pt-28 md:pb-32 px-6 overflow-hidden w-full bg-white text-black rounded-b-[3rem] md:rounded-b-[5rem] z-20 transition-all duration-500">
+    <section className="relative pt-36 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden w-full bg-white text-black rounded-b-[3rem] md:rounded-b-[5rem] z-20 transition-all duration-500">
       
       {/* Abstract Background Element */}
       <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none">

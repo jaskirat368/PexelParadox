@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Mail, MapPin, Phone, MessageCircle } from 'lucide-react';
+import { Mail, MapPin, Phone, MessageCircle, Instagram } from 'lucide-react';
 
 export default function Contact() {
   const navigate = useNavigate();
@@ -64,71 +64,123 @@ export default function Contact() {
             Ready to implement predictable growth systems? Book a strategy call with our team today.
           </motion.p>
 
-          <div className="flex flex-col gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
+            {/* Card 1: Location */}
             <motion.div 
-               initial={{ opacity: 0, x: -20 }}
-               animate={{ opacity: 1, x: 0 }}
+               initial={{ opacity: 0, y: 15 }}
+               animate={{ opacity: 1, y: 0 }}
                transition={{ delay: 0.2 }}
-               className="flex items-center gap-6"
+               className="bg-brand-gray border border-brand-border rounded-[1.5rem] p-6 hover:border-brand-red hover:shadow-lg transition-all duration-300 flex flex-col justify-center"
             >
-              <div className="w-16 h-16 rounded-full bg-brand-gray border border-brand-border flex items-center justify-center text-brand-red shrink-0">
-                <MapPin size={28} />
-              </div>
-              <div>
-                <h4 className="font-bold text-lg text-black">Location</h4>
-                <p className="text-gray-500 font-medium">Chandigarh & Mohali, India</p>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-white border border-brand-border flex items-center justify-center text-brand-red shrink-0">
+                  <MapPin size={22} className="stroke-[1.5]" />
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-base tracking-tight text-black">Location</h4>
+                  <p className="text-sm text-gray-500 font-medium mt-0.5">Chandigarh & Mohali, India</p>
+                </div>
               </div>
             </motion.div>
             
-             <motion.div 
-               initial={{ opacity: 0, x: -20 }}
-               animate={{ opacity: 1, x: 0 }}
+            {/* Card 2: Email */}
+            <motion.div 
+               initial={{ opacity: 0, y: 15 }}
+               animate={{ opacity: 1, y: 0 }}
                transition={{ delay: 0.3 }}
-               className="flex items-center gap-6"
+               className="bg-brand-gray border border-brand-border rounded-[1.5rem] p-6 hover:border-brand-red hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
             >
-              <div className="w-16 h-16 rounded-full bg-brand-gray border border-brand-border flex items-center justify-center text-brand-red shrink-0">
-                <Mail size={28} />
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-white border border-brand-border flex items-center justify-center text-brand-red shrink-0">
+                  <Mail size={22} className="stroke-[1.5]" />
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-base tracking-tight text-black">Email</h4>
+                  <p className="text-sm text-gray-500 font-medium mt-0.5">info@pexelparadox.com</p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-lg text-black">Email</h4>
-                <p className="text-gray-500 font-medium">
-                  <a href="mailto:info@pexelparadox.com" className="hover:text-brand-red transition-colors">info@pexelparadox.com</a>
-                </p>
-              </div>
+              <a 
+                href="mailto:info@pexelparadox.com" 
+                className="w-full inline-flex h-11 items-center justify-center rounded-xl bg-brand-red text-white font-bold text-sm hover:bg-neutral-900 transition-all shadow-sm hover:shadow-md"
+              >
+                Email Us
+              </a>
             </motion.div>
 
-             <motion.div 
-               initial={{ opacity: 0, x: -20 }}
-               animate={{ opacity: 1, x: 0 }}
+            {/* Card 3: Call Now */}
+            <motion.div 
+               initial={{ opacity: 0, y: 15 }}
+               animate={{ opacity: 1, y: 0 }}
                transition={{ delay: 0.4 }}
-               className="flex items-center gap-6"
+               className="bg-brand-gray border border-brand-border rounded-[1.5rem] p-6 hover:border-brand-red hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
             >
-              <div className="w-16 h-16 rounded-full bg-brand-gray border border-brand-border flex items-center justify-center text-brand-red shrink-0">
-                <Phone size={28} />
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-white border border-brand-border flex items-center justify-center text-brand-red shrink-0">
+                  <Phone size={22} className="stroke-[1.5]" />
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-base tracking-tight text-black">Call Now</h4>
+                  <p className="text-sm text-gray-500 font-medium mt-0.5">+91 9833-0000-52</p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-lg text-black">Call Now</h4>
-                <p className="text-gray-500 font-medium">
-                  <a href="tel:+919833000052" className="hover:text-brand-red transition-colors">+91 9833-0000-52</a>
-                </p>
-              </div>
+              <a 
+                href="tel:+919833000052" 
+                className="w-full inline-flex h-11 items-center justify-center rounded-xl bg-black text-white font-bold text-sm hover:bg-brand-red transition-all shadow-sm"
+              >
+                Call Now
+              </a>
             </motion.div>
 
-             <motion.div 
-               initial={{ opacity: 0, x: -20 }}
-               animate={{ opacity: 1, x: 0 }}
+            {/* Card 4: WhatsApp Us */}
+            <motion.div 
+               initial={{ opacity: 0, y: 15 }}
+               animate={{ opacity: 1, y: 0 }}
                transition={{ delay: 0.5 }}
-               className="flex items-center gap-6"
+               className="bg-brand-gray border border-brand-border rounded-[1.5rem] p-6 hover:border-brand-red hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
             >
-              <div className="w-16 h-16 rounded-full bg-brand-gray border border-brand-border flex items-center justify-center text-emerald-600 shrink-0">
-                <MessageCircle size={28} fill="currentColor" className="text-emerald-600" />
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-white border border-brand-border flex items-center justify-center text-emerald-600 shrink-0">
+                  <MessageCircle size={22} fill="currentColor" className="text-emerald-500 stroke-[1.5]" />
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-base tracking-tight text-black">WhatsApp Us</h4>
+                  <p className="text-sm text-gray-500 font-medium mt-0.5">+91 9833-0000-52</p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-lg text-black">WhatsApp Us</h4>
-                <p className="text-gray-500 font-medium">
-                  <a href="https://wa.me/919833000052" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors">+91 9833-0000-52</a>
-                </p>
+              <a 
+                href="https://wa.me/919833000052" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-full inline-flex h-11 items-center justify-center rounded-xl bg-[#25D366] text-white font-bold text-sm hover:scale-[1.02] active:scale-95 transition-all shadow-sm shadow-emerald-500/10"
+              >
+                WhatsApp Us
+              </a>
+            </motion.div>
+
+            {/* Card 5: Instagram */}
+            <motion.div 
+               initial={{ opacity: 0, y: 15 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ delay: 0.6 }}
+               className="bg-brand-gray border border-brand-border rounded-[1.5rem] p-6 hover:border-brand-red hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+            >
+              <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-white border border-brand-border flex items-center justify-center text-pink-600 shrink-0">
+                  <Instagram size={22} className="stroke-[1.5]" />
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-base tracking-tight text-black">Instagram</h4>
+                  <p className="text-sm text-gray-500 font-medium mt-0.5">@pexelparadox</p>
+                </div>
               </div>
+              <a 
+                href="https://www.instagram.com/pexelparadox?igsh=NzNtY3V3ejJmNm9k" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-full inline-flex h-11 items-center justify-center rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-yellow-500 text-white font-bold text-sm hover:scale-[1.02] active:scale-95 transition-all"
+              >
+                Follow Us
+              </a>
             </motion.div>
           </div>
         </div>

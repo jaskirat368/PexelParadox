@@ -13,7 +13,7 @@ export default function Footer() {
         {/* Middle Section - Links */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-1">
-             <ResponsiveLogo className="mb-6 mb-8 w-48 md:w-64" />
+             <ResponsiveLogo className="mb-6 mb-8 w-48 md:w-64" invert={true} />
             <p className="text-gray-400 text-sm max-w-xs leading-relaxed mb-8">
               We Don't Just Run Ads. We Fill Gyms. A specialized growth partner for independent gym owners focused on predictable systems.
             </p>

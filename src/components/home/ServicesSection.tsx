@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PremiumInteractiveCard from '../ui/PremiumInteractiveCard';
 
 const servicesList = [
   { id: 'performance-marketing', title: 'Performance Marketing' },
@@ -70,33 +71,47 @@ export default function ServicesSection() {
           {/* Side cards */}
           <div className="flex flex-col gap-6 sm:w-[220px] justify-between">
             {/* Top Card - Dark */}
-            <Link to="/process" className="flex-1 bg-[#1C1D21] p-6 flex flex-col justify-between group hover:bg-[#25262A] transition-colors border border-neutral-800 rounded-[2rem]">
-              <p className="text-sm font-medium text-gray-400 mb-8">
-                Ever wondered how predictable growth happens?
-              </p>
-              <div className="flex items-end justify-between mt-auto">
-                <span className="text-white font-bold text-lg leading-tight w-2/3">
-                  See how we work
-                </span>
-                <div className="w-10 h-10 bg-[#303236] rounded-full flex items-center justify-center group-hover:bg-gray-700 transition-colors shrink-0">
-                  <ArrowUpRight className="text-white" size={20} />
+            <Link to="/process" className="flex-1 flex flex-col group">
+              <PremiumInteractiveCard 
+                className="flex-1 bg-[#1C1D21] p-6 flex flex-col justify-between border border-neutral-800"
+                borderRadius="2rem"
+              >
+                <div>
+                  <p className="text-sm font-medium text-gray-400 mb-8">
+                    Ever wondered how predictable growth happens?
+                  </p>
                 </div>
-              </div>
+                <div className="flex items-end justify-between mt-auto">
+                  <span className="text-white font-bold text-lg leading-tight w-2/3">
+                    See how we work
+                  </span>
+                  <div className="w-10 h-10 bg-[#303236] rounded-full flex items-center justify-center group-hover:bg-gray-700 transition-colors shrink-0">
+                    <ArrowUpRight className="text-white" size={20} />
+                  </div>
+                </div>
+              </PremiumInteractiveCard>
             </Link>
 
             {/* Bottom Card - Red */}
-            <Link to="/contact" className="flex-1 bg-brand-red p-6 flex flex-col justify-between group hover:bg-red-650 transition-colors rounded-[2rem]">
-              <p className="text-sm font-medium text-white/90 mb-8">
-                Looking for experts who can scale your gym to maximum capacity?
-              </p>
-              <div className="flex items-end justify-between mt-auto">
-                <span className="text-white font-black text-xl leading-tight w-2/3">
-                  Contact Us
-                </span>
-                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
-                  <ArrowUpRight className="text-brand-red" size={20} />
+            <Link to="/contact" className="flex-1 flex flex-col group">
+              <PremiumInteractiveCard 
+                className="flex-1 bg-brand-red p-6 flex flex-col justify-between"
+                borderRadius="2rem"
+              >
+                <div>
+                  <p className="text-sm font-medium text-white/90 mb-8">
+                    Looking for experts who can scale your gym to maximum capacity?
+                  </p>
                 </div>
-              </div>
+                <div className="flex items-end justify-between mt-auto">
+                  <span className="text-white font-black text-xl leading-tight w-2/3">
+                    Contact Us
+                  </span>
+                  <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
+                    <ArrowUpRight className="text-brand-red" size={20} />
+                  </div>
+                </div>
+              </PremiumInteractiveCard>
             </Link>
           </div>
 

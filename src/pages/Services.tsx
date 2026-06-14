@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Target, Users, Zap, LayoutDashboard, LineChart, MessageSquare, Presentation } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PremiumInteractiveCard from '../components/ui/PremiumInteractiveCard';
 
 const servicesData = [
   {
@@ -101,12 +102,13 @@ export default function Services() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           
           {/* Card 1: Performance Marketing (Flagship Large Dark Block) */}
-          <motion.div 
+          <PremiumInteractiveCard 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5 }}
-            className="col-span-1 md:col-span-2 bg-neutral-950 border border-neutral-850 rounded-[2.5rem] p-8 md:p-12 text-white flex flex-col justify-between relative overflow-hidden group hover:border-brand-red hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 min-h-[380px] shadow-2xl"
+            className="col-span-1 md:col-span-2 bg-neutral-950 border border-neutral-850 p-8 md:p-12 text-white flex flex-col justify-between relative overflow-hidden group min-h-[380px] shadow-2xl"
+            borderRadius="2.5rem"
           >
             {/* Subtle background glow */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/10 rounded-full blur-[80px] pointer-events-none group-hover:bg-brand-red/15 transition-all duration-500" />
@@ -116,7 +118,7 @@ export default function Services() {
                 <div className="w-16 h-16 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center">
                   <Target className="text-brand-red animate-pulse" size={32} strokeWidth={1.5} />
                 </div>
-                <span className="text-[10px] font-black uppercase tracking-widest bg-brand-red text-white py-1.5 px-3 rounded-full shadow-[0_4px_10px_rgba(220,53,53,0.3)]">
+                <span className="text-[10px] font-black uppercase tracking-widest bg-brand-red text-white py-1.5 px-3 rounded-full shadow-[0_4px_10px_rgba(220,53,53,0.3)] border-0">
                   Flagship Engine
                 </span>
               </div>
@@ -129,7 +131,7 @@ export default function Services() {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 sm:items-center justify-between mt-auto pt-6 border-t border-neutral-900">
+            <div className="flex flex-col sm:flex-row gap-4 sm:items-center justify-between mt-auto pt-6 border-t border-neutral-900 z-50">
               <ul className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-mono text-neutral-500 uppercase tracking-wider">
                 <li className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-brand-red" /> Omni-channel</li>
                 <li className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-brand-red" /> Lead Arbitrage</li>
@@ -138,21 +140,22 @@ export default function Services() {
               
               <Link 
                 to="/services/performance-marketing" 
-                className="inline-flex items-center text-brand-red group-hover:text-white font-bold uppercase tracking-widest text-xs transition-colors shrink-0"
+                className="inline-flex items-center text-brand-red hover:text-white font-bold uppercase tracking-widest text-xs transition-colors shrink-0"
               >
                 <span>Explore Engine</span> 
                 <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
               </Link>
             </div>
-          </motion.div>
+          </PremiumInteractiveCard>
 
           {/* Card 2: Meta Ads (Light Block) */}
-          <motion.div 
+          <PremiumInteractiveCard 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-white border border-brand-border rounded-[2.5rem] p-8 flex flex-col justify-between group hover:border-brand-red hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl"
+            className="bg-white border border-brand-border p-8 flex flex-col justify-between group shadow-sm hover:shadow-xl"
+            borderRadius="2.5rem"
           >
             <div>
               <div className="flex justify-between items-start mb-8">
@@ -160,12 +163,12 @@ export default function Services() {
                   <Users className="text-brand-red" size={26} strokeWidth={1.5} />
                 </div>
                 {/* Visual Radial Targeting Tag */}
-                <span className="text-[10px] font-bold tracking-widest text-gray-400 uppercase font-mono">
+                <span className="text-[10px] font-bold tracking-widest text-gray-400 uppercase font-mono border-0">
                   Radius: 10 KM
                 </span>
               </div>
               
-              <h3 className="text-2xl font-black uppercase tracking-tighter text-black mb-3">
+              <h3 className="text-2xl font-black uppercase tracking-tighter text-black mb-3 font-sans">
                 Meta Ads
               </h3>
               <p className="text-gray-500 font-medium leading-relaxed text-sm mb-6">
@@ -188,15 +191,16 @@ export default function Services() {
                 <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
               </Link>
             </div>
-          </motion.div>
+          </PremiumInteractiveCard>
 
           {/* Card 3: Lead Generation (Light Block) */}
-          <motion.div 
+          <PremiumInteractiveCard 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5 }}
-            className="bg-white border border-brand-border rounded-[2.5rem] p-8 flex flex-col justify-between group hover:border-brand-red hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl"
+            className="bg-white border border-brand-border p-8 flex flex-col justify-between group shadow-sm hover:shadow-xl"
+            borderRadius="2.5rem"
           >
             <div>
               <div className="flex justify-between items-start mb-8">
@@ -208,7 +212,7 @@ export default function Services() {
                 </span>
               </div>
               
-              <h3 className="text-2xl font-black uppercase tracking-tighter text-black mb-3">
+              <h3 className="text-2xl font-black uppercase tracking-tighter text-black mb-3 font-sans">
                 Lead Generation
               </h3>
               <p className="text-gray-500 font-medium leading-relaxed text-sm mb-6">
@@ -230,15 +234,16 @@ export default function Services() {
                 <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
               </Link>
             </div>
-          </motion.div>
+          </PremiumInteractiveCard>
 
           {/* Card 4: Content Creation (Bento Wide Horizontal Light Block) */}
-          <motion.div 
+          <PremiumInteractiveCard 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="col-span-1 md:col-span-1 lg:col-span-2 bg-white border border-brand-border rounded-[2.5rem] p-6 md:p-8 md:pb-6 flex flex-col justify-between group hover:border-brand-red hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl relative overflow-hidden"
+            className="col-span-1 md:col-span-1 lg:col-span-2 bg-white border border-brand-border p-6 md:p-8 md:pb-6 flex flex-col justify-between group shadow-sm hover:shadow-xl relative overflow-hidden"
+            borderRadius="2.5rem"
           >
             <div>
               <div className="flex justify-between items-start mb-4">
@@ -250,7 +255,7 @@ export default function Services() {
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                 <div className="lg:col-span-7">
-                  <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-black mb-2">
+                  <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-black mb-2 font-sans">
                     Content Creation
                   </h3>
                   <p className="text-gray-500 font-medium leading-relaxed text-sm mb-4 max-w-lg">
@@ -260,7 +265,7 @@ export default function Services() {
 
                 {/* Simulated Content phone viewfinder preview (pure CSS) */}
                 <div className="lg:col-span-5 flex justify-center lg:justify-end w-full mt-4 lg:mt-0">
-                  <div className="relative mx-auto lg:mr-0 w-[270px] lg:w-[155px] aspect-[18.5/9] lg:aspect-[9/18.5] rounded-[1.8rem] lg:rounded-[2.2rem] border-8 border-neutral-900 bg-neutral-950 p-3 lg:p-2.5 flex flex-col justify-between text-neutral-400 font-mono text-[8px] shadow-2xl overflow-hidden ring-1 ring-neutral-800">
+                  <div className="relative mx-auto lg:mr-0 w-[270px] lg:w-[155px] aspect-[18.5/9] lg:aspect-[9/18.5] rounded-[1.8rem] lg:rounded-[2.2rem] border-8 border-neutral-900 bg-neutral-950 p-3 lg:p-2.5 flex flex-col justify-between text-neutral-400 font-mono text-[8px] shadow-2xl overflow-hidden ring-1 ring-neutral-850">
                     
                     {/* Simulated Camera Dynamic Island Notch (Rotated dynamically on mobile vs. desktop) */}
                     <div className="absolute left-1.5 top-1/2 -translate-y-1/2 w-2.5 h-10 lg:left-1/2 lg:top-1.5 lg:-translate-x-1/2 lg:translate-y-0 lg:w-10 lg:h-2.5 bg-neutral-900 rounded-full z-30 flex items-center justify-center">
@@ -269,13 +274,13 @@ export default function Services() {
 
                     {/* Camera Focus Gridlines Overlap */}
                     <div className="absolute inset-0 pointer-events-none opacity-25 z-0 my-3 mx-8 lg:my-8 lg:mx-0">
-                      <div className="grid grid-cols-3 grid-rows-3 h-full w-full border border-neutral-850">
-                        <div className="border-r border-b border-neutral-850" />
-                        <div className="border-r border-b border-neutral-850" />
-                        <div className="border-b border-neutral-850" />
-                        <div className="border-r border-b border-neutral-850" />
-                        <div className="border-r border-b border-neutral-850" />
-                        <div className="border-b border-neutral-850" />
+                      <div className="grid grid-cols-3 grid-rows-3 h-full w-full border border-neutral-855">
+                        <div className="border-r border-b border-neutral-855" />
+                        <div className="border-r border-b border-neutral-855" />
+                        <div className="border-b border-neutral-855" />
+                        <div className="border-r border-b border-neutral-855" />
+                        <div className="border-r border-b border-neutral-855" />
+                        <div className="border-b border-neutral-855" />
                       </div>
                     </div>
 
@@ -322,7 +327,7 @@ export default function Services() {
               </div>
             </div>
 
-            <div className="mt-4 pt-4 border-t border-brand-gray flex justify-between items-center">
+            <div className="mt-4 pt-4 border-t border-brand-gray flex justify-between items-center z-50">
               <span className="text-[10px] font-bold tracking-widest text-neutral-400 uppercase font-mono">100% Custom Media Assets</span>
               <Link 
                 to="/services/content-creation" 
@@ -332,15 +337,16 @@ export default function Services() {
                 <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
               </Link>
             </div>
-          </motion.div>
+          </PremiumInteractiveCard>
 
           {/* Card 5: Conversion Funnels (Bento Wide Horizontal Light Block) */}
-          <motion.div 
+          <PremiumInteractiveCard 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5 }}
-            className="col-span-1 md:col-span-1 lg:col-span-2 bg-white border border-brand-border rounded-[2.5rem] p-6 md:p-8 md:pb-6 flex flex-col justify-between group hover:border-brand-red hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl relative overflow-hidden"
+            className="col-span-1 md:col-span-1 lg:col-span-2 bg-white border border-brand-border p-6 md:p-8 md:pb-6 flex flex-col justify-between group relative overflow-hidden"
+            borderRadius="2.5rem"
           >
             <div>
               <div className="flex justify-between items-start mb-4">
@@ -354,7 +360,7 @@ export default function Services() {
               
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                 <div className="lg:col-span-7">
-                  <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-black mb-2">
+                  <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-black mb-2 font-sans">
                     Conversion Funnels
                   </h3>
                   <p className="text-gray-500 font-medium leading-relaxed text-sm mb-4 max-w-lg">
@@ -410,7 +416,7 @@ export default function Services() {
               </div>
             </div>
 
-            <div className="mt-4 pt-4 border-t border-brand-gray flex justify-between items-center">
+            <div className="mt-4 pt-4 border-t border-brand-gray flex justify-between items-center z-50">
               <span className="text-[10px] font-bold tracking-widest text-neutral-400 uppercase font-mono">94% Bounce Reduction</span>
               <Link 
                 to="/services/conversion-funnels" 
@@ -420,15 +426,16 @@ export default function Services() {
                 <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
               </Link>
             </div>
-          </motion.div>
+          </PremiumInteractiveCard>
 
           {/* Card 6: Follow-Up Systems (Light Block) */}
-          <motion.div 
+          <PremiumInteractiveCard 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-white border border-brand-border rounded-[2.5rem] p-8 flex flex-col justify-between group hover:border-brand-red hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl"
+            className="bg-white border border-brand-border p-8 flex flex-col justify-between group shadow-sm hover:shadow-xl"
+            borderRadius="2.5rem"
           >
             <div>
               <div className="flex justify-between items-start mb-8">
@@ -440,7 +447,7 @@ export default function Services() {
                 </span>
               </div>
               
-              <h3 className="text-2xl font-black uppercase tracking-tighter text-black mb-3">
+              <h3 className="text-2xl font-black uppercase tracking-tighter text-black mb-3 font-sans">
                 Follow-Up Systems
               </h3>
               <p className="text-gray-500 font-medium leading-relaxed text-sm mb-6">
@@ -462,15 +469,16 @@ export default function Services() {
                 <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
               </Link>
             </div>
-          </motion.div>
+          </PremiumInteractiveCard>
 
           {/* Card 7: Gym Growth Strategy (Underpinned Full-Width Bento block) */}
-          <motion.div 
+          <PremiumInteractiveCard 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="col-span-1 md:col-span-2 lg:col-span-3 bg-gradient-to-br from-neutral-900 to-black text-white border border-neutral-800 rounded-[3rem] p-8 md:p-12 flex flex-col justify-between relative overflow-hidden group hover:border-brand-red hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+            className="col-span-1 md:col-span-2 lg:col-span-3 bg-gradient-to-br from-neutral-900 to-black text-white border border-neutral-800 p-8 md:p-12 flex flex-col justify-between relative overflow-hidden group"
+            borderRadius="3rem"
           >
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20 pointer-events-none" />
             
@@ -480,12 +488,12 @@ export default function Services() {
                   <div className="w-14 h-14 rounded-2xl bg-neutral-800/85 border border-neutral-750 flex items-center justify-center">
                     <LineChart className="text-brand-red" size={26} strokeWidth={1.5} />
                   </div>
-                  <span className="text-[10px] font-black uppercase tracking-widest bg-brand-red text-white py-1 px-3.5 rounded-full shadow-[0_4px_10px_rgba(220,53,53,0.3)]">
+                  <span className="text-[10px] font-black uppercase tracking-widest bg-brand-red text-white py-1 px-3.5 rounded-full shadow-[0_4px_10px_rgba(220,53,53,0.3)] border-0">
                     Enterprise Scaling
                   </span>
                 </div>
                 
-                <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4">
+                <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4 font-sans">
                   Gym Growth Strategy
                 </h3>
                 <p className="text-neutral-400 font-medium leading-relaxed text-sm md:text-base max-w-2xl">
@@ -519,29 +527,30 @@ export default function Services() {
                 <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
               </Link>
             </div>
-          </motion.div>
+          </PremiumInteractiveCard>
 
         </div>
 
         {/* Global CTA */}
-        <motion.div 
+        <PremiumInteractiveCard 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-32 bg-white text-black p-12 md:p-20 rounded-[3rem] text-center flex flex-col items-center shadow-[0_20px_40px_rgba(0,0,0,0.05)] border border-brand-border relative overflow-hidden"
+          className="mt-32 bg-white text-black p-12 md:p-20 text-center flex flex-col items-center shadow-[0_20px_40px_rgba(0,0,0,0.05)] border border-brand-border relative overflow-hidden"
+          borderRadius="3rem"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/10 rounded-full blur-[80px] pointer-events-none" />
-          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6 relative z-10">Stop Guessing. <br/>Start Scaling.</h2>
+          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6 relative z-10 font-sans">Stop Guessing. <br/>Start Scaling.</h2>
           <p className="text-xl text-gray-600 font-medium max-w-2xl mb-10 relative z-10">
             Stop relying on hope as a strategy. Let's install a predictable client acquisition system in your facility today.
           </p>
           <Link 
             to="/contact" 
-            className="inline-flex h-16 w-full sm:w-auto px-10 items-center justify-center rounded-full bg-brand-red text-white font-bold text-lg transition-transform hover:scale-105 hover:shadow-[0_0_20px_rgba(220,53,53,0.3)] gap-2 relative z-10"
+            className="inline-flex h-16 w-full sm:w-auto px-10 items-center justify-center rounded-full bg-brand-red text-white font-bold text-lg transition-transform hover:scale-105 hover:shadow-[0_0_20px_rgba(220,53,53,0.3)] gap-2 relative z-10 whitespace-nowrap"
           >
             Book Strategy Call <ArrowRight size={20} />
           </Link>
-        </motion.div>
+        </PremiumInteractiveCard>
       </section>
     </div>
   );

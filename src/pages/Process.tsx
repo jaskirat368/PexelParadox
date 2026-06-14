@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { PhoneCall, Search, Target, Settings, Rocket, Users, Activity, TrendingUp, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PremiumInteractiveCard from '../components/ui/PremiumInteractiveCard';
 
 const steps = [
   {
@@ -130,22 +131,27 @@ export default function Process() {
               {/* Content Box */}
               <Link 
                 to={`/process/${step.id}`}
-                className="w-[calc(100%-6rem)] md:w-[calc(50%-4rem)] bg-white border border-brand-border p-5 sm:p-6 md:p-8 rounded-2xl shadow-sm hover:shadow-2xl hover:border-brand-red transition-all duration-300 relative z-10 group/card block overflow-hidden"
+                className="w-[calc(100%-6rem)] md:w-[calc(50%-4rem)] z-10 group/card block text-left"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-red/5 rounded-full blur-[40px] pointer-events-none group-hover/card:bg-brand-red/10 transition-colors" />
+                <PremiumInteractiveCard
+                  className="bg-white border border-brand-border p-5 sm:p-6 md:p-8 hover:border-brand-red transition-all duration-300 block overflow-hidden"
+                  borderRadius="1rem"
+                >
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-brand-red/5 rounded-full blur-[40px] pointer-events-none group-hover/card:bg-brand-red/10 transition-colors" />
 
-                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 mb-4 sm:mb-6">
-                   <span className="text-2xl sm:text-3xl font-black text-gray-200 group-hover/card:text-brand-red/20 transition-colors shrink-0">0{index + 1}</span>
-                  <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-black break-words min-w-0">{step.title}</h3>
-                </div>
-                
-                <div className="flex flex-col gap-5">
-                  <p className="text-gray-600 font-medium text-sm sm:text-base leading-relaxed">{step.purpose}</p>
-
-                  <div className="flex items-center text-brand-red font-bold uppercase tracking-widest text-sm mt-4">
-                    View Process Detail <ArrowRight size={16} className="ml-2 group-hover/card:translate-x-2 transition-transform" />
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 mb-4 sm:mb-6">
+                     <span className="text-2xl sm:text-3xl font-black text-gray-205 group-hover/card:text-brand-red/20 transition-colors shrink-0">0{index + 1}</span>
+                    <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-black break-words min-w-0 font-sans">{step.title}</h3>
                   </div>
-                </div>
+                  
+                  <div className="flex flex-col gap-5">
+                    <p className="text-gray-600 font-medium text-sm sm:text-base leading-relaxed">{step.purpose}</p>
+
+                    <div className="flex items-center text-brand-red font-bold uppercase tracking-widest text-sm mt-4">
+                      View Process Detail <ArrowRight size={16} className="ml-2 group-hover/card:translate-x-2 transition-transform" />
+                    </div>
+                  </div>
+                </PremiumInteractiveCard>
               </Link>
             </motion.div>
           ))}
@@ -154,15 +160,16 @@ export default function Process() {
       
       {/* Footer CTA */}
       <section className="px-6 md:px-12 max-w-7xl mx-auto pb-12 mt-12">
-        <motion.div 
+        <PremiumInteractiveCard 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white text-black p-12 md:p-20 rounded-[3rem] text-center flex flex-col items-center shadow-[0_20px_40px_rgba(0,0,0,0.05)] border border-brand-border relative overflow-hidden"
+          className="bg-white text-black p-12 md:p-20 text-center flex flex-col items-center shadow-[0_20px_40px_rgba(0,0,0,0.05)] border border-brand-border relative overflow-hidden"
+          borderRadius="3rem"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/10 rounded-full blur-[80px] pointer-events-none" />
-          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 relative z-10">Stop the Chaos.<br/>Install the System.</h2>
-          <p className="text-xl text-gray-600 mb-12 max-w-2xl relative z-10 font-medium">
+          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 relative z-10 font-sans">Stop the Chaos.<br/>Install the System.</h2>
+          <p className="text-xl text-gray-600 mb-12 max-w-2xl relative z-10 font-medium font-sans">
             Ready to transition from random acts of marketing to a predictable growth machine?
           </p>
           <Link 
@@ -172,7 +179,7 @@ export default function Process() {
             <span>Start The Process</span>
             <ArrowRight className="ml-3 flex-shrink-0" size={20} />
           </Link>
-        </motion.div>
+        </PremiumInteractiveCard>
       </section>
     </div>
   );

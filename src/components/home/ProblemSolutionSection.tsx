@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Target, Users, TrendingUp, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PremiumInteractiveCard from '../ui/PremiumInteractiveCard';
 
 export default function ProblemSolutionSection() {
   return (
@@ -60,12 +61,13 @@ export default function ProblemSolutionSection() {
         </div>
 
         {/* Sleek Custom Card without Image */}
-        <motion.div 
+        <PremiumInteractiveCard 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative w-full bg-black border border-brand-border rounded-[2rem] p-8 md:p-16 overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-8 group hover:border-brand-red transition-all duration-300 shadow-2xl"
+          className="relative w-full bg-black border border-brand-border p-8 md:p-16 overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-8 group hover:border-brand-red transition-all duration-300 shadow-2xl"
+          borderRadius="2rem"
         >
           {/* Subtle geometric pattern */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#161616_1px,transparent_1px),linear-gradient(to_bottom,#161616_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40 pointer-events-none" />
@@ -74,30 +76,14 @@ export default function ProblemSolutionSection() {
             <span className="bg-brand-red text-white text-xs font-black uppercase tracking-widest py-1.5 px-3.5 mb-6 inline-block rounded shadow-[0_4px_15px_rgba(220,53,53,0.3)]">
               High-Intensity Blueprint
             </span>
-            <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white mb-4 leading-none">
+            <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-white mb-4 leading-none font-sans">
               UNVEIL THE <span className="text-brand-red">PEXEL PROTOCOL</span>
             </h3>
             <p className="text-gray-400 text-base md:text-lg font-medium leading-relaxed max-w-lg mb-8">
               We engineered a predictable client acquisition engine specifically for gym facilities. Walk through our step-by-step blueprint that turns empty spaces into overbooked training sessions.
             </p>
 
-            {/* Unique, Zero-Image CSS Process Grid Timeline */}
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-gray-500 uppercase tracking-widest pt-2">
-              <div className="flex items-center gap-2 bg-neutral-950 border border-neutral-850 px-3 py-2 rounded-xl text-white">
-                <span className="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse" />
-                <span className="font-bold text-[10px]">01 / TARGET</span>
-              </div>
-              <div className="hidden sm:block h-[1px] w-6 bg-neutral-800" />
-              <div className="flex items-center gap-2 bg-neutral-950 border border-neutral-850 px-3 py-2 rounded-xl text-white">
-                <span className="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse" />
-                <span className="font-bold text-[10px]">02 / CAPTURE</span>
-              </div>
-              <div className="hidden sm:block h-[1px] w-6 bg-neutral-800" />
-              <div className="flex items-center gap-2 bg-neutral-950 border border-neutral-850 px-3 py-2 rounded-xl text-white">
-                <span className="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse" />
-                <span className="font-bold text-[10px]">03 / SCALE</span>
-              </div>
-            </div>
+
           </div>
 
           <div className="relative z-20 w-full md:w-auto shrink-0 flex flex-col mt-4 md:mt-0">
@@ -109,7 +95,7 @@ export default function ProblemSolutionSection() {
               <ArrowRight size={18} strokeWidth={2.5} />
             </Link>
           </div>
-        </motion.div>
+        </PremiumInteractiveCard>
 
       </div>
     </section>

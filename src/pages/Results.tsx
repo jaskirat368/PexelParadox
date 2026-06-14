@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { ArrowRight, BarChart3, LineChart, Target, ShieldCheck, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PremiumInteractiveCard from '../components/ui/PremiumInteractiveCard';
 
 export default function Results() {
   return (
@@ -126,26 +127,27 @@ export default function Results() {
 
       {/* Closing CTA */}
       <section className="px-6 md:px-12 max-w-7xl mx-auto pb-12">
-        <motion.div 
+        <PremiumInteractiveCard 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white text-black p-12 md:p-20 rounded-[3rem] text-center flex flex-col items-center shadow-[0_20px_40px_rgba(0,0,0,0.05)] border border-brand-border relative overflow-hidden"
+          className="bg-white text-black p-12 md:p-20 text-center flex flex-col items-center shadow-[0_20px_40px_rgba(0,0,0,0.05)] border border-brand-border relative overflow-hidden"
+          borderRadius="3rem"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/10 rounded-full blur-[80px] pointer-events-none" />
           <ShieldCheck className="text-brand-red mb-8" size={64} />
-          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 relative z-10">Stop Paying For Promises.<br/>Pay For Predictability.</h2>
-          <p className="text-xl text-gray-600 mb-12 max-w-2xl relative z-10 font-medium">
+          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 relative z-10 font-sans">Stop Paying For Promises.<br/>Pay For Predictability.</h2>
+          <p className="text-xl text-gray-600 mb-12 max-w-2xl relative z-10 font-medium font-sans">
             If you are ready to implement a data-backed acquisition engine that scales your facility to capacity, it's time to talk.
           </p>
           <Link 
             to="/contact" 
-            className="inline-flex h-16 px-10 items-center justify-center rounded-full bg-brand-red text-white font-bold text-xl uppercase tracking-widest transition-transform hover:scale-105 hover:shadow-[0_0_30px_rgba(220,53,53,0.4)] relative z-10"
+            className="inline-flex h-16 px-10 items-center justify-center rounded-full bg-brand-red text-white font-bold text-xl uppercase tracking-widest transition-transform hover:scale-105 hover:shadow-[0_0_30px_rgba(220,53,53,0.4)] relative z-10 whitespace-nowrap"
           >
             Apply For Partnership
             <ArrowRight className="ml-3" size={24} />
           </Link>
-        </motion.div>
+        </PremiumInteractiveCard>
       </section>
     </div>
   );

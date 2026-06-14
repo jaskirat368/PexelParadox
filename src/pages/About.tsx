@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Target, Activity, Zap, ShieldCheck, BarChart, Users, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PremiumInteractiveCard from '../components/ui/PremiumInteractiveCard';
 
 export default function About() {
   return (
@@ -60,11 +61,12 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* The Reality */}
-            <motion.div 
+            <PremiumInteractiveCard 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="md:col-span-2 bg-white rounded-3xl p-8 md:p-12 border border-brand-border shadow-sm flex flex-col justify-between group hover:shadow-xl transition-all duration-300"
+              className="md:col-span-2 bg-white p-8 md:p-12 border border-brand-border shadow-sm flex flex-col justify-between group"
+              borderRadius="1.5rem"
             >
               <div className="flex justify-between items-start mb-8">
                  <div className="w-16 h-16 rounded-2xl bg-brand-gray flex items-center justify-center group-hover:bg-brand-red/10 group-hover:scale-110 transition-all duration-300">
@@ -73,65 +75,68 @@ export default function About() {
                  <span className="text-gray-300 font-black text-5xl opacity-50">01</span>
               </div>
               <div>
-                <h3 className="text-3xl font-black uppercase tracking-tighter text-black mb-4">
+                <h3 className="text-3xl font-black uppercase tracking-tighter text-black mb-4 font-sans">
                   The Reality Of Gym Marketing
                 </h3>
                 <p className="text-gray-600 font-medium leading-relaxed text-lg">
                   Most gym owners are operators, not marketers. You run a facility, manage trainers, and handle member retention. When you try to run ads, you compete against franchised mega-gyms with bottomless budgets. We replace typical agency "clicks" and "impressions" with signed contracts.
                 </p>
               </div>
-            </motion.div>
+            </PremiumInteractiveCard>
 
             {/* Specialization */}
-            <motion.div 
+            <PremiumInteractiveCard 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="bg-black text-white rounded-3xl p-8 md:p-10 flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300"
+              className="bg-black text-white p-8 md:p-10 flex flex-col justify-between relative overflow-hidden group"
+              borderRadius="1.5rem"
             >
               <div className="absolute -right-10 -top-10 w-40 h-40 bg-brand-red/20 rounded-full blur-[50px] pointer-events-none" />
               <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-12 backdrop-blur-sm border border-white/10">
                 <Users className="text-brand-red" size={32} />
               </div>
               <div>
-                <h3 className="text-2xl font-black uppercase tracking-tighter mb-4 leading-tight">
+                <h3 className="text-2xl font-black uppercase tracking-tighter mb-4 leading-tight font-sans">
                   Laser-Focused Specialization
                 </h3>
                 <p className="text-gray-400 font-medium text-sm leading-relaxed">
                   We don't work with restaurants. We don't work with e-commerce. Focused exclusively on independent fitness facilities, we know exactly what converts your local demographic into members.
                 </p>
               </div>
-            </motion.div>
+            </PremiumInteractiveCard>
 
             {/* Data-Driven */}
-            <motion.div 
+            <PremiumInteractiveCard 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="bg-white rounded-3xl p-8 md:p-10 border border-brand-border shadow-sm flex flex-col justify-between group hover:border-brand-red/30 transition-colors duration-300"
+              className="bg-white p-8 md:p-10 border border-brand-border shadow-sm flex flex-col justify-between group"
+              borderRadius="1.5rem"
             >
               <div className="w-16 h-16 rounded-full border-4 border-brand-gray flex items-center justify-center mb-8 group-hover:border-brand-red/20 transition-colors duration-300">
                 <BarChart className="text-black group-hover:text-brand-red transition-colors duration-300" size={24} />
               </div>
               <div>
-                <h3 className="text-2xl font-black uppercase tracking-tighter text-black mb-4 leading-tight">
+                <h3 className="text-2xl font-black uppercase tracking-tighter text-black mb-4 leading-tight font-sans">
                   Tactical & Data-Driven
                 </h3>
                 <p className="text-gray-600 font-medium text-sm leading-relaxed">
                   Data over emotion. Action over aesthetics. Every campaign is measured against one metric: Cost Per Acquisition. If it doesn't lower your CPA and increase MRR, it gets cut.
                 </p>
               </div>
-            </motion.div>
+            </PremiumInteractiveCard>
 
             {/* Final Trust CTA */}
-            <motion.div 
+            <PremiumInteractiveCard 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="md:col-span-2 bg-brand-red rounded-3xl p-8 md:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden group shadow-[0_15px_40px_rgba(220,53,53,0.2)]"
+              className="md:col-span-2 bg-brand-red p-8 md:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden group shadow-[0_15px_40px_rgba(220,53,53,0.2)]"
+              borderRadius="1.5rem"
             >
                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent pointer-events-none opacity-50" />
                
@@ -140,10 +145,10 @@ export default function About() {
                      <ShieldCheck size={16} />
                      <span className="text-xs font-bold uppercase tracking-widest">Our Guarantee</span>
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4 leading-tight">
+                  <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4 leading-tight font-sans">
                     We only win when your gym reaches capacity.
                   </h3>
-                  <p className="text-white/80 font-medium text-lg mb-0">
+                  <p className="text-white/80 font-medium text-lg mb-0 font-sans">
                     Partner with Pexel Paradox, and let us install the growth infrastructure your facility needs to dominate its local market.
                   </p>
                </div>
@@ -157,7 +162,7 @@ export default function About() {
                     <ArrowRight className="ml-3" size={24} />
                   </Link>
                </div>
-            </motion.div>
+            </PremiumInteractiveCard>
 
           </div>
         </div>

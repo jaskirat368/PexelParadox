@@ -25,3 +25,13 @@
     background-image: radial-gradient(var(--tw-gradient-stops));
   }
 }
+
+@keyframes electric-flow {
+  from {
+    stroke-dashoffset: 600;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+

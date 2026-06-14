@@ -35,3 +35,12 @@
   }
 }
 
+@keyframes electric-flow-single {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+

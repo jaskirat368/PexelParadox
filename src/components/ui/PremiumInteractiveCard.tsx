@@ -103,18 +103,6 @@ export default function PremiumInteractiveCard({
       }}
       {...motionProps}
     >
-      {/* Dynamic Keyframes injected right here to be fully self-contained and accurate */}
-      <style>{`
-        @keyframes electric-flow-single-${uniqueId} {
-          0% {
-            stroke-dashoffset: 100;
-          }
-          100% {
-            stroke-dashoffset: 0;
-          }
-        }
-      `}</style>
-
       {/* Electric Border Glow SVG Overlay */}
       <svg 
         className="absolute -inset-[1px] w-[calc(100%+2px)] h-[calc(100%+2px)] pointer-events-none z-40 overflow-visible"
@@ -133,7 +121,33 @@ export default function PremiumInteractiveCard({
           </filter>
         </defs>
         
-        {/* Single high-intensity glowing trail that loops on the border */}
+        {/* Layer 0: High-Contrast Shadow Outline (for high visibility of white glow on bright/white backgrounds) */}
+        {isWhiteGlow && (
+          <rect
+            x="1"
+            y="1"
+            rx={rx}
+            ry={rx}
+            fill="none"
+            stroke="#000000"
+            strokeWidth="6.5"
+            strokeOpacity="0.45"
+            pathLength="100"
+            strokeLinecap="round"
+            className={cn(
+              "transition-opacity duration-300 pointer-events-none",
+              isHovered ? "opacity-100" : "opacity-80"
+            )}
+            style={{
+              width: 'calc(100% - 2px)',
+              height: 'calc(100% - 2px)',
+              strokeDasharray: '22 78', // Medium trail length
+              animation: `electric-flow-single ${isHovered ? '3.5s' : '5.4s'} linear infinite`, // Medium speed
+            }}
+          />
+        )}
+
+        {/* Layer 1: Wide Soft Glowing Undercoat */}
         <rect
           x="1"
           y="1"
@@ -141,7 +155,7 @@ export default function PremiumInteractiveCard({
           ry={rx}
           fill="none"
           stroke={strokeColor}
-          strokeWidth="2.5"
+          strokeWidth={isWhiteGlow ? "5.5" : "4.0"}
           filter={`url(#electric-glow-blur-${uniqueId})`}
           pathLength="100"
           strokeLinecap="round"
@@ -153,7 +167,30 @@ export default function PremiumInteractiveCard({
             width: 'calc(100% - 2px)',
             height: 'calc(100% - 2px)',
             strokeDasharray: '22 78', // Medium trail length
-            animation: `electric-flow-single-${uniqueId} ${isHovered ? '3.5s' : '5.4s'} linear infinite`, // Medium speed
+            animation: `electric-flow-single ${isHovered ? '3.5s' : '5.4s'} linear infinite`, // Medium speed
+          }}
+        />
+
+        {/* Layer 2: Core Bright Sharp Trail */}
+        <rect
+          x="1"
+          y="1"
+          rx={rx}
+          ry={rx}
+          fill="none"
+          stroke={strokeColor}
+          strokeWidth={isWhiteGlow ? "3.0" : "2.0"}
+          pathLength="100"
+          strokeLinecap="round"
+          className={cn(
+            "transition-opacity duration-300 pointer-events-none",
+            isHovered ? "opacity-100" : "opacity-90"
+          )}
+          style={{
+            width: 'calc(100% - 2px)',
+            height: 'calc(100% - 2px)',
+            strokeDasharray: '22 78', // Medium trail length
+            animation: `electric-flow-single ${isHovered ? '3.5s' : '5.4s'} linear infinite`, // Medium speed
           }}
         />
       </svg>

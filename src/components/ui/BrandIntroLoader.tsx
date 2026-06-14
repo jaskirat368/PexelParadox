@@ -5,47 +5,45 @@ interface BrandIntroLoaderProps {
   onComplete: () => void;
 }
 
-const sequences = [
-  "ATTENTION GYM OWNERS.",
-  "WE DON'T DO VANITY METRICS.",
-  "WE DEPLOY SYSTEMS.",
-  "THAT SCALE REVENUE."
-];
-
 export default function BrandIntroLoader({ onComplete }: BrandIntroLoaderProps) {
   const [complete, setComplete] = useState(false);
-  const [seqIndex, setSeqIndex] = useState(0);
+  const [percent, setPercent] = useState(0);
+  const [phase, setPhase] = useState(0);
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
+    
+    let start = Date.now();
+    const duration = 2200; // Fast 2.2s loading
+    let rAF: number;
+    
+    const animate = () => {
+      const now = Date.now();
+      const time = Math.min(1, (now - start) / duration);
+      
+      // Snappy ease out
+      const easeOutExpo = time === 1 ? 1 : 1 - Math.pow(2, -10 * time);
+      setPercent(Math.floor(easeOutExpo * 100));
 
-    // Total sequence duration
-    const runSequence = async () => {
-      // 0: ATTENTION GYM OWNERS (0-600ms)
-      await new Promise(r => setTimeout(r, 700));
-      setSeqIndex(1);
-      // 1: WE DON'T DO VANITY METRICS (700-1400ms)
-      await new Promise(r => setTimeout(r, 800));
-      setSeqIndex(2);
-      // 2: WE DEPLOY SYSTEMS (1500-2200ms)
-      await new Promise(r => setTimeout(r, 700));
-      setSeqIndex(3);
-      // 3: THAT SCALE REVENUE (2200-2900ms)
-      await new Promise(r => setTimeout(r, 800));
-      setSeqIndex(4); // 4 = Final Logo State
-
-      await new Promise(r => setTimeout(r, 1200)); // Hold logo
-
-      setComplete(true);
-      setTimeout(() => {
-        document.body.style.overflow = 'unset';
-        onComplete();
-      }, 1200); // Wait for exit animations
+      if (time > 0.8) setPhase(1); // Logo reveal phase
+      
+      if (time < 1) {
+        rAF = requestAnimationFrame(animate);
+      } else {
+        setTimeout(() => {
+          setComplete(true);
+          setTimeout(() => {
+            document.body.style.overflow = 'unset';
+            onComplete();
+          }, 800); // wait for exit animation
+        }, 600); // hold at 100%
+      }
     };
-
-    runSequence();
+    
+    rAF = requestAnimationFrame(animate);
 
     return () => {
+      cancelAnimationFrame(rAF);
       document.body.style.overflow = 'unset';
     };
   }, [onComplete]);
@@ -55,101 +53,77 @@ export default function BrandIntroLoader({ onComplete }: BrandIntroLoaderProps) 
       {!complete && (
         <motion.div
            id="brand-intro-screen"
-           className="fixed inset-0 z-[9999] flex w-full h-full bg-[#030303] overflow-hidden select-none"
-           exit={{ opacity: 0 }}
-           transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
+           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#050505] overflow-hidden select-none"
+           exit={{ opacity: 0, scale: 1.2, filter: "blur(10px)" }}
+           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
         >
-          {/* Subtle Dynamic Grid */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
-
-          {/* Central Cinematic Container */}
-          <div className="absolute inset-0 flex items-center justify-center p-6 text-center">
-            <AnimatePresence mode="wait">
-              {seqIndex < 4 ? (
-                <motion.h1
-                  key={seqIndex}
-                  initial={{ y: 50, opacity: 0, scale: 0.9, filter: "blur(4px)" }}
-                  animate={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
-                  exit={{ y: -50, opacity: 0, scale: 1.05, filter: "blur(4px)" }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  className="font-black text-white text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] tracking-tighter leading-none"
-                >
-                  {sequences[seqIndex].split(' ').map((word, i) => (
-                     <span 
-                       key={i} 
-                       className={word.includes('REVENUE') || word.includes('SYSTEMS') || word.includes('GYM') ? 'text-brand-red inline-block mx-2 md:mx-4' : 'inline-block mx-2 md:mx-4'}
-                     >
-                        {word}
-                     </span>
-                  ))}
-                </motion.h1>
-              ) : (
-                <motion.div
-                  key="final-logo"
-                  initial={{ scale: 0.8, opacity: 0, filter: "blur(10px)" }}
-                  animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="flex flex-col items-center"
-                >
-                  <div className="relative w-64 sm:w-96 mb-8 group">
-                    <div className="absolute inset-0 bg-brand-red/30 blur-[60px] rounded-full scale-y-50 group-hover:bg-brand-red/40 transition-colors duration-700" />
-                    <img 
-                      src="https://i.ibb.co/JRMTckSp/file-0000000040047208885869e9a710d1ab.png" 
-                      alt="Pexel Paradox" 
-                      className="w-full h-auto object-contain brightness-0 invert relative z-10"
-                    />
-                  </div>
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: "100%" }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
-                    className="h-1 bg-brand-red max-w-[200px]"
-                  />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          {/* Minimalist Framing elements */}
-          <div className="absolute bottom-10 left-10 overflow-hidden hidden md:block">
-            <motion.div
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
-              className="text-xs font-mono tracking-[0.2em] text-neutral-600 uppercase"
-            >
-              [ SYSTEM INITIALIZATION ]
-            </motion.div>
+          {/* Massive Abstract Background Word */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex justify-center opacity-5 pointer-events-none blur-[2px]">
+            <span className="text-[25vw] font-black text-white whitespace-nowrap tracking-tighter">PARADOX</span>
           </div>
           
-          <div className="absolute bottom-10 right-10 flex gap-2">
-            {[1,2,3].map((i) => (
+          <div className="relative z-10 w-full max-w-sm px-6 flex flex-col items-center">
+             <AnimatePresence mode="wait">
+               {phase === 0 ? (
+                 <motion.div
+                   key="loading"
+                   initial={{ opacity: 0, y: 20 }}
+                   animate={{ opacity: 1, y: 0 }}
+                   exit={{ opacity: 0, y: -20, filter: "blur(5px)", scale: 0.9 }}
+                   transition={{ duration: 0.4 }}
+                   className="flex flex-col items-center w-full"
+                 >
+                   <div className="text-brand-red font-mono text-[10px] tracking-[0.3em] uppercase mb-4 animate-pulse">Initializing System</div>
+                   <div className="text-7xl sm:text-8xl md:text-9xl font-black text-white tracking-tighter tabular-nums leading-none mb-6">
+                     {percent}
+                   </div>
+                   
+                   {/* Cool tech progress bar */}
+                   <div className="w-full h-[1px] bg-neutral-900 relative">
+                     <motion.div 
+                       className="absolute top-1/2 left-0 h-[2px] -translate-y-1/2 bg-brand-red shadow-[0_0_10px_rgba(220,53,53,0.8)]"
+                       style={{ width: `${percent}%` }}
+                     />
+                   </div>
+                 </motion.div>
+               ) : (
+                 <motion.div
+                   key="logo"
+                   initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
+                   animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                   transition={{ duration: 0.6, ease: "easeOut" }}
+                   className="flex flex-col items-center w-full"
+                 >
+                   <div className="relative group w-full max-w-[16rem] sm:max-w-[20rem] md:max-w-xs flex justify-center">
+                     <div className="absolute inset-0 bg-brand-red/30 blur-[40px] rounded-full scale-y-50" />
+                     <img 
+                       src="https://i.ibb.co/JRMTckSp/file-0000000040047208885869e9a710d1ab.png" 
+                       alt="Pexel Paradox" 
+                       className="w-full h-auto object-contain brightness-0 invert drop-shadow-[0_0_15px_rgba(220,53,53,0.4)] relative z-10 isolate"
+                     />
+                   </div>
+                 </motion.div>
+               )}
+             </AnimatePresence>
+          </div>
+          
+          <div className="absolute bottom-8 left-8 hidden sm:flex flex-col gap-1 tracking-[0.2em] font-mono text-[10px] text-neutral-600">
+             <span>SYS.REQ.001</span>
+             <span>PEXEL PARADOX CORE</span>
+          </div>
+
+          {/* Random fluctuating data lines */}
+          <div className="absolute bottom-8 right-8 hidden sm:flex gap-1 items-end h-8">
+            {[1,2,3,4,5].map((i) => (
               <motion.div
                 key={i}
-                initial={{ scaleY: 0 }}
-                animate={{ scaleY: 1 }}
-                transition={{ 
-                  duration: 0.5, 
-                  repeat: Infinity, 
-                  repeatType: "mirror", 
-                  delay: i * 0.1 
-                }}
-                className="w-1.5 h-8 bg-brand-red origin-bottom"
+                initial={{ height: "20%" }}
+                animate={{ height: ["20%", "100%", "40%", "80%", "20%"] }}
+                transition={{ duration: 1.5 + (i*0.2), repeat: Infinity, ease: "linear" }}
+                className="w-1 bg-brand-red"
               />
             ))}
           </div>
-
-          {/* Dynamic exit curtains */}
-          <motion.div
-             exit={{ scaleY: 0 }}
-             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
-             className="absolute top-0 left-0 w-full h-1/2 bg-[#030303] origin-top border-b border-white/10"
-          />
-          <motion.div
-             exit={{ scaleY: 0 }}
-             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
-             className="absolute bottom-0 left-0 w-full h-1/2 bg-[#030303] origin-bottom border-t border-white/10"
-          />
 
         </motion.div>
       )}

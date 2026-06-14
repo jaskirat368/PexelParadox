@@ -4,7 +4,7 @@ import { ArrowRight, Trophy, Users, TrendingUp, Target, Dumbbell, ShieldCheck, Z
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-32 pb-8 md:pt-36 md:pb-8 lg:pt-[8.5rem] lg:pb-8 xl:pt-40 xl:pb-16 px-6 overflow-hidden w-full bg-white text-black rounded-b-[3rem] md:rounded-b-[5rem] z-20 transition-all duration-500">
+    <section className="relative pt-36 pb-12 md:pt-40 md:pb-16 lg:pt-32 lg:pb-8 xl:pt-40 xl:pb-16 px-6 overflow-hidden w-full bg-white text-black rounded-b-[3rem] md:rounded-b-[5rem] z-20 transition-all duration-500">
       
       {/* Dynamic Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -63,7 +63,7 @@ export default function HeroSection() {
            initial={{ opacity: 0, y: -20 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.5 }}
-           className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-brand-gray border border-brand-border mb-5 lg:mb-4 xl:mb-6 shadow-sm"
+           className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-brand-gray border border-brand-border mb-6 lg:mb-4 xl:mb-6 shadow-sm"
          >
           <div className="relative flex items-center justify-center w-3 h-3">
             <span className="absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75 animate-ping"></span>
@@ -78,7 +78,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black tracking-tighter text-black leading-[0.95] mb-5 lg:mb-4 xl:mb-6"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem] font-black tracking-tighter text-black leading-[0.95] mb-6 lg:mb-4 xl:mb-6"
         >
           We Don't Just<br/>Run Ads. <br className="hidden md:block"/>
           <span className="text-brand-red relative inline-block mt-2">
@@ -93,7 +93,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl balance mb-7 lg:mb-5 xl:mb-8 font-medium leading-relaxed"
+          className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl balance mb-8 lg:mb-5 xl:mb-8 font-medium leading-relaxed"
         >
           A specialized growth partner for independent gym owners. We build high-ticket performance marketing systems that deliver measurable memberships and revenue.
         </motion.p>
@@ -158,7 +158,7 @@ export default function HeroSection() {
       </div>
 
       {/* Floating Stat Cards (Out of the Box Interactive Element) */}
-      <div className="max-w-6xl mx-auto mt-10 lg:mt-6 xl:mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 relative z-10 px-2 md:px-6">
+      <div className="max-w-6xl mx-auto mt-12 lg:mt-6 xl:mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 relative z-10 px-2 md:px-6">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

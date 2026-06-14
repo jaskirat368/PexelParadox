@@ -32,14 +32,14 @@ export default function Navbar() {
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 pointer-events-none px-4 sm:px-6 md:px-8 mt-6`}
     >
       <div 
-        className={`max-w-5xl mx-auto rounded-full pointer-events-auto transition-all duration-500 py-4 px-6 md:px-8 shadow-2xl ${
+        className={`max-w-7xl mx-auto rounded-full pointer-events-auto transition-all duration-500 py-4 px-6 md:px-8 shadow-2xl ${
           isScrolled 
             ? 'border border-white/20 shadow-brand-red/50 bg-brand-red/95 backdrop-blur-md text-white' 
             : 'border border-transparent bg-brand-red/90 backdrop-blur-md text-white'
         }`}
       >
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group w-40 md:w-56 h-8 md:h-10 relative" onClick={closeMenu}>
+          <Link to="/" className="flex items-center gap-2 group w-40 md:w-56 h-8 md:h-10 relative shrink-0" onClick={closeMenu}>
             <img 
               src="https://i.ibb.co/JRMTckSp/file-0000000040047208885869e9a710d1ab.png" 
               alt="Pexel Paradox Logo" 
@@ -48,7 +48,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8 lg:gap-10">
+          <nav className="hidden xl:flex items-center gap-8">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path || 
                               (link.path !== '/' && location.pathname.startsWith(link.path));
@@ -67,24 +67,24 @@ export default function Navbar() {
           </nav>
 
           {/* CTA & Mobile Toggle */}
-          <div className="flex items-center gap-3 lg:gap-4">
+          <div className="flex items-center gap-3 lg:gap-4 shrink-0">
             <a 
               href="tel:+919833000052" 
-              className="hidden lg:flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm font-semibold mr-2"
+              className="hidden lg:flex items-center gap-2 px-4 h-10 rounded-full border border-white/30 text-white hover:bg-white hover:text-brand-red transition-all text-sm font-bold shadow-sm"
             >
               <Phone size={16} />
-              <span>+91 9833-0000-52</span>
+              <span>Call Now</span>
             </a>
             <Link
               to="/contact#contact-form"
-              className="hidden md:inline-flex h-10 px-6 items-center justify-center rounded-full bg-white text-brand-red font-bold text-sm transition-transform hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] active:scale-95 shrink-0"
+              className="hidden lg:inline-flex h-10 px-6 items-center justify-center rounded-full bg-white text-brand-red font-bold text-sm transition-transform hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] active:scale-95 shrink-0"
               onClick={closeMenu}
             >
               Request Project
             </Link>
 
             <button
-              className="md:hidden p-2 text-white hover:text-white/80 transition-colors"
+              className="xl:hidden p-2 text-white hover:text-white/80 transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -102,7 +102,7 @@ export default function Navbar() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -10 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute top-full left-4 right-4 mt-4 bg-[#0F1012] border border-gray-800 rounded-3xl md:hidden overflow-hidden pointer-events-auto shadow-2xl text-white outline outline-1 outline-white/5"
+            className="absolute top-full left-4 right-4 mt-4 bg-[#0F1012] border border-gray-800 rounded-3xl xl:hidden overflow-hidden pointer-events-auto shadow-2xl text-white outline outline-1 outline-white/5"
           >
             <div className="p-6 md:p-8 flex flex-col gap-6">
               

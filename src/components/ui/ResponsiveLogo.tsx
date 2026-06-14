@@ -7,11 +7,11 @@ interface ResponsiveLogoProps {
 }
 
 export default function ResponsiveLogo({ className = "", onClick, invert = false }: ResponsiveLogoProps) {
-  // Mobile/Tablet Logo (Icon Only) - https://ibb.co/Pv4vzwjZ
-  // Desktop/Laptop Logo (Full) - https://ibb.co/1tgrqDBd
+  // Mobile/Tablet Logo (Icon Only) - https://ibb.co/hJS8Zv4j
+  // Desktop/Laptop Logo (Full) - https://ibb.co/mCZThJH5
   
-  const iconLogo = "https://i.ibb.co/G4k43cpv/file-00000000f48c720794722f82911a2d5e.png";
-  const fullLogo = "https://i.ibb.co/8LCr5WGd/IMG-20260614-214548.png";
+  const iconLogo = "https://i.ibb.co/B59srRQx/file-00000000f48c720794722f82911a2d5e.png";
+  const fullLogo = "https://i.ibb.co/fY6FrMCd/IMG-20260614-214548.png";
 
   const invertClasses = invert ? "brightness-0 invert" : "";
 

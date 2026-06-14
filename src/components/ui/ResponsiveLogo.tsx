@@ -8,10 +8,10 @@ interface ResponsiveLogoProps {
 
 export default function ResponsiveLogo({ className = "", onClick, invert = false }: ResponsiveLogoProps) {
   // Mobile/Tablet Logo (Icon Only) - https://i.ibb.co/Pv4vzwjZ/image.png
-  // Desktop/Laptop Logo (Full) - https://i.ibb.co/LX2nc036/image.png
+  // Desktop/Laptop Logo (Full) - https://i.ibb.co/1tgrqDBd/image.png
   
   const iconLogo = "https://i.ibb.co/Pv4vzwjZ/image.png";
-  const fullLogo = "https://i.ibb.co/LX2nc036/image.png";
+  const fullLogo = "https://i.ibb.co/1tgrqDBd/image.png";
 
   const invertClasses = invert ? "brightness-0 invert" : "";
 

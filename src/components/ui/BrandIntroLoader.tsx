@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { TrendingUp, Users, MousePointer2, BarChart } from 'lucide-react';
-import ResponsiveLogo from './ResponsiveLogo';
 
 interface BrandIntroLoaderProps {
   onComplete: () => void;
@@ -98,10 +97,11 @@ export default function BrandIntroLoader({ onComplete }: BrandIntroLoaderProps) 
                transition={{ duration: 0.8 }}
                className="absolute inset-0 bg-white/20 blur-[60px] md:blur-[80px] rounded-full scale-y-50 pointer-events-none" 
              />
-             <div className="relative z-10 isolate px-2 md:px-0 flex justify-center pointer-events-none">
-               {/* Explicitly passing larger sizes for the intro loader, or just using default but scaled */}
-               <ResponsiveLogo className="scale-[1.2] md:scale-[1.5]" invert={true} />
-             </div>
+             <img 
+               src="https://i.ibb.co/JRMTckSp/file-0000000040047208885869e9a710d1ab.png" 
+               alt="Pexel Paradox" 
+               className="w-full h-auto object-contain brightness-0 invert relative z-10 isolate px-2 md:px-0 max-w-[20rem] sm:max-w-[28rem] md:max-w-[34rem] pointer-events-none"
+             />
           </div>
 
           {/* Social Media Agency Aesthetic Floating Elements */}

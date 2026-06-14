@@ -1,4 +1,4 @@
-import React, { useId, useRef, useState } from 'react';
+import React, { useId, useRef, useState, useEffect } from 'react';
 import { motion, HTMLMotionProps, useMotionValue, useSpring, useTransform } from 'motion/react';
 
 // Light weight utility for joining classNames
@@ -25,6 +25,28 @@ export default function PremiumInteractiveCard({
   const uniqueId = useId().replace(/:/g, '');
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+
+  // Monitor visibility in viewport to pause off-screen animations and save frame-rate
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      {
+        rootMargin: '150px', // Activate animations slightly before they scroll into view
+        threshold: 0.01,
+      }
+    );
+
+    observer.observe(el);
+    return () => {
+      observer.unobserve(el);
+    };
+  }, []);
 
   // Motion values to keep track of mouse coordinates
   const x = useMotionValue(0.5);
@@ -99,101 +121,109 @@ export default function PremiumInteractiveCard({
         transformStyle: 'preserve-3d',
         perspective: 1200,
         borderRadius: borderRadius,
+        willChange: 'transform',
+        backfaceVisibility: 'hidden',
+        transform: 'translate3d(0,0,0)',
         ...style,
       }}
       {...motionProps}
     >
-      {/* Electric Border Glow SVG Overlay */}
-      <svg 
-        className="absolute -inset-[1px] w-[calc(100%+2px)] h-[calc(100%+2px)] pointer-events-none z-40 overflow-visible"
-        style={{
-          borderRadius: borderRadius,
-        }}
-        aria-hidden="true"
-      >
-        <defs>
-          <filter id={`electric-glow-blur-${uniqueId}`} x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="3.0" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-        
-        {/* Layer 0: High-Contrast Shadow Outline (for high visibility of white glow on bright/white backgrounds) */}
-        {isWhiteGlow && (
+      {/* Electric Border Glow SVG Overlay - Only rendered when in view to ensure absolute buttery high-speed performance */}
+      {isInView && (
+        <svg 
+          className="absolute -inset-[1px] w-[calc(100%+2px)] h-[calc(100%+2px)] pointer-events-none z-40 overflow-visible"
+          style={{
+            borderRadius: borderRadius,
+            transform: 'translate3d(0,0,0)',
+            backfaceVisibility: 'hidden',
+            willChange: 'transform',
+          }}
+          aria-hidden="true"
+        >
+          {/* Layer 0: High-Contrast Shadow Outline (for high visibility of white glow on bright/white backgrounds) */}
+          {isWhiteGlow && (
+            <rect
+              x="1"
+              y="1"
+              rx={rx}
+              ry={rx}
+              fill="none"
+              stroke="#000000"
+              strokeWidth="6.5"
+              strokeOpacity="0.45"
+              pathLength="100"
+              strokeLinecap="round"
+              className={cn(
+                "transition-opacity duration-300 pointer-events-none",
+                isHovered ? "opacity-100" : "opacity-80"
+              )}
+              style={{
+                width: 'calc(100% - 2px)',
+                height: 'calc(100% - 2px)',
+                strokeDasharray: '22 78', // Medium trail length
+                animation: `electric-flow-single ${isHovered ? '3.5s' : '5.4s'} linear infinite`, // Medium speed
+                transform: 'translate3d(0,0,0)',
+                backfaceVisibility: 'hidden',
+                willChange: 'stroke-dashoffset',
+              }}
+            />
+          )}
+
+          {/* Layer 1: Wide Soft Glowing Undercoat with GPU-accelerated CSS blur filter */}
           <rect
             x="1"
             y="1"
             rx={rx}
             ry={rx}
             fill="none"
-            stroke="#000000"
-            strokeWidth="6.5"
-            strokeOpacity="0.45"
+            stroke={strokeColor}
+            strokeWidth={isWhiteGlow ? "5.5" : "4.0"}
             pathLength="100"
             strokeLinecap="round"
             className={cn(
               "transition-opacity duration-300 pointer-events-none",
-              isHovered ? "opacity-100" : "opacity-80"
+              isHovered ? "opacity-100" : "opacity-60"
             )}
             style={{
               width: 'calc(100% - 2px)',
               height: 'calc(100% - 2px)',
               strokeDasharray: '22 78', // Medium trail length
               animation: `electric-flow-single ${isHovered ? '3.5s' : '5.4s'} linear infinite`, // Medium speed
+              filter: isWhiteGlow ? 'blur(4.5px)' : 'blur(3.0px)', // GPU hardware-accelerated CSS blur
+              transform: 'translate3d(0,0,0)',
+              backfaceVisibility: 'hidden',
+              willChange: 'stroke-dashoffset, filter',
             }}
           />
-        )}
 
-        {/* Layer 1: Wide Soft Glowing Undercoat */}
-        <rect
-          x="1"
-          y="1"
-          rx={rx}
-          ry={rx}
-          fill="none"
-          stroke={strokeColor}
-          strokeWidth={isWhiteGlow ? "5.5" : "4.0"}
-          filter={`url(#electric-glow-blur-${uniqueId})`}
-          pathLength="100"
-          strokeLinecap="round"
-          className={cn(
-            "transition-opacity duration-300 pointer-events-none",
-            isHovered ? "opacity-100" : "opacity-60"
-          )}
-          style={{
-            width: 'calc(100% - 2px)',
-            height: 'calc(100% - 2px)',
-            strokeDasharray: '22 78', // Medium trail length
-            animation: `electric-flow-single ${isHovered ? '3.5s' : '5.4s'} linear infinite`, // Medium speed
-          }}
-        />
-
-        {/* Layer 2: Core Bright Sharp Trail */}
-        <rect
-          x="1"
-          y="1"
-          rx={rx}
-          ry={rx}
-          fill="none"
-          stroke={strokeColor}
-          strokeWidth={isWhiteGlow ? "3.0" : "2.0"}
-          pathLength="100"
-          strokeLinecap="round"
-          className={cn(
-            "transition-opacity duration-300 pointer-events-none",
-            isHovered ? "opacity-100" : "opacity-90"
-          )}
-          style={{
-            width: 'calc(100% - 2px)',
-            height: 'calc(100% - 2px)',
-            strokeDasharray: '22 78', // Medium trail length
-            animation: `electric-flow-single ${isHovered ? '3.5s' : '5.4s'} linear infinite`, // Medium speed
-          }}
-        />
-      </svg>
+          {/* Layer 2: Core Bright Sharp Trail with GPU-accelerated CSS blur */}
+          <rect
+            x="1"
+            y="1"
+            rx={rx}
+            ry={rx}
+            fill="none"
+            stroke={strokeColor}
+            strokeWidth={isWhiteGlow ? "3.0" : "2.0"}
+            pathLength="100"
+            strokeLinecap="round"
+            className={cn(
+              "transition-opacity duration-300 pointer-events-none",
+              isHovered ? "opacity-100" : "opacity-90"
+            )}
+            style={{
+              width: 'calc(100% - 2px)',
+              height: 'calc(100% - 2px)',
+              strokeDasharray: '22 78', // Medium trail length
+              animation: `electric-flow-single ${isHovered ? '3.5s' : '5.4s'} linear infinite`, // Medium speed
+              filter: isWhiteGlow ? 'blur(0.8px)' : 'blur(0.4px)', // High density core glow
+              transform: 'translate3d(0,0,0)',
+              backfaceVisibility: 'hidden',
+              willChange: 'stroke-dashoffset, filter',
+            }}
+          />
+        </svg>
+      )}
 
       {/* Floating Pointer Shadow Flare (Follows the mouse location dynamically inside the hover state) */}
       {isHovered && (

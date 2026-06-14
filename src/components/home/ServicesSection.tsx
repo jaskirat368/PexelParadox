@@ -55,29 +55,18 @@ export default function ServicesSection() {
         </div>
 
         {/* Right Column - Image and Cards */}
-        <div className="relative z-10 flex-1 flex flex-col sm:flex-row gap-6 items-stretch">
+        <div className="relative z-10 flex-1 flex flex-col gap-6">
           
-          {/* Tall Image */}
-          <div className="flex-1 min-h-[300px] sm:min-h-[400px] relative border border-neutral-850 rounded-[2rem] overflow-hidden">
-            <img 
-              src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&fit=crop&auto=format" 
-              alt="Gym owner working" 
-              className="absolute inset-0 w-full h-full object-cover object-center grayscale-[50%]"
-            />
-            {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-black/10 mix-blend-overlay" />
-          </div>
-
-          {/* Side cards */}
-          <div className="flex flex-col gap-6 sm:w-[220px] justify-between">
-            {/* Top Card - Dark */}
-            <Link to="/process" className="flex-1 flex flex-col group">
+          {/* Row 1: Buttons/Cards sitting horizontally on PC and larger screens */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full order-2 sm:order-1">
+            {/* Left Card - Dark */}
+            <Link to="/process" className="flex flex-col group h-full">
               <PremiumInteractiveCard 
-                className="flex-1 bg-[#1C1D21] p-6 flex flex-col justify-between border border-neutral-800"
+                className="h-full bg-[#1C1D21] p-6 flex flex-col justify-between border border-neutral-800 min-h-[160px] md:min-h-[180px]"
                 borderRadius="2rem"
               >
                 <div>
-                  <p className="text-sm font-medium text-gray-400 mb-8">
+                  <p className="text-sm font-medium text-gray-400 mb-6">
                     Ever wondered how predictable growth happens?
                   </p>
                 </div>
@@ -91,15 +80,15 @@ export default function ServicesSection() {
                 </div>
               </PremiumInteractiveCard>
             </Link>
-
-            {/* Bottom Card - Red */}
-            <Link to="/contact" className="flex-1 flex flex-col group">
+ 
+            {/* Right Card - Red */}
+            <Link to="/contact" className="flex flex-col group h-full">
               <PremiumInteractiveCard 
-                className="flex-1 bg-brand-red p-6 flex flex-col justify-between"
+                className="h-full bg-brand-red p-6 flex flex-col justify-between min-h-[160px] md:min-h-[180px]"
                 borderRadius="2rem"
               >
                 <div>
-                  <p className="text-sm font-medium text-white/90 mb-8">
+                  <p className="text-sm font-medium text-white/90 mb-6">
                     Looking for experts who can scale your gym to maximum capacity?
                   </p>
                 </div>
@@ -114,7 +103,19 @@ export default function ServicesSection() {
               </PremiumInteractiveCard>
             </Link>
           </div>
-
+ 
+          {/* Row 2: Horizontal Image */}
+          <div className="w-full h-[320px] sm:h-[350px] relative border border-neutral-850 rounded-[2rem] overflow-hidden group/img order-1 sm:order-2">
+            <img 
+              src="https://i.ibb.co/hxX4mPyT/dad70d8b79998b686eab8f852e611a91-webp.webp" 
+              alt="Gym services preview" 
+              className="absolute inset-0 w-full h-full object-cover object-center grayscale-[20%] transition-transform duration-500 group-hover/img:scale-105"
+            />
+            {/* Overlay gradient */}
+            <div className="absolute inset-0 bg-neutral-950/20 mix-blend-overlay transition-opacity duration-500 group-hover/img:opacity-10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+          </div>
+ 
         </div>
 
       </div>

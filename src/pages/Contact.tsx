@@ -222,7 +222,7 @@ export default function Contact() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className="bg-brand-gray border border-brand-border rounded-xl px-5 py-3.5 text-black font-medium focus:outline-none focus:border-brand-red focus:bg-white transition-all w-full leading-tight" 
-                    placeholder="Enter your name" 
+                    placeholder="E.g., John Doe" 
                   />
                 </div>
                  <div className="flex flex-col gap-2">
@@ -234,7 +234,7 @@ export default function Contact() {
                     value={gymName}
                     onChange={(e) => setGymName(e.target.value)}
                     className="bg-brand-gray border border-brand-border rounded-xl px-5 py-3.5 text-black font-medium focus:outline-none focus:border-brand-red focus:bg-white transition-all w-full leading-tight" 
-                    placeholder="Enter your gym name" 
+                    placeholder="E.g., Iron Temple Fitness Club" 
                   />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -247,7 +247,7 @@ export default function Contact() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="bg-brand-gray border border-brand-border rounded-xl px-5 py-3.5 text-black font-medium focus:outline-none focus:border-brand-red focus:bg-white transition-all w-full leading-tight" 
-                      placeholder="Email" 
+                      placeholder="yourname@domain.com" 
                     />
                   </div>
                   <div className="flex flex-col gap-2">
@@ -259,7 +259,7 @@ export default function Contact() {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className="bg-brand-gray border border-brand-border rounded-xl px-5 py-3.5 text-black font-medium focus:outline-none focus:border-brand-red focus:bg-white transition-all w-full leading-tight" 
-                      placeholder="Phone" 
+                      placeholder="+1 (555) 000-0000 / +91 98765-43210" 
                     />
                   </div>
                 </div>
@@ -273,7 +273,7 @@ export default function Contact() {
                     value={budget}
                     onChange={(e) => setBudget(e.target.value)}
                     className="bg-brand-gray border border-brand-border rounded-xl px-5 py-3.5 text-black font-medium focus:outline-none focus:border-brand-red focus:bg-white transition-all w-full leading-tight"
-                    placeholder="E.g., $1,000 - $3,000"
+                    placeholder="E.g., $1,500 - $3,000"
                   />
                 </div>
 

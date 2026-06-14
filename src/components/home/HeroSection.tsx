@@ -24,12 +24,12 @@ export default function HeroSection() {
 
       <div className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto">
         
-        {/* Floating "Live Leads" Element (Desktop) */}
+        {/* Floating "Live Leads" Element (Desktop Only) */}
         <motion.div 
           initial={{ opacity: 0, x: -50, rotate: -15 }}
           animate={{ opacity: 1, x: 0, rotate: -12 }}
           transition={{ duration: 0.8, delay: 0.5, type: 'spring' }}
-          className="absolute -left-4 lg:-left-24 top-1/4 hidden md:flex flex-col items-center gap-2 bg-white/80 backdrop-blur-md border border-brand-border p-3 rounded-2xl shadow-xl z-20 origin-top-left"
+          className="absolute lg:left-[-3rem] xl:left-[-6rem] 2xl:left-[-10rem] top-[22%] hidden lg:flex flex-col items-center gap-2 bg-white/85 backdrop-blur-md border border-brand-border p-3 rounded-2xl shadow-xl z-20 origin-top-left"
         >
             <div className="flex -space-x-3">
               <img src="https://i.pravatar.cc/100?img=11" alt="avatar" className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" />
@@ -41,12 +41,12 @@ export default function HeroSection() {
             <p className="text-[10px] font-bold text-gray-500 uppercase text-center mt-1 leading-tight">Live Leads<br/><span className="text-[#25D366] flex items-center justify-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse"></span> Generated</span></p>
         </motion.div>
 
-        {/* Floating "ROAS" Element (Desktop) */}
+        {/* Floating "ROAS" Element (Desktop Only) */}
         <motion.div 
           initial={{ opacity: 0, x: 50, rotate: 15 }}
           animate={{ opacity: 1, x: 0, rotate: 12 }}
           transition={{ duration: 0.8, delay: 0.7, type: 'spring' }}
-          className="absolute -right-4 lg:-right-24 top-1/3 hidden md:flex flex-col items-center gap-2 bg-[#0F1012] p-4 rounded-2xl shadow-xl z-20 border border-neutral-800 origin-top-right"
+          className="absolute lg:right-[-3rem] xl:right-[-6rem] 2xl:right-[-10rem] top-[30%] hidden lg:flex flex-col items-center gap-2 bg-[#0F1012] p-4 rounded-2xl shadow-xl z-20 border border-neutral-800 origin-top-right"
         >
             <div className="flex items-center gap-2 bg-brand-red/20 px-3 py-1.5 rounded-full">
               <Zap size={14} className="text-brand-red fill-current" />
@@ -102,14 +102,14 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="relative w-full"
+          className="relative w-full max-w-sm sm:max-w-md mx-auto"
         >
-          {/* Floating "Live Leads" Element (Mobile) */}
+          {/* Mobile Floating Card: Live Leads (Placed on the left of Request Project button) */}
           <motion.div 
             initial={{ opacity: 0, x: -30, rotate: -15 }}
             animate={{ opacity: 1, x: 0, rotate: -12 }}
             transition={{ duration: 0.8, delay: 0.5, type: 'spring' }}
-            className="absolute -left-2 sm:left-4 top-[10%] flex md:hidden flex-col items-center gap-1.5 bg-white/90 backdrop-blur-md border border-brand-border p-2 rounded-xl shadow-xl z-20 scale-[0.70] origin-left pointer-events-none"
+            className="absolute -left-3 sm:-left-12 top-[-10px] flex lg:hidden flex-col items-center gap-1 bg-white/95 backdrop-blur-md border border-brand-border p-2 rounded-xl shadow-xl z-20 scale-[0.7] sm:scale-80 origin-left pointer-events-none"
           >
               <div className="flex -space-x-2">
                 <img src="https://i.pravatar.cc/100?img=11" alt="avatar" className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm" />
@@ -121,20 +121,20 @@ export default function HeroSection() {
               <p className="text-[9px] font-bold text-gray-500 uppercase text-center mt-0.5 leading-tight">Live Leads<br/><span className="text-[#25D366] flex items-center justify-center gap-1 mt-0.5"><span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse"></span> Generated</span></p>
           </motion.div>
 
-          {/* Floating "ROAS" Element (Mobile) */}
+          {/* Mobile Floating Card: ACTIVE CAMPAIGN (Placed on the right of See How We Work button) */}
           <motion.div 
             initial={{ opacity: 0, x: 30, rotate: 15 }}
             animate={{ opacity: 1, x: 0, rotate: 12 }}
             transition={{ duration: 0.8, delay: 0.7, type: 'spring' }}
-            className="absolute -right-2 sm:right-4 top-[40%] flex md:hidden flex-col items-center gap-1.5 bg-[#0F1012]/95 backdrop-blur-md p-2 rounded-xl shadow-xl z-20 border border-neutral-800 scale-[0.70] origin-right pointer-events-none"
+            className="absolute -right-3 sm:-right-12 bottom-[-10px] flex lg:hidden flex-col items-center gap-1 bg-[#0F1012]/95 backdrop-blur-md p-2 rounded-xl shadow-xl z-20 border border-neutral-800 scale-[0.7] sm:scale-80 origin-right pointer-events-none"
           >
-              <div className="flex items-center gap-1.5 bg-brand-red/20 px-2 py-1 rounded-full">
-                <Zap size={12} className="text-brand-red fill-current" />
-                <span className="text-brand-red text-[10px] font-bold tracking-wider">ACTIVE CAMPAIGN</span>
+              <div className="flex items-center gap-1.5 bg-brand-red/20 px-2 py-0.5 rounded-full">
+                <Zap size={10} className="text-brand-red fill-current" />
+                <span className="text-brand-red text-[8px] font-bold tracking-wider">ACTIVE CAMPAIGN</span>
               </div>
               <div>
-                <p className="text-xl font-black text-white text-center leading-none mt-1">4.2x</p>
-                <p className="text-[9px] font-bold text-gray-400 uppercase text-center mt-1">Avg ROAS <br/>This Week</p>
+                <p className="text-lg font-black text-white text-center leading-none mt-0.5">4.2x</p>
+                <p className="text-[8px] font-bold text-gray-400 uppercase text-center mt-0.5">Avg ROAS <br/>This Week</p>
               </div>
           </motion.div>
 

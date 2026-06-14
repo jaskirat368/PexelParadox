@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import FloatingContactButtons from './components/layout/FloatingContactButtons';
@@ -18,6 +19,8 @@ import TermsOfService from './pages/legal/TermsOfService';
 import Disclaimer from './pages/legal/Disclaimer';
 import RefundPolicy from './pages/legal/RefundPolicy';
 import ErrorPage from './pages/ErrorPage';
+import { PageSkeleton } from './components/ui/SkeletonViews';
+import BrandIntroLoader from './components/ui/BrandIntroLoader';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -29,14 +32,41 @@ function ScrollToTop() {
   return null;
 }
 
-export default function App() {
+function AppContent() {
+  const location = useLocation();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 550);
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="flex flex-col min-h-screen bg-brand-gray w-full overflow-hidden">
-        <Navbar />
-        <main className="flex-grow flex flex-col w-full relative z-10">
-          <Routes>
+    <AnimatePresence mode="wait">
+      {loading ? (
+        <motion.div
+          key={`skeleton-${location.pathname}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="w-full flex-grow flex flex-col"
+        >
+          <PageSkeleton path={location.pathname} />
+        </motion.div>
+      ) : (
+        <motion.div
+          key={`content-${location.pathname}`}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.35, ease: "easeOut" }}
+          className="w-full flex-grow flex flex-col"
+        >
+          <Routes location={location}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
@@ -55,6 +85,40 @@ export default function App() {
             <Route path="/page-not-found-error" element={<ErrorPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
+export default function App() {
+  const [introLoading, setIntroLoading] = useState(() => {
+    try {
+      return !sessionStorage.getItem('pexel_paradox_intro_shown');
+    } catch {
+      return true;
+    }
+  });
+
+  const handleIntroComplete = () => {
+    setIntroLoading(false);
+    try {
+      sessionStorage.setItem('pexel_paradox_intro_shown', 'true');
+    } catch (e) {
+      // secure sandboxed context fallback
+    }
+  };
+
+  return (
+    <Router>
+      <ScrollToTop />
+      <AnimatePresence>
+        {introLoading && <BrandIntroLoader onComplete={handleIntroComplete} />}
+      </AnimatePresence>
+      <div className="flex flex-col min-h-screen bg-brand-gray w-full overflow-hidden">
+        <Navbar />
+        <main className="flex-grow flex flex-col w-full relative z-10">
+          <AppContent />
         </main>
         <Footer />
         <FloatingContactButtons />

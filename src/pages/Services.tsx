@@ -230,7 +230,7 @@ export default function Services() {
             <div className="mt-auto">
               <div className="relative w-full h-40 rounded-2xl overflow-hidden border border-brand-border mb-6">
                 <img 
-                  src="https://i.ibb.co/BHXhDPt9/IMG-20260614-120249.jpg" 
+                  src="https://i.ibb.co/G3WLHD2Y/6a27e22a1ae5b9cd2e65d63081f3393e-1.png" 
                   alt="Lead Generation" 
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -373,7 +373,7 @@ export default function Services() {
             <div className="mt-auto">
               <div className="relative w-full h-40 rounded-2xl overflow-hidden border border-brand-border mb-6">
                 <img 
-                  src="https://i.ibb.co/1fMTJ65T/9f09ad0d46dd1436746a0a1e1ded33f8-webp.webp" 
+                  src="https://i.ibb.co/k2cpMjNG/fcc07164b65ab47c5d07c34d9b2683ee.png" 
                   alt="Follow-Up Systems" 
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
@@ -423,9 +423,9 @@ export default function Services() {
               <div className="lg:col-span-4 flex justify-center lg:justify-end w-full">
                 <div className="relative w-full h-48 md:h-56 rounded-[1.5rem] overflow-hidden border border-neutral-800">
                   <img 
-                    src="https://i.ibb.co/bjZXHFMw/6ac15143f9b2e8de9cafadca841d4145-webp.webp" 
+                    src="https://i.ibb.co/YBgyVcVZ/6ac15143f9b2e8de9cafadca841d4145.png" 
                     alt="Gym Growth Strategy" 
-                    className="absolute inset-0 w-full h-full object-cover grayscale-[10%] group-hover:scale-105 transition-transform duration-500" 
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   />
                 </div>
               </div>

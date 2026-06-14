@@ -32,7 +32,7 @@ export default function ResponsiveLogo({ className = "", onClick, invert = false
       <img
         src={fullLogo}
         alt="Pexel Paradox Logo"
-        className={`w-[180px] xl:w-[240px] 2xl:w-[320px] h-auto object-contain hidden lg:block pointer-events-none ${invertClasses}`}
+        className={`lg:h-[2.25rem] xl:h-[2.5rem] 2xl:h-[2.75rem] w-auto object-contain hidden lg:block pointer-events-none ${invertClasses}`}
       />
     </Link>
   );

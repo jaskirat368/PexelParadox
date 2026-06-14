@@ -35,8 +35,8 @@ export default function Navbar() {
       <div 
         className={`max-w-7xl mx-auto rounded-full pointer-events-auto transition-all duration-300 ${
           isScrolled 
-            ? 'py-3 px-6 md:px-8 bg-brand-red/95 border border-white/20 shadow-lg shadow-brand-red/20 text-white lg:bg-white/95 lg:border-neutral-200/80 lg:shadow-xl lg:shadow-black/5' 
-            : 'py-4 px-6 md:px-8 bg-brand-red/90 border border-transparent shadow-md text-white lg:bg-white/80 lg:border-white/50 lg:shadow-md lg:shadow-black/2'
+            ? 'py-3 px-6 md:px-8 bg-brand-red/95 border border-white/20 shadow-lg shadow-brand-red/20 text-white lg:py-2 lg:bg-white/95 lg:border-neutral-200/80 lg:shadow-xl lg:shadow-black/5' 
+            : 'py-4 px-6 md:px-8 bg-brand-red/90 border border-transparent shadow-md text-white lg:py-3 lg:bg-white/80 lg:border-white/50 lg:shadow-md lg:shadow-black/2'
         } backdrop-blur-md`}
       >
         <div className="flex items-center justify-between">

@@ -30,20 +30,20 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 pointer-events-none px-4 sm:px-6 md:px-8 mt-6`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 pointer-events-none px-4 sm:px-6 md:px-8 mt-4 lg:mt-5`}
     >
       <div 
-        className={`max-w-7xl mx-auto rounded-full pointer-events-auto transition-all duration-500 py-4 px-6 md:px-8 shadow-2xl ${
+        className={`max-w-7xl mx-auto rounded-full pointer-events-auto transition-all duration-300 ${
           isScrolled 
-            ? 'border border-white/20 shadow-brand-red/50 bg-brand-red/95 backdrop-blur-md text-white' 
-            : 'border border-transparent bg-brand-red/90 backdrop-blur-md text-white'
-        }`}
+            ? 'py-3 px-6 md:px-8 bg-brand-red/95 border border-white/20 shadow-lg shadow-brand-red/20 text-white lg:bg-white/95 lg:border-neutral-200/80 lg:shadow-xl lg:shadow-black/5' 
+            : 'py-4 px-6 md:px-8 bg-brand-red/90 border border-transparent shadow-md text-white lg:bg-white/80 lg:border-white/50 lg:shadow-md lg:shadow-black/2'
+        } backdrop-blur-md`}
       >
         <div className="flex items-center justify-between">
           <ResponsiveLogo onClick={closeMenu} />
 
           {/* Desktop Nav */}
-          <nav className="hidden xl:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path || 
                               (link.path !== '/' && location.pathname.startsWith(link.path));
@@ -51,35 +51,44 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`text-base font-semibold tracking-wide transition-colors duration-200 ${
-                    isActive ? 'text-white font-bold drop-shadow-md' : 'text-white/80 hover:text-white'
+                  className={`text-sm xl:text-base font-semibold tracking-wide transition-all duration-200 relative py-1.5 px-1 ${
+                    isActive 
+                      ? 'text-white font-bold drop-shadow-md lg:text-brand-red lg:font-bold lg:drop-shadow-none' 
+                      : 'text-white/80 hover:text-white lg:text-neutral-600 lg:hover:text-brand-red'
                   }`}
                 >
                   {link.name}
+                  {isActive && (
+                    <motion.div 
+                      layoutId="nav-active-line"
+                      className="hidden lg:block absolute bottom-0 left-0 right-0 h-0.5 bg-brand-red rounded-full"
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
                 </Link>
               );
             })}
           </nav>
 
           {/* CTA & Mobile Toggle */}
-          <div className="flex items-center gap-3 lg:gap-4 shrink-0">
+          <div className="flex items-center gap-2 lg:gap-4 shrink-0">
             <a 
               href="tel:+919833000052" 
-              className="hidden lg:flex items-center gap-2 px-4 h-10 rounded-full border border-white/30 text-white hover:bg-white hover:text-brand-red transition-all text-sm font-bold shadow-sm"
+              className="hidden lg:flex items-center gap-2 px-4 h-10 rounded-full border border-white/30 text-white hover:bg-white hover:text-brand-red transition-all text-sm font-bold shadow-sm lg:border-neutral-200 lg:text-neutral-700 lg:hover:bg-neutral-100 lg:hover:text-black"
             >
-              <Phone size={16} />
+              <Phone size={14} />
               <span>Call Now</span>
             </a>
             <Link
               to="/contact#contact-form"
-              className="hidden lg:inline-flex h-10 px-6 items-center justify-center rounded-full bg-white text-brand-red font-bold text-sm transition-transform hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] active:scale-95 shrink-0"
+              className="hidden lg:inline-flex h-10 px-6 items-center justify-center rounded-full bg-white text-brand-red font-bold text-sm transition-all hover:scale-105 active:scale-95 shrink-0 lg:bg-black lg:text-white lg:hover:bg-brand-red lg:hover:shadow-[0_4px_15px_rgba(220,53,53,0.3)]"
               onClick={closeMenu}
             >
               Request Project
             </Link>
 
             <button
-              className="xl:hidden p-2 text-white hover:text-white/80 transition-colors"
+              className="lg:hidden p-2 text-white hover:text-white/80 transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >

@@ -100,7 +100,7 @@ export default function BrandIntroLoader({ onComplete }: BrandIntroLoaderProps) 
              />
              <div className="relative z-10 isolate px-2 md:px-0 flex justify-center pointer-events-none">
                {/* Explicitly passing larger sizes for the intro loader, or just using default but scaled */}
-               <ResponsiveLogo className="scale-[1.2] md:scale-[1.5]" />
+               <ResponsiveLogo className="scale-[1.2] md:scale-[1.5]" invert={true} />
              </div>
           </div>
 

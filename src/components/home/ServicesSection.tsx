@@ -69,25 +69,8 @@ export default function ServicesSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
           </div>
 
-          {/* Row 2: Last 2 Services placed below the image to fill space (Desktop Only) */}
-          <div className="hidden lg:grid grid-cols-1 sm:grid-cols-2 gap-4 w-full order-2">
-            {servicesList.slice(6, 8).map((service, index) => (
-              <Link
-                key={service.id}
-                to={`/services/${service.id}`}
-                className="group flex items-center justify-between px-5 py-4 border border-neutral-800 bg-neutral-950/40 hover:bg-neutral-900 hover:border-neutral-700 transition-all duration-300 rounded-2xl"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="text-brand-red font-black text-base">0{index + 7}</span>
-                  <span className="text-white font-semibold text-base">{service.title}</span>
-                </div>
-                <ArrowRight className="text-gray-500 group-hover:text-white transition-colors" size={16} />
-              </Link>
-            ))}
-          </div>
-          
-          {/* Row 3: Buttons/Cards sitting horizontally on PC and larger screens */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full order-3">
+          {/* Row 2: Buttons/Cards sitting horizontally on PC and larger screens */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full order-2">
             {/* Left Card - Dark */}
             <Link to="/process" className="flex flex-col group h-full">
               <PremiumInteractiveCard 
@@ -131,6 +114,23 @@ export default function ServicesSection() {
                 </div>
               </PremiumInteractiveCard>
             </Link>
+          </div>
+ 
+          {/* Row 3: Last 2 Services placed below the cards to fill space (Desktop Only) */}
+          <div className="hidden lg:flex flex-col gap-3 w-full order-3">
+            {servicesList.slice(6, 8).map((service, index) => (
+              <Link
+                key={service.id}
+                to={`/services/${service.id}`}
+                className="group flex items-center justify-between px-6 py-4 border border-neutral-800 bg-neutral-950/40 hover:bg-neutral-900 hover:border-neutral-700 transition-all duration-300 rounded-2xl w-full"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="text-brand-red font-black text-lg">0{index + 7}</span>
+                  <span className="text-white font-semibold text-lg">{service.title}</span>
+                </div>
+                <ArrowRight className="text-gray-500 group-hover:text-white transition-colors" size={20} />
+              </Link>
+            ))}
           </div>
  
         </div>

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowRight, Trophy, Users, TrendingUp } from 'lucide-react';
+import { ArrowRight, Trophy, Users, TrendingUp, Target, Dumbbell, ShieldCheck, Zap } from 'lucide-react';
 
 export default function HeroSection() {
   return (
@@ -24,6 +24,40 @@ export default function HeroSection() {
 
       <div className="relative z-10 flex flex-col items-center text-center max-w-5xl mx-auto">
         
+        {/* Floating "Live Leads" Element (Out of the box nice touch) */}
+        <motion.div 
+          initial={{ opacity: 0, x: -50, rotate: -15 }}
+          animate={{ opacity: 1, x: 0, rotate: -12 }}
+          transition={{ duration: 0.8, delay: 0.5, type: 'spring' }}
+          className="absolute -left-12 lg:-left-24 top-1/4 hidden md:flex flex-col items-center gap-2 bg-white/80 backdrop-blur-md border border-brand-border p-3 rounded-2xl shadow-xl z-20"
+        >
+            <div className="flex -space-x-3">
+              <img src="https://i.pravatar.cc/100?img=11" alt="avatar" className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" />
+              <img src="https://i.pravatar.cc/100?img=32" alt="avatar" className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" />
+              <div className="w-10 h-10 rounded-full border-2 border-white bg-brand-red flex items-center justify-center shadow-sm">
+                <span className="text-white text-[10px] font-bold">+12</span>
+              </div>
+            </div>
+            <p className="text-[10px] font-bold text-gray-500 uppercase text-center mt-1 leading-tight">Live Leads<br/><span className="text-[#25D366] flex items-center justify-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse"></span> Generated</span></p>
+        </motion.div>
+
+        {/* Floating "ROAS" Element */}
+        <motion.div 
+          initial={{ opacity: 0, x: 50, rotate: 15 }}
+          animate={{ opacity: 1, x: 0, rotate: 12 }}
+          transition={{ duration: 0.8, delay: 0.7, type: 'spring' }}
+          className="absolute -right-12 lg:-right-24 top-1/3 hidden md:flex flex-col items-center gap-2 bg-[#0F1012] p-4 rounded-2xl shadow-xl z-20 border border-neutral-800"
+        >
+            <div className="flex items-center gap-2 bg-brand-red/20 px-3 py-1.5 rounded-full">
+              <Zap size={14} className="text-brand-red fill-current" />
+              <span className="text-brand-red text-xs font-bold tracking-wider">ACTIVE CAMPAIGN</span>
+            </div>
+            <div>
+              <p className="text-2xl font-black text-white text-center leading-none mt-1">4.2x</p>
+              <p className="text-[10px] font-bold text-gray-400 uppercase text-center mt-1">Avg ROAS <br/>This Week</p>
+            </div>
+        </motion.div>
+
         {/* Dynamic Subheading Badge */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -89,19 +123,20 @@ export default function HeroSection() {
       </div>
 
       {/* Floating Stat Cards (Out of the Box Interactive Element) */}
-      <div className="max-w-5xl mx-auto mt-12 hidden md:grid grid-cols-3 gap-5 relative z-10 px-6">
+      <div className="max-w-6xl mx-auto mt-12 hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 relative z-10 px-6">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.5 }}
-          className="bg-brand-gray border border-brand-border rounded-[1.5rem] p-5 flex items-center gap-5 transform hover:-translate-y-1 transition-transform duration-300 hover:border-brand-red/30 cursor-default"
+          className="bg-brand-gray border border-brand-border rounded-[1.5rem] p-5 flex items-center gap-4 transform hover:-translate-y-1 transition-transform duration-300 hover:border-brand-red/30 cursor-default relative overflow-hidden group"
         >
-          <div className="w-12 h-12 rounded-xl bg-brand-red/10 flex items-center justify-center border border-brand-red/20 shrink-0">
-            <Trophy className="text-brand-red" size={24} />
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="w-12 h-12 rounded-xl bg-brand-red/10 flex items-center justify-center border border-brand-red/20 shrink-0 relative z-10">
+            <Target className="text-brand-red" size={24} />
           </div>
-          <div>
-            <div className="text-2xl font-black text-black leading-none mb-1">75+</div>
-            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider">Active Facilities</div>
+          <div className="relative z-10">
+            <div className="text-2xl font-black text-black leading-none mb-1">87%</div>
+            <div className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Digital Acquisition</div>
           </div>
         </motion.div>
 
@@ -109,14 +144,15 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.5 }}
-          className="bg-brand-gray border border-brand-border rounded-[1.5rem] p-5 flex items-center gap-5 transform hover:-translate-y-1 transition-transform duration-300 hover:border-brand-red/30 cursor-default"
+          className="bg-brand-gray border border-brand-border rounded-[1.5rem] p-5 flex items-center gap-4 transform hover:-translate-y-1 transition-transform duration-300 hover:border-brand-red/30 cursor-default relative overflow-hidden group"
         >
-          <div className="w-12 h-12 rounded-xl bg-brand-red/10 flex items-center justify-center border border-brand-red/20 shrink-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="w-12 h-12 rounded-xl bg-brand-red/10 flex items-center justify-center border border-brand-red/20 shrink-0 relative z-10">
             <TrendingUp className="text-brand-red" size={24} />
           </div>
-          <div>
-            <div className="text-2xl font-black text-black leading-none mb-1">$10M+</div>
-            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider">Revenue Gen.</div>
+          <div className="relative z-10">
+            <div className="text-2xl font-black text-black leading-none mb-1">3×</div>
+            <div className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Avg Lead Growth</div>
           </div>
         </motion.div>
 
@@ -124,14 +160,31 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.5 }}
-          className="bg-brand-gray border border-brand-border rounded-[1.5rem] p-5 flex items-center gap-5 transform hover:-translate-y-1 transition-transform duration-300 hover:border-brand-red/30 cursor-default"
+          className="bg-brand-gray border border-brand-border rounded-[1.5rem] p-5 flex items-center gap-4 transform hover:-translate-y-1 transition-transform duration-300 hover:border-brand-red/30 cursor-default relative overflow-hidden group"
         >
-          <div className="w-12 h-12 rounded-xl bg-brand-red/10 flex items-center justify-center border border-brand-red/20 shrink-0">
-            <Users className="text-brand-red" size={24} />
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="w-12 h-12 rounded-xl bg-brand-red/10 flex items-center justify-center border border-brand-red/20 shrink-0 relative z-10">
+            <Dumbbell className="text-brand-red" size={24} />
           </div>
-          <div>
-            <div className="text-2xl font-black text-black leading-none mb-1">3.5X</div>
-            <div className="text-xs font-bold text-gray-500 uppercase tracking-wider">Avg ROI</div>
+          <div className="relative z-10">
+            <div className="text-2xl font-black text-black leading-none mb-1">100%</div>
+            <div className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Gyms Only</div>
+          </div>
+        </motion.div>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9, duration: 0.5 }}
+          className="bg-brand-gray border border-brand-border rounded-[1.5rem] p-5 flex items-center gap-4 transform hover:-translate-y-1 transition-transform duration-300 hover:border-brand-red/30 cursor-default relative overflow-hidden group"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="w-12 h-12 rounded-xl bg-brand-red/10 flex items-center justify-center border border-brand-red/20 shrink-0 relative z-10">
+            <ShieldCheck className="text-brand-red" size={24} />
+          </div>
+          <div className="relative z-10">
+            <div className="text-2xl font-black text-black leading-none mb-1">₹0</div>
+            <div className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Wasted Ad Spend</div>
           </div>
         </motion.div>
       </div>

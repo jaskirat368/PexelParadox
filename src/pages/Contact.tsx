@@ -46,8 +46,8 @@ export default function Contact() {
 
   return (
     <section className="pt-40 pb-20 px-6 max-w-7xl mx-auto w-full">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        <div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 xl:gap-16 items-start">
+        <div className="lg:col-span-7">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ export default function Contact() {
             Ready to implement predictable growth systems? Book a strategy call with our team today.
           </motion.p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Card 1: Location */}
             <motion.div 
                initial={{ opacity: 0, y: 15 }}
@@ -162,7 +162,7 @@ export default function Contact() {
                initial={{ opacity: 0, y: 15 }}
                animate={{ opacity: 1, y: 0 }}
                transition={{ delay: 0.6 }}
-               className="bg-brand-gray border border-brand-border rounded-[1.5rem] p-6 hover:border-brand-red hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+               className="bg-brand-gray border border-brand-border rounded-[1.5rem] p-6 hover:border-brand-red hover:shadow-lg transition-all duration-300 flex flex-col justify-between sm:col-span-2"
             >
               <div className="flex items-start gap-4 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-white border border-brand-border flex items-center justify-center text-pink-600 shrink-0">
@@ -189,6 +189,7 @@ export default function Contact() {
            initial={{ opacity: 0, scale: 0.95 }}
            animate={{ opacity: 1, scale: 1 }}
            transition={{ delay: 0.4 }}
+           className="lg:col-span-5 w-full"
         >
           <motion.div
              animate={{ y: [0, -10, 0] }}

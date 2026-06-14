@@ -1,5 +1,5 @@
 import React, { useId, useRef, useState, useEffect } from 'react';
-import { motion, HTMLMotionProps, useMotionValue, useSpring, useTransform } from 'motion/react';
+import { motion, HTMLMotionProps, useMotionValue, useSpring, useTransform, useMotionTemplate } from 'motion/react';
 
 // Light weight utility for joining classNames
 function cn(...classes: (string | undefined | null | boolean)[]) {
@@ -24,6 +24,7 @@ export default function PremiumInteractiveCard({
 }: PremiumInteractiveCardProps) {
   const uniqueId = useId().replace(/:/g, '');
   const cardRef = useRef<HTMLDivElement>(null);
+  const rectRef = useRef<DOMRect | null>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isInView, setIsInView] = useState(false);
 
@@ -37,7 +38,7 @@ export default function PremiumInteractiveCard({
         setIsInView(entry.isIntersecting);
       },
       {
-        rootMargin: '150px', // Activate animations slightly before they scroll into view
+        rootMargin: '120px', // Activate animations slightly before they scroll into view
         threshold: 0.01,
       }
     );
@@ -53,18 +54,22 @@ export default function PremiumInteractiveCard({
   const y = useMotionValue(0.5);
 
   // Tilt settings - keeping the effect ultra-smooth, premium, and subtle
-  const rotateX = useSpring(useTransform(y, [0, 1], [6, -6]), { stiffness: 150, damping: 25 });
-  const rotateY = useSpring(useTransform(x, [0, 1], [-6, 6]), { stiffness: 150, damping: 25 });
+  const rotateX = useSpring(useTransform(y, [0, 1], [6, -6]), { stiffness: 120, damping: 22 });
+  const rotateY = useSpring(useTransform(x, [0, 1], [-6, 6]), { stiffness: 120, damping: 22 });
 
   // Elastic pointer positioning for the dynamic glow highlighting overlay
-  const glowX = useSpring(useTransform(x, [0, 1], [0, 100]), { stiffness: 150, damping: 25 });
-  const glowY = useSpring(useTransform(y, [0, 1], [0, 100]), { stiffness: 150, damping: 25 });
+  const glowX = useSpring(useTransform(x, [0, 1], [0, 100]), { stiffness: 120, damping: 22 });
+  const glowY = useSpring(useTransform(y, [0, 1], [0, 100]), { stiffness: 120, damping: 22 });
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
+    let rect = rectRef.current;
+    if (!rect) {
+      if (!cardRef.current) return;
+      rect = cardRef.current.getBoundingClientRect();
+      rectRef.current = rect;
+    }
+    const width = rect.width || 1;
+    const height = rect.height || 1;
     
     // Normalized cursor coordinates: from 0 to 1
     const mouseX = (event.clientX - rect.left) / width;
@@ -76,10 +81,15 @@ export default function PremiumInteractiveCard({
 
   const handleMouseEnter = () => {
     setIsHovered(true);
+    // Dynamic caching of bounding rect once on enter to completely avoid layout thrashing on fast mouse moves
+    if (cardRef.current) {
+      rectRef.current = cardRef.current.getBoundingClientRect();
+    }
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
+    rectRef.current = null; // Clear cached rect when mouse leaves
     // Smooth reset toward centered position
     x.set(0.5);
     y.set(0.5);
@@ -98,12 +108,16 @@ export default function PremiumInteractiveCard({
   // Auto-detect color theme from class names to match instructions precisely:
   // "Use white color flow effect for black cards , red color effect for white cards and again white color effect for red cards !"
   const isWhiteBg = className.includes('bg-white') || className.includes('bg-brand-light') || className.includes('bg-gray-50') || className.includes('bg-neutral-50');
-  const isRedBg = className.includes('bg-brand-red') || className.includes('bg-red-');
   
   const finalGlowColor = glowColor || (isWhiteBg ? 'red' : 'white');
   const isWhiteGlow = finalGlowColor === 'white';
 
   const strokeColor = isWhiteGlow ? '#FFFFFF' : '#DC3535';
+
+  // Accelerated motion template for seamless dynamic glow spotlight with 0 React rendering cycles
+  const flareBackground = useMotionTemplate`radial-gradient(400px circle at ${glowX}% ${glowY}%, rgba(${
+    isWhiteGlow ? '255, 255, 255' : '220, 53, 53'
+  }, 0.08), transparent 85%)`;
 
   return (
     <motion.div
@@ -137,39 +151,25 @@ export default function PremiumInteractiveCard({
             transform: 'translate3d(0,0,0)',
             backfaceVisibility: 'hidden',
             willChange: 'transform',
+            // Applying high contrast composited drop-shadow for white glow on light backgrounds in a single GPU-cached pass
+            filter: isWhiteGlow ? 'drop-shadow(0px 0px 1.5px rgba(0,0,0,0.85)) drop-shadow(0px 0px 4px rgba(0,0,0,0.3))' : undefined,
           }}
           aria-hidden="true"
         >
-          {/* Layer 0: High-Contrast Shadow Outline (for high visibility of white glow on bright/white backgrounds) */}
-          {isWhiteGlow && (
-            <rect
-              x="1"
-              y="1"
-              rx={rx}
-              ry={rx}
-              fill="none"
-              stroke="#000000"
-              strokeWidth="6.5"
-              strokeOpacity="0.45"
-              pathLength="100"
-              strokeLinecap="round"
-              className={cn(
-                "transition-opacity duration-300 pointer-events-none",
-                isHovered ? "opacity-100" : "opacity-80"
-              )}
-              style={{
-                width: 'calc(100% - 2px)',
-                height: 'calc(100% - 2px)',
-                strokeDasharray: '22 78', // Medium trail length
-                animation: `electric-flow-single ${isHovered ? '3.5s' : '5.4s'} linear infinite`, // Medium speed
-                transform: 'translate3d(0,0,0)',
-                backfaceVisibility: 'hidden',
-                willChange: 'stroke-dashoffset',
-              }}
-            />
-          )}
+          <defs>
+            <filter id={`electric-glow-blur-${uniqueId}`} x="-40%" y="-40%" width="180%" height="180%">
+              {/* Soft outer glow and intense core glow blended in a single native filter */}
+              <feGaussianBlur in="SourceGraphic" stdDeviation="3.0" result="blur1" />
+              <feGaussianBlur in="SourceGraphic" stdDeviation="0.8" result="blur2" />
+              <feMerge>
+                <feMergeNode in="blur1" />
+                <feMergeNode in="blur2" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
 
-          {/* Layer 1: Wide Soft Glowing Undercoat with GPU-accelerated CSS blur filter */}
+          {/* High-Performance Unified Glowing Trail Layer */}
           <rect
             x="1"
             y="1"
@@ -177,49 +177,22 @@ export default function PremiumInteractiveCard({
             ry={rx}
             fill="none"
             stroke={strokeColor}
-            strokeWidth={isWhiteGlow ? "5.5" : "4.0"}
+            strokeWidth={isHovered ? "4.5" : "3.0"}
             pathLength="100"
             strokeLinecap="round"
             className={cn(
               "transition-opacity duration-300 pointer-events-none",
-              isHovered ? "opacity-100" : "opacity-60"
+              isHovered ? "opacity-100" : "opacity-80"
             )}
             style={{
               width: 'calc(100% - 2px)',
               height: 'calc(100% - 2px)',
-              strokeDasharray: '22 78', // Medium trail length
-              animation: `electric-flow-single ${isHovered ? '3.5s' : '5.4s'} linear infinite`, // Medium speed
-              filter: isWhiteGlow ? 'blur(4.5px)' : 'blur(3.0px)', // GPU hardware-accelerated CSS blur
+              strokeDasharray: '10 90', // Short, high-intensity glowing pulse
+              animation: `electric-flow-single ${isHovered ? '2.5s' : '3.8s'} linear infinite`, // Ultra fast and crisp loop
+              filter: `url(#electric-glow-blur-${uniqueId})`,
               transform: 'translate3d(0,0,0)',
               backfaceVisibility: 'hidden',
-              willChange: 'stroke-dashoffset, filter',
-            }}
-          />
-
-          {/* Layer 2: Core Bright Sharp Trail with GPU-accelerated CSS blur */}
-          <rect
-            x="1"
-            y="1"
-            rx={rx}
-            ry={rx}
-            fill="none"
-            stroke={strokeColor}
-            strokeWidth={isWhiteGlow ? "3.0" : "2.0"}
-            pathLength="100"
-            strokeLinecap="round"
-            className={cn(
-              "transition-opacity duration-300 pointer-events-none",
-              isHovered ? "opacity-100" : "opacity-90"
-            )}
-            style={{
-              width: 'calc(100% - 2px)',
-              height: 'calc(100% - 2px)',
-              strokeDasharray: '22 78', // Medium trail length
-              animation: `electric-flow-single ${isHovered ? '3.5s' : '5.4s'} linear infinite`, // Medium speed
-              filter: isWhiteGlow ? 'blur(0.8px)' : 'blur(0.4px)', // High density core glow
-              transform: 'translate3d(0,0,0)',
-              backfaceVisibility: 'hidden',
-              willChange: 'stroke-dashoffset, filter',
+              willChange: 'stroke-dashoffset',
             }}
           />
         </svg>
@@ -227,12 +200,10 @@ export default function PremiumInteractiveCard({
 
       {/* Floating Pointer Shadow Flare (Follows the mouse location dynamically inside the hover state) */}
       {isHovered && (
-        <div 
+        <motion.div 
           className="absolute inset-0 pointer-events-none z-10 transition-opacity duration-500 rounded-[inherit] overflow-hidden"
           style={{
-            background: isWhiteGlow
-              ? `radial-gradient(400px circle at ${glowX.get()}% ${glowY.get()}%, rgba(255, 255, 255, 0.08), transparent 85%)`
-              : `radial-gradient(400px circle at ${glowX.get()}% ${glowY.get()}%, rgba(220, 53, 53, 0.08), transparent 85%)`,
+            background: flareBackground,
           }}
         />
       )}

@@ -113,25 +113,37 @@ export default function Services() {
             {/* Subtle background glow */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/10 rounded-full blur-[80px] pointer-events-none group-hover:bg-brand-red/15 transition-all duration-500" />
             
-            <div>
-              <div className="flex justify-between items-start mb-8">
-                <div className="w-16 h-16 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center">
-                  <Target className="text-brand-red animate-pulse" size={32} strokeWidth={1.5} />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
+              <div className="lg:col-span-7 flex flex-col justify-between">
+                <div>
+                  <div className="flex justify-between items-start mb-8">
+                    <div className="w-16 h-16 rounded-2xl bg-neutral-900 border border-neutral-800 flex items-center justify-center">
+                      <Target className="text-brand-red animate-pulse" size={32} strokeWidth={1.5} />
+                    </div>
+                    <span className="text-[10px] font-black uppercase tracking-widest bg-brand-red text-white py-1.5 px-3 rounded-full shadow-[0_4px_10px_rgba(220,53,53,0.3)] border-0">
+                      Flagship Engine
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-white mb-4">
+                    Performance Marketing
+                  </h3>
+                  <p className="text-neutral-400 font-medium text-base md:text-lg leading-relaxed mb-8">
+                    A comprehensive, multi-channel approach focused strictly on profitable member acquisition. We handle every step of your local visibility and conversion flow to turn cold traffic into active memberships.
+                  </p>
                 </div>
-                <span className="text-[10px] font-black uppercase tracking-widest bg-brand-red text-white py-1.5 px-3 rounded-full shadow-[0_4px_10px_rgba(220,53,53,0.3)] border-0">
-                  Flagship Engine
-                </span>
               </div>
-              
-              <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-white mb-4">
-                Performance Marketing
-              </h3>
-              <p className="text-neutral-400 font-medium text-base md:text-lg leading-relaxed max-w-2xl mb-8">
-                A comprehensive, multi-channel approach focused strictly on profitable member acquisition. We handle every step of your local visibility and conversion flow to turn cold traffic into active memberships.
-              </p>
+
+              <div className="lg:col-span-5 relative w-full h-48 lg:h-64 rounded-[1.5rem] overflow-hidden border border-neutral-800">
+                <img 
+                  src="https://i.ibb.co/hx4LMpp4/af05c3476b66b00f57eca752a6ab6678.jpg" 
+                  alt="Performance Marketing" 
+                  className="absolute inset-0 w-full h-full object-cover grayscale-[10%] group-hover:scale-105 transition-transform duration-500" 
+                />
+              </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 sm:items-center justify-between mt-auto pt-6 border-t border-neutral-900 z-50">
+            <div className="flex flex-col sm:flex-row gap-4 sm:items-center justify-between mt-8 pt-6 border-t border-neutral-900 z-50">
               <ul className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-mono text-neutral-500 uppercase tracking-wider">
                 <li className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-brand-red" /> Omni-channel</li>
                 <li className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-brand-red" /> Lead Arbitrage</li>
@@ -158,29 +170,27 @@ export default function Services() {
             borderRadius="2.5rem"
           >
             <div>
-              <div className="flex justify-between items-start mb-8">
+              <div className="flex justify-between items-start mb-6">
                 <div className="w-14 h-14 rounded-2xl bg-brand-gray border border-brand-border flex items-center justify-center">
                   <Users className="text-brand-red" size={26} strokeWidth={1.5} />
                 </div>
-                {/* Visual Radial Targeting Tag */}
-                <span className="text-[10px] font-bold tracking-widest text-gray-400 uppercase font-mono border-0">
-                  Radius: 10 KM
-                </span>
               </div>
               
               <h3 className="text-2xl font-black uppercase tracking-tighter text-black mb-3 font-sans">
                 Meta Ads
               </h3>
-              <p className="text-gray-500 font-medium leading-relaxed text-sm mb-6">
-                Highly targeted Facebook & Instagram advertising campaigns calibrated specifically for local fitness demographics, maximizing signups inside your immediate facility radius.
+              <p className="text-gray-500 font-medium leading-relaxed text-sm mb-6 w-full">
+                Highly targeted Facebook & Instagram advertising campaigns calibrated specifically for fitness demographics, maximizing signups inside your immediate facility radius.
               </p>
             </div>
 
             <div className="mt-auto">
-              {/* Micro-visual mock targeting element */}
-              <div className="bg-brand-gray rounded-xl p-3 mb-6 border border-brand-border/40 flex items-center justify-between text-[11px] font-mono text-gray-500 uppercase">
-                <span>Direct Targeting</span>
-                <span className="text-black font-semibold">Active Gym Goers</span>
+              <div className="relative w-full h-40 rounded-2xl overflow-hidden border border-brand-border mb-6">
+                <img 
+                  src="https://i.ibb.co/cSthH6G9/IMG-20260614-120137.jpg" 
+                  alt="Meta Ads" 
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                />
               </div>
               
               <Link 
@@ -203,27 +213,27 @@ export default function Services() {
             borderRadius="2.5rem"
           >
             <div>
-              <div className="flex justify-between items-start mb-8">
+              <div className="flex justify-between items-start mb-6">
                 <div className="w-14 h-14 rounded-2xl bg-brand-gray border border-brand-border flex items-center justify-center">
                   <Zap className="text-brand-red animate-bounce" size={26} strokeWidth={1.5} />
                 </div>
-                <span className="text-[10px] bg-red-50 text-brand-red border border-red-100 font-black tracking-widest uppercase py-1 px-2.5 rounded-full select-none">
-                  +240% Growth
-                </span>
               </div>
               
               <h3 className="text-2xl font-black uppercase tracking-tighter text-black mb-3 font-sans">
                 Lead Generation
               </h3>
-              <p className="text-gray-500 font-medium leading-relaxed text-sm mb-6">
+              <p className="text-gray-500 font-medium leading-relaxed text-sm mb-6 w-full">
                 End-to-end capture mechanisms designed to extract name, phone, and specific fitness goals from cold local traffic, pre-qualifying prospects before contact.
               </p>
             </div>
 
             <div className="mt-auto">
-              <div className="bg-brand-gray rounded-xl p-3 mb-6 border border-brand-border/40 flex items-center justify-between text-[11px] font-mono text-gray-500 uppercase">
-                <span>Prospect Filter</span>
-                <span className="text-black font-semibold">Goal-Oriented</span>
+              <div className="relative w-full h-40 rounded-2xl overflow-hidden border border-brand-border mb-6">
+                <img 
+                  src="https://i.ibb.co/BHXhDPt9/IMG-20260614-120249.jpg" 
+                  alt="Lead Generation" 
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                />
               </div>
               
               <Link 
@@ -250,7 +260,6 @@ export default function Services() {
                 <div className="w-14 h-14 rounded-2xl bg-brand-gray border border-brand-border flex items-center justify-center">
                   <Presentation className="text-brand-red" size={26} strokeWidth={1.5} />
                 </div>
-                <span className="text-[10px] font-mono text-neutral-400 tracking-wider">SECURE ASPECT RATIO (9:16)</span>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
@@ -263,72 +272,20 @@ export default function Services() {
                   </p>
                 </div>
 
-                {/* Simulated Content phone viewfinder preview (pure CSS) */}
                 <div className="lg:col-span-5 flex justify-center lg:justify-end w-full mt-4 lg:mt-0">
-                  <div className="relative mx-auto lg:mr-0 w-[270px] lg:w-[155px] aspect-[18.5/9] lg:aspect-[9/18.5] rounded-[1.8rem] lg:rounded-[2.2rem] border-8 border-neutral-900 bg-neutral-950 p-3 lg:p-2.5 flex flex-col justify-between text-neutral-400 font-mono text-[8px] shadow-2xl overflow-hidden ring-1 ring-neutral-850">
-                    
-                    {/* Simulated Camera Dynamic Island Notch (Rotated dynamically on mobile vs. desktop) */}
-                    <div className="absolute left-1.5 top-1/2 -translate-y-1/2 w-2.5 h-10 lg:left-1/2 lg:top-1.5 lg:-translate-x-1/2 lg:translate-y-0 lg:w-10 lg:h-2.5 bg-neutral-900 rounded-full z-30 flex items-center justify-center">
-                      <div className="w-1 h-1 rounded-full bg-blue-950/40" />
-                    </div>
-
-                    {/* Camera Focus Gridlines Overlap */}
-                    <div className="absolute inset-0 pointer-events-none opacity-25 z-0 my-3 mx-8 lg:my-8 lg:mx-0">
-                      <div className="grid grid-cols-3 grid-rows-3 h-full w-full border border-neutral-855">
-                        <div className="border-r border-b border-neutral-855" />
-                        <div className="border-r border-b border-neutral-855" />
-                        <div className="border-b border-neutral-855" />
-                        <div className="border-r border-b border-neutral-855" />
-                        <div className="border-r border-b border-neutral-855" />
-                        <div className="border-b border-neutral-855" />
-                      </div>
-                    </div>
-
-                    {/* Concentric Autofocus Target in center */}
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                      <div className="w-6 h-6 border border-brand-red/50 rounded flex items-center justify-center">
-                        <div className="w-1 h-1 rounded-full bg-brand-red animate-ping" />
-                      </div>
-                    </div>
-
-                    {/* Recording Header */}
-                    <div className="flex justify-between items-center text-[7px] text-neutral-400 font-bold z-20 mt-1 lg:mt-3 px-4 lg:px-0">
-                      <div className="flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-brand-red animate-pulse inline-block" />
-                        <span className="text-white">REC</span>
-                      </div>
-                      <span>4K 60FPS</span>
-                    </div>
-
-                    {/* Audio Waveforms & Camera Controls at Bottom */}
-                    <div className="flex flex-row lg:flex-col gap-3 lg:gap-2 justify-between lg:justify-start items-center lg:items-stretch z-20 mt-auto px-4 lg:px-0">
-                      {/* Interactive Waveform Level Indicator */}
-                      <div className="flex items-end justify-center gap-[3px] h-6 lg:h-7 bg-neutral-900/95 border border-neutral-800 rounded-lg p-1 w-20 lg:w-full shrink-0">
-                        <span className="w-0.5 bg-brand-red h-3 rounded-full animate-pulse" style={{ animationDuration: '0.6s' }} />
-                        <span className="w-0.5 bg-white h-4.5 rounded-full animate-pulse" style={{ animationDuration: '0.8s' }} />
-                        <span className="w-0.5 bg-white h-2 rounded-full animate-pulse" style={{ animationDuration: '0.5s' }} />
-                        <span className="w-0.5 bg-brand-red h-5 rounded-full animate-pulse" style={{ animationDuration: '0.7s' }} />
-                        <span className="w-0.5 bg-white h-3.5 rounded-full animate-pulse" style={{ animationDuration: '0.9s' }} />
-                        <span className="w-0.5 bg-white h-1.5 rounded-full animate-pulse" style={{ animationDuration: '0.4s' }} />
-                      </div>
-
-                      {/* Phone Shutter Control Bar */}
-                      <div className="flex justify-between items-center gap-4 lg:gap-0 px-0.5 pt-0.5 border-t lg:border-t-0 lg:border-neutral-900 w-full lg:w-auto">
-                        <span className="text-[6px] text-white font-medium">100% Lenses</span>
-                        <div className="w-4 h-4 rounded-full border border-white flex items-center justify-center shrink-0">
-                          <div className="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse" />
-                        </div>
-                        <span className="text-[6px] text-neutral-400 font-medium">00:14</span>
-                      </div>
-                    </div>
-
+                  <div className="relative w-full h-48 lg:h-56 rounded-[1.5rem] overflow-hidden border border-brand-border">
+                    <img 
+                      src="https://i.ibb.co/cKVtr10f/3a8202dd26c2fc466d2ee9db81ac2e73.jpg" 
+                      alt="Content Creation" 
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                    />
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="mt-4 pt-4 border-t border-brand-gray flex justify-between items-center z-50">
-              <span className="text-[10px] font-bold tracking-widest text-neutral-400 uppercase font-mono">100% Custom Media Assets</span>
+              <span className="text-[10px] font-bold tracking-widest text-neutral-400 uppercase font-mono">100% Genuine Creative Assets</span>
               <Link 
                 to="/services/content-creation" 
                 className="inline-flex items-center text-brand-red font-bold uppercase tracking-widest text-xs"
@@ -353,9 +310,6 @@ export default function Services() {
                 <div className="w-14 h-14 rounded-2xl bg-brand-gray border border-brand-border flex items-center justify-center">
                   <LayoutDashboard className="text-brand-red" size={26} strokeWidth={1.5} />
                 </div>
-                <span className="text-[10px] font-mono text-emerald-600 bg-emerald-50 border border-emerald-100 font-bold px-2.5 py-1.5 rounded-full uppercase tracking-wider">
-                  94% Bounce Reduction
-                </span>
               </div>
               
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
@@ -368,56 +322,20 @@ export default function Services() {
                   </p>
                 </div>
 
-                {/* Elegant interactive Funnel/Landing page Mockup in the right column */}
                 <div className="lg:col-span-5 flex justify-center lg:justify-end w-full mt-4 lg:mt-0">
-                  <div className="relative mx-auto lg:mr-0 w-full max-w-[270px] lg:max-w-[210px] aspect-[14/9] rounded-[1.2rem] border-4 border-neutral-900 bg-neutral-950 p-2 flex flex-col justify-between text-neutral-400 font-mono text-[8px] shadow-xl overflow-hidden ring-1 ring-neutral-850">
-                    
-                    {/* Browser top-bar */}
-                    <div className="flex items-center gap-1 pb-1.5 border-b border-neutral-900">
-                      <span className="w-1.5 h-1.5 rounded-full bg-red-500/80 inline-block" />
-                      <span className="w-1.5 h-1.5 rounded-full bg-yellow-500/80 inline-block" />
-                      <span className="w-1.5 h-1.5 rounded-full bg-green-500/80 inline-block" />
-                      <span className="text-[5px] text-neutral-600 ml-1">secure-funnel.com</span>
-                    </div>
-
-                    {/* Browser mock content */}
-                    <div className="flex-1 py-1.5 px-0.5 flex flex-col gap-1 justify-center relative">
-                      <div className="h-1.5 w-10 bg-brand-red rounded animate-pulse" />
-                      <div className="text-[5px] text-neutral-500 font-black tracking-widest uppercase">JOIN THE ELITE 1%</div>
-                      <div className="h-1 w-20 bg-neutral-800 rounded-sm" />
-                      
-                      {/* Micro chart funnel element */}
-                      <div className="flex flex-col gap-1 bg-neutral-900/90 rounded p-1.5 border border-neutral-850 mt-1">
-                        <div className="flex items-center justify-between gap-2">
-                          <span className="text-[5px] text-neutral-500 uppercase">Visits</span>
-                          <div className="flex-1 bg-neutral-850 h-1 rounded-full overflow-hidden">
-                            <div className="bg-brand-red h-full w-[85%] animate-pulse" />
-                          </div>
-                          <span className="text-[5px] text-white">85%</span>
-                        </div>
-                        <div className="flex items-center justify-between gap-2">
-                          <span className="text-[5px] text-neutral-500 uppercase">Opt-In</span>
-                          <div className="flex-1 bg-neutral-105 h-1 rounded-full overflow-hidden">
-                            <div className="bg-brand-red h-full w-[45%] animate-pulse" style={{ animationDelay: '0.2s' }} />
-                          </div>
-                          <span className="text-[5px] text-white">45%</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* SSL Secure status */}
-                    <div className="flex justify-between items-center text-[5px] text-neutral-600 border-t border-neutral-900 pt-1 font-mono uppercase tracking-wider">
-                      <span>SSL ENCRYPTED</span>
-                      <span className="text-emerald-500 font-bold font-mono">● SECURE</span>
-                    </div>
-
+                  <div className="relative w-full h-48 lg:h-56 rounded-[1.5rem] overflow-hidden border border-brand-border">
+                    <img 
+                      src="https://i.ibb.co/h12dN4pQ/IMG-20260614-133755.png" 
+                      alt="Conversion Funnels" 
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                    />
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="mt-4 pt-4 border-t border-brand-gray flex justify-between items-center z-50">
-              <span className="text-[10px] font-bold tracking-widest text-neutral-400 uppercase font-mono">94% Bounce Reduction</span>
+              <span className="text-[10px] font-bold tracking-widest text-neutral-400 uppercase font-mono">Precision Architecture</span>
               <Link 
                 to="/services/conversion-funnels" 
                 className="inline-flex items-center text-brand-red font-bold uppercase tracking-widest text-xs"
@@ -438,27 +356,27 @@ export default function Services() {
             borderRadius="2.5rem"
           >
             <div>
-              <div className="flex justify-between items-start mb-8">
+              <div className="flex justify-between items-start mb-6">
                 <div className="w-14 h-14 rounded-2xl bg-brand-gray border border-brand-border flex items-center justify-center">
                   <MessageSquare className="text-brand-red" size={26} strokeWidth={1.5} />
                 </div>
-                <span className="text-[10px] font-mono text-black font-semibold bg-brand-gray px-2 py-1 rounded-full uppercase">
-                  &lt; 5m Speed-To-Lead
-                </span>
               </div>
               
               <h3 className="text-2xl font-black uppercase tracking-tighter text-black mb-3 font-sans">
                 Follow-Up Systems
               </h3>
-              <p className="text-gray-500 font-medium leading-relaxed text-sm mb-6">
+              <p className="text-gray-500 font-medium leading-relaxed text-sm mb-6 w-full">
                 Automated CRM, SMS pipelines, and rapid email systems that engage active gym prospects within moments of opt-in, converting interest when it is most intense.
               </p>
             </div>
 
             <div className="mt-auto">
-              <div className="bg-brand-gray rounded-xl p-3 mb-6 border border-brand-border/40 flex items-center justify-between text-[11px] font-mono text-gray-500 uppercase">
-                <span>Response Target</span>
-                <span className="text-black font-bold">Immediate Auto-Dial</span>
+              <div className="relative w-full h-40 rounded-2xl overflow-hidden border border-brand-border mb-6">
+                <img 
+                  src="https://i.ibb.co/1fMTJ65T/9f09ad0d46dd1436746a0a1e1ded33f8-webp.webp" 
+                  alt="Follow-Up Systems" 
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                />
               </div>
               
               <Link 
@@ -501,18 +419,14 @@ export default function Services() {
                 </p>
               </div>
 
-              {/* Dynamic stats right side segment */}
-              <div className="lg:col-span-4 flex flex-col justify-end lg:items-end w-full">
-                <div className="bg-neutral-950 border border-neutral-850 p-6 rounded-2xl w-full max-w-sm flex flex-col gap-3 font-mono text-xs uppercase tracking-wider text-neutral-400">
-                  <div className="flex justify-between items-center text-left">
-                    <span>Target LTV</span>
-                    <span className="text-white font-bold font-sans">₹18,500+</span>
-                  </div>
-                  <div className="h-[1px] bg-neutral-850 w-full" />
-                  <div className="flex justify-between items-center text-left">
-                    <span>Churn Cap Limit</span>
-                    <span className="text-brand-red font-bold font-sans">&lt; 4% Monthly</span>
-                  </div>
+              {/* Dynamic image mockup replacing old stats block */}
+              <div className="lg:col-span-4 flex justify-center lg:justify-end w-full">
+                <div className="relative w-full h-48 md:h-56 rounded-[1.5rem] overflow-hidden border border-neutral-800">
+                  <img 
+                    src="https://i.ibb.co/bjZXHFMw/6ac15143f9b2e8de9cafadca841d4145-webp.webp" 
+                    alt="Gym Growth Strategy" 
+                    className="absolute inset-0 w-full h-full object-cover grayscale-[10%] group-hover:scale-105 transition-transform duration-500" 
+                  />
                 </div>
               </div>
             </div>

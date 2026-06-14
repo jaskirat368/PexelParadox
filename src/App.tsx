@@ -92,21 +92,10 @@ function AppContent() {
 }
 
 export default function App() {
-  const [introLoading, setIntroLoading] = useState(() => {
-    try {
-      return !sessionStorage.getItem('pexel_paradox_intro_shown');
-    } catch {
-      return true;
-    }
-  });
+  const [introLoading, setIntroLoading] = useState(true);
 
   const handleIntroComplete = () => {
     setIntroLoading(false);
-    try {
-      sessionStorage.setItem('pexel_paradox_intro_shown', 'true');
-    } catch (e) {
-      // secure sandboxed context fallback
-    }
   };
 
   return (

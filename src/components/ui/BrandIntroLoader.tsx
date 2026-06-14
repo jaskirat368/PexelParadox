@@ -5,70 +5,47 @@ interface BrandIntroLoaderProps {
   onComplete: () => void;
 }
 
-const nicesSteps = [
-  "ANALYZING LOCAL DEMOGRAPHICS",
-  "IDENTIFYING HIGH-TICKET PROSPECTS",
-  "DEPLOYING ACQUISITION SYSTEM",
-  "SCALING GYM REVENUE"
-];
-
-const impactWords = [
-  "DOMINATE",
-  "YOUR",
-  "LOCAL",
-  "MARKET"
+const sequences = [
+  "ATTENTION GYM OWNERS.",
+  "WE DON'T DO VANITY METRICS.",
+  "WE DEPLOY SYSTEMS.",
+  "THAT SCALE REVENUE."
 ];
 
 export default function BrandIntroLoader({ onComplete }: BrandIntroLoaderProps) {
-  const [percent, setPercent] = useState(0);
   const [complete, setComplete] = useState(false);
-  const [stepIndex, setStepIndex] = useState(0);
-  const [wordIndex, setWordIndex] = useState(0);
+  const [seqIndex, setSeqIndex] = useState(0);
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
 
-    const duration = 2800; // ms
-    let start = Date.now();
-    let rAF: number;
-    
-    const animate = () => {
-        const now = Date.now();
-        const time = Math.min(1, (now - start) / (duration - 500));
-        
-        // Easing function: slow start, fast middle, slow end (easeInOutCubic)
-        const easedProgress = time < 0.5 ? 4 * time * time * time : 1 - Math.pow(-2 * time + 2, 3) / 2;
-        setPercent(Math.floor(easedProgress * 100));
+    // Total sequence duration
+    const runSequence = async () => {
+      // 0: ATTENTION GYM OWNERS (0-600ms)
+      await new Promise(r => setTimeout(r, 700));
+      setSeqIndex(1);
+      // 1: WE DON'T DO VANITY METRICS (700-1400ms)
+      await new Promise(r => setTimeout(r, 800));
+      setSeqIndex(2);
+      // 2: WE DEPLOY SYSTEMS (1500-2200ms)
+      await new Promise(r => setTimeout(r, 700));
+      setSeqIndex(3);
+      // 3: THAT SCALE REVENUE (2200-2900ms)
+      await new Promise(r => setTimeout(r, 800));
+      setSeqIndex(4); // 4 = Final Logo State
 
-        // Niche steps updates
-        if (time < 0.25) setStepIndex(0);
-        else if (time < 0.5) setStepIndex(1);
-        else if (time < 0.75) setStepIndex(2);
-        else setStepIndex(3);
+      await new Promise(r => setTimeout(r, 1200)); // Hold logo
 
-        // Flash large impact words sequence
-        if (time < 0.2) setWordIndex(0);
-        else if (time < 0.4) setWordIndex(1);
-        else if (time < 0.6) setWordIndex(2);
-        else if (time < 0.8) setWordIndex(3);
-        else setWordIndex(4); // 4 = show logo/final state
-
-        if (time < 1) {
-            rAF = requestAnimationFrame(animate);
-        } else {
-            setTimeout(() => {
-                setComplete(true);
-                setTimeout(() => {
-                    document.body.style.overflow = 'unset';
-                    onComplete();
-                }, 1000); // exit animation duration buffer
-            }, 400);
-        }
+      setComplete(true);
+      setTimeout(() => {
+        document.body.style.overflow = 'unset';
+        onComplete();
+      }, 1200); // Wait for exit animations
     };
-    rAF = requestAnimationFrame(animate);
+
+    runSequence();
 
     return () => {
-      cancelAnimationFrame(rAF);
       document.body.style.overflow = 'unset';
     };
   }, [onComplete]);
@@ -78,159 +55,102 @@ export default function BrandIntroLoader({ onComplete }: BrandIntroLoaderProps) 
       {!complete && (
         <motion.div
            id="brand-intro-screen"
-           className="fixed inset-0 z-[9999] flex w-full h-full bg-[#050505] overflow-hidden select-none"
+           className="fixed inset-0 z-[9999] flex w-full h-full bg-[#030303] overflow-hidden select-none"
            exit={{ opacity: 0 }}
-           transition={{ duration: 1 }}
+           transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
         >
-          {/* Subtle Background Elements */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(220,53,53,0.08)_0%,transparent_70%)] pointer-events-none" />
+          {/* Subtle Dynamic Grid */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none" />
 
-          {/* Top Panel Door - Exit Animation */}
-          <motion.div
-             exit={{ y: "-100vh" }}
-             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-             className="absolute top-0 left-0 w-full h-[50vh] bg-[#050505] border-b border-white/5"
-          />
-          {/* Bottom Panel Door - Exit Animation */}
-          <motion.div
-             exit={{ y: "100vh" }}
-             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-             className="absolute bottom-0 left-0 w-full h-[50vh] bg-[#050505] border-t border-white/5"
-          />
-
-          {/* Content Layer */}
-          <motion.div 
-             exit={{ opacity: 0, scale: 1.1 }} 
-             transition={{ duration: 0.5, ease: "easeInOut" }}
-             className="absolute inset-0 flex flex-col justify-between p-6 sm:p-12 text-white pointer-events-none"
-          >
-            {/* Header Data */}
-            <div className="flex justify-between items-start w-full uppercase font-mono text-[10px] sm:text-xs tracking-[0.2em] text-neutral-500">
-               <div className="overflow-hidden">
-                 <motion.span 
-                   initial={{ y: 20, opacity: 0 }} 
-                   animate={{ y: 0, opacity: 1 }} 
-                   className="text-white block mb-1"
-                 >
-                   PEXEL PARADOX
-                 </motion.span>
-                 <motion.span
-                   initial={{ y: 20, opacity: 0 }} 
-                   animate={{ y: 0, opacity: 1 }} 
-                   transition={{ delay: 0.1 }}
-                 >
-                   v2.5 // GYM_SYS
-                 </motion.span>
-               </div>
-               <div className="text-right overflow-hidden">
-                 <motion.span 
-                   initial={{ y: 20, opacity: 0 }} 
-                   animate={{ y: 0, opacity: 1 }} 
-                   className="block mb-1"
-                 >
-                   SECURE CONNECTION
-                 </motion.span>
-                 <motion.span
-                   initial={{ y: 20, opacity: 0 }} 
-                   animate={{ y: 0, opacity: 1 }} 
-                   transition={{ delay: 0.1 }}
-                   className="flex items-center justify-end gap-2 text-brand-red flex-row-reverse"
-                 >
-                   <span>ONLINE</span>
-                   <span className="w-1.5 h-1.5 rounded-full bg-brand-red animate-ping" />
-                 </motion.span>
-               </div>
-            </div>
-
-            {/* Central Impact Words / Logo Reveal */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-full px-4">
-              <AnimatePresence mode="wait">
-                {wordIndex < 4 ? (
-                  <motion.h1
-                    key={`word-${wordIndex}`}
-                    initial={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }}
-                    animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-                    exit={{ opacity: 0, filter: "blur(10px)", scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
-                    className="text-5xl sm:text-7xl md:text-9xl font-black tracking-tighter text-white uppercase text-center"
-                  >
-                    {impactWords[wordIndex]}
-                  </motion.h1>
-                ) : (
+          {/* Central Cinematic Container */}
+          <div className="absolute inset-0 flex items-center justify-center p-6 text-center">
+            <AnimatePresence mode="wait">
+              {seqIndex < 4 ? (
+                <motion.h1
+                  key={seqIndex}
+                  initial={{ y: 50, opacity: 0, scale: 0.9, filter: "blur(4px)" }}
+                  animate={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
+                  exit={{ y: -50, opacity: 0, scale: 1.05, filter: "blur(4px)" }}
+                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  className="font-black text-white text-5xl sm:text-7xl md:text-8xl lg:text-[7rem] tracking-tighter leading-none"
+                >
+                  {sequences[seqIndex].split(' ').map((word, i) => (
+                     <span 
+                       key={i} 
+                       className={word.includes('REVENUE') || word.includes('SYSTEMS') || word.includes('GYM') ? 'text-brand-red inline-block mx-2 md:mx-4' : 'inline-block mx-2 md:mx-4'}
+                     >
+                        {word}
+                     </span>
+                  ))}
+                </motion.h1>
+              ) : (
+                <motion.div
+                  key="final-logo"
+                  initial={{ scale: 0.8, opacity: 0, filter: "blur(10px)" }}
+                  animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="flex flex-col items-center"
+                >
+                  <div className="relative w-64 sm:w-96 mb-8 group">
+                    <div className="absolute inset-0 bg-brand-red/30 blur-[60px] rounded-full scale-y-50 group-hover:bg-brand-red/40 transition-colors duration-700" />
+                    <img 
+                      src="https://i.ibb.co/JRMTckSp/file-0000000040047208885869e9a710d1ab.png" 
+                      alt="Pexel Paradox" 
+                      className="w-full h-auto object-contain brightness-0 invert relative z-10"
+                    />
+                  </div>
                   <motion.div
-                    key="final-logo"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="flex flex-col items-center"
-                  >
-                    <div className="relative w-64 sm:w-96 h-20 mb-6">
-                      <div className="absolute inset-0 bg-brand-red/20 blur-[50px] rounded-full" />
-                      <img 
-                        src="https://i.ibb.co/JRMTckSp/file-0000000040047208885869e9a710d1ab.png" 
-                        alt="Pexel Paradox" 
-                        className="w-full h-full object-contain brightness-0 invert filter relative z-10"
-                      />
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
+                    className="h-1 bg-brand-red max-w-[200px]"
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
-            {/* Bottom Footer Data */}
-            <div className="flex flex-col sm:flex-row justify-between items-end sm:items-end w-full gap-6">
-              
-              {/* Niche Diagnostic Feed */}
-              <div className="w-full sm:w-1/2">
-                <div className="font-mono text-[10px] tracking-[0.2em] text-neutral-500 mb-2">CURRENT OPERATION:</div>
-                <div className="h-6 sm:h-8 overflow-hidden relative w-full">
-                  <AnimatePresence mode="popLayout">
-                    <motion.div
-                      key={stepIndex}
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: -20, opacity: 0 }}
-                      transition={{ duration: 0.4 }}
-                      className="text-brand-red text-xs sm:text-sm font-bold tracking-[0.1em] sm:tracking-[0.2em] uppercase absolute"
-                    >
-                      {nicesSteps[stepIndex]}
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-                {/* Advanced dual-progress bar */}
-                <div className="flex flex-col gap-1 w-full max-w-sm mt-2">
-                  <div className="h-[1px] w-full bg-neutral-900 border-x border-neutral-800">
-                    <motion.div 
-                      className="h-full bg-neutral-700"
-                      style={{ width: `${percent}%` }}
-                    />
-                  </div>
-                  <div className="h-[2px] w-full bg-neutral-900 border-x border-neutral-800">
-                    <motion.div 
-                      className="h-full bg-brand-red shadow-[0_0_10px_rgba(220,53,53,0.8)]"
-                      style={{ width: `${percent}%` }}
-                    />
-                  </div>
-                </div>
-              </div>
+          {/* Minimalist Framing elements */}
+          <div className="absolute bottom-10 left-10 overflow-hidden hidden md:block">
+            <motion.div
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+              className="text-xs font-mono tracking-[0.2em] text-neutral-600 uppercase"
+            >
+              [ SYSTEM INITIALIZATION ]
+            </motion.div>
+          </div>
+          
+          <div className="absolute bottom-10 right-10 flex gap-2">
+            {[1,2,3].map((i) => (
+              <motion.div
+                key={i}
+                initial={{ scaleY: 0 }}
+                animate={{ scaleY: 1 }}
+                transition={{ 
+                  duration: 0.5, 
+                  repeat: Infinity, 
+                  repeatType: "mirror", 
+                  delay: i * 0.1 
+                }}
+                className="w-1.5 h-8 bg-brand-red origin-bottom"
+              />
+            ))}
+          </div>
 
-              {/* Huge Numbers */}
-              <div className="flex items-baseline justify-end gap-1 w-full sm:w-auto">
-                <div className="overflow-hidden flex items-baseline h-[4rem] sm:h-[6rem]">
-                  <motion.span 
-                    initial={{ y: "100%" }}
-                    animate={{ y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="text-6xl sm:text-8xl font-black text-white tracking-tighter leading-none"
-                  >
-                    {percent.toString().padStart(3, '0')}
-                  </motion.span>
-                </div>
-                <span className="text-xl sm:text-3xl font-bold text-brand-red">%</span>
-              </div>
+          {/* Dynamic exit curtains */}
+          <motion.div
+             exit={{ scaleY: 0 }}
+             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
+             className="absolute top-0 left-0 w-full h-1/2 bg-[#030303] origin-top border-b border-white/10"
+          />
+          <motion.div
+             exit={{ scaleY: 0 }}
+             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
+             className="absolute bottom-0 left-0 w-full h-1/2 bg-[#030303] origin-bottom border-t border-white/10"
+          />
 
-            </div>
-          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

@@ -20,13 +20,13 @@ const organizationNode = {
   "logo": {
     "@type": "ImageObject",
     "@id": `${BASE_URL}/#logo`,
-    "url": "https://i.ibb.co/8LCr5WGd/IMG-20260614-214548.png",
+    "url": "https://i.ibb.co/fY6FrMCd/IMG-20260614-214548.png",
     "caption": "Pexel Paradox - Gym Performance Marketing Agency Logo in India"
   },
   "image": {
     "@type": "ImageObject",
     "@id": `${BASE_URL}/#heroImage`,
-    "url": "https://i.ibb.co/cSthH6G9/IMG-20260614-120137.jpg"
+    "url": "https://i.ibb.co/N6ms3C45/IMG-20260615-190044.jpg"
   },
   "description": "Pexel Paradox is a leading, high-performance marketing agency for gyms and fitness centers in India. We specialize in local gym lead generation, Facebook and Instagram Ads for gyms, Google Ads, and automated member follow-up systems.",
   "sameAs": SAME_AS_LINKS
@@ -36,7 +36,7 @@ const localBusinessNode = {
   "@type": ["LocalBusiness", "ProfessionalService", "MarketingAgency"],
   "@id": `${BASE_URL}/#localbusiness`,
   "name": "Pexel Paradox",
-  "image": "https://i.ibb.co/8LCr5WGd/IMG-20260614-214548.png",
+  "image": "https://i.ibb.co/N6ms3C45/IMG-20260615-190044.jpg",
   "url": BASE_URL,
   "email": "contact@pexelparadox.app",
   "telephone": "+91-99999-99999",

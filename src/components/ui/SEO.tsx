@@ -17,7 +17,7 @@ export default function SEO({
   canonicalUrl,
   keywords = "gym marketing agency, fitness marketing agency, gym lead generation, gym advertising agency, facebook ads for gyms, gym growth agency",
   ogType = "website",
-  ogImage = "https://i.ibb.co/8LCr5WGd/IMG-20260614-214548.png", // Using the full logo as default OG image
+  ogImage = "https://i.ibb.co/N6ms3C45/IMG-20260615-190044.jpg", // Using the brand featured image as default OG image
   schema,
   noindex = false
 }: SEOProps) {

@@ -33,11 +33,11 @@ export default function Navbar() {
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 pointer-events-none px-4 sm:px-6 md:px-8 mt-4 lg:mt-5`}
     >
       <div 
-        className={`max-w-7xl mx-auto rounded-full pointer-events-auto transition-all duration-300 ${
+        className={`max-w-7xl mx-auto rounded-full pointer-events-auto transition-all duration-300 backdrop-blur-xl ${
           isScrolled 
-            ? 'py-3 px-6 md:px-8 bg-brand-red/95 border border-white/20 shadow-lg shadow-brand-red/20 text-white lg:py-2 lg:bg-white/95 lg:border-neutral-200/80 lg:shadow-xl lg:shadow-black/5' 
-            : 'py-4 px-6 md:px-8 bg-brand-red/90 border border-transparent shadow-md text-white lg:py-3 lg:bg-white/80 lg:border-white/50 lg:shadow-md lg:shadow-black/2'
-        } backdrop-blur-md`}
+            ? 'py-2 px-6 md:px-8 bg-white/80 border border-neutral-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.08)]' 
+            : 'py-3 px-6 md:px-8 bg-white/50 border border-neutral-200/60 shadow-[0_4px_20px_rgb(0,0,0,0.04)]'
+        }`}
       >
         <div className="flex items-center justify-between">
           <ResponsiveLogo onClick={closeMenu} />
@@ -53,8 +53,8 @@ export default function Navbar() {
                   to={link.path}
                   className={`text-sm xl:text-base font-semibold tracking-wide transition-all duration-200 relative py-1.5 px-1 ${
                     isActive 
-                      ? 'text-white font-bold drop-shadow-md lg:text-brand-red lg:font-bold lg:drop-shadow-none' 
-                      : 'text-white/80 hover:text-white lg:text-neutral-600 lg:hover:text-brand-red'
+                      ? 'text-brand-red font-bold' 
+                      : 'text-neutral-600 hover:text-brand-red'
                   }`}
                 >
                   {link.name}
@@ -74,21 +74,21 @@ export default function Navbar() {
           <div className="flex items-center gap-2 lg:gap-4 shrink-0">
             <a 
               href="tel:+919833000052" 
-              className="hidden lg:flex items-center gap-2 px-4 h-10 rounded-full border border-white/30 text-white hover:bg-white hover:text-brand-red transition-all text-sm font-bold shadow-sm lg:border-neutral-200 lg:text-neutral-700 lg:hover:bg-neutral-100 lg:hover:text-black"
+              className="hidden lg:flex items-center gap-2 px-4 h-10 rounded-full border border-neutral-200 text-neutral-700 hover:bg-neutral-100 hover:text-black transition-all text-sm font-bold shadow-sm"
             >
               <Phone size={14} />
               <span>Call Now</span>
             </a>
             <Link
               to="/contact#contact-form"
-              className="hidden lg:inline-flex h-10 px-6 items-center justify-center rounded-full bg-white text-brand-red font-bold text-sm transition-all hover:scale-105 active:scale-95 shrink-0 lg:bg-black lg:text-white lg:hover:bg-brand-red lg:hover:shadow-[0_4px_15px_rgba(220,53,53,0.3)]"
+              className="hidden lg:inline-flex h-10 px-6 items-center justify-center rounded-full bg-black text-white hover:bg-brand-red hover:shadow-[0_4px_15px_rgba(220,53,53,0.3)] font-bold text-sm transition-all hover:scale-105 active:scale-95 shrink-0"
               onClick={closeMenu}
             >
               Request Project
             </Link>
 
             <button
-              className="lg:hidden p-2 text-white hover:text-white/80 transition-colors"
+              className="lg:hidden p-2 text-neutral-800 hover:text-brand-red transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >

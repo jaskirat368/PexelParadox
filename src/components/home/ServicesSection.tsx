@@ -61,7 +61,10 @@ export default function ServicesSection() {
           <div className="w-full h-[280px] sm:h-[320px] relative border border-neutral-850 rounded-[2rem] overflow-hidden group/img order-1">
             <img 
               src="https://i.ibb.co/hxX4mPyT/dad70d8b79998b686eab8f852e611a91-webp.webp" 
-              alt="Gym services preview" 
+              alt="High-performance fitness equipment in a premium Indian gym utilizing Pexel Paradox lead generation and growth services" 
+              title="Gym Performance Marketing and Premium Client Acquisition - Pexel Paradox"
+              loading="lazy"
+              referrerPolicy="no-referrer"
               className="absolute inset-0 w-full h-full object-cover object-center grayscale-[20%] transition-transform duration-500 group-hover/img:scale-105"
             />
             {/* Overlay gradient */}

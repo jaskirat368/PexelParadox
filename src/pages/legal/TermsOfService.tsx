@@ -1,8 +1,16 @@
 import { motion } from 'motion/react';
+import SEO from '../../components/ui/SEO';
+import { generateLegalPageSchema } from '../../utils/seoSchemas';
 
 export default function TermsOfService() {
   return (
     <section className="pt-40 pb-20 px-6 max-w-4xl mx-auto w-full min-h-[70vh]">
+      <SEO 
+        title="Terms of Service | Gym Growth Consulting Agreement"
+        description="Read the website terms and general business conditions for Pexel Paradox, representing professional gym performance marketing in India."
+        canonicalUrl="https://pexelparadox.vercel.app/legal/terms-of-service"
+        schema={generateLegalPageSchema("Terms of Service", "Terms of Service", "Standard Terms of Service for our gym marketing agency and advisory.")}
+      />
       <motion.h1 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

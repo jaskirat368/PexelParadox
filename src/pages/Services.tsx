@@ -3,7 +3,7 @@ import { ArrowRight, Target, Users, Zap, LayoutDashboard, LineChart, MessageSqua
 import { Link } from 'react-router-dom';
 import PremiumInteractiveCard from '../components/ui/PremiumInteractiveCard';
 import SEO from '../components/ui/SEO';
-import { generateBreadcrumbSchema } from '../utils/seoSchemas';
+import { generateServicesSchema } from '../utils/seoSchemas';
 
 const servicesData = [
   {
@@ -58,18 +58,13 @@ const servicesData = [
 ];
 
 export default function Services() {
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home", item: "https://pexelparadox.vercel.app/" },
-    { name: "Services", item: "https://pexelparadox.vercel.app/services" }
-  ]);
-
   return (
     <div className="w-full relative bg-brand-gray min-h-screen pb-20">
       <SEO 
         title="Gym Marketing Services | Lead Generation & Ads"
         description="Explore our specialized gym marketing services. From Facebook ads to automated follow-up systems, we provide predictable lead generation for independent fitness centers in India."
         canonicalUrl="https://pexelparadox.vercel.app/services"
-        schema={breadcrumbSchema}
+        schema={generateServicesSchema()}
       />
       {/* Hero Section */}
       <section className="pt-40 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden w-full bg-white text-black rounded-b-[3rem] md:rounded-b-[5rem] relative z-20 shadow-[0_20px_40px_rgba(0,0,0,0.02)]">
@@ -150,7 +145,10 @@ export default function Services() {
               <div className="lg:col-span-5 relative w-full h-48 lg:h-64 rounded-[1.5rem] overflow-hidden border border-neutral-800">
                 <img 
                   src="https://i.ibb.co/hx4LMpp4/af05c3476b66b00f57eca752a6ab6678.jpg" 
-                  alt="Performance Marketing" 
+                  alt="Comprehensive performance marketing system designed to drive maximum customer acquisition for Indian fitness clubs and gyms" 
+                  title="Gym Performance Marketing and High-Yield Leads Solution"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
                   className="absolute inset-0 w-full h-full object-cover grayscale-[10%] group-hover:scale-105 transition-transform duration-500" 
                 />
               </div>
@@ -167,7 +165,7 @@ export default function Services() {
                 to="/services/performance-marketing" 
                 className="inline-flex items-center text-brand-red hover:text-white font-bold uppercase tracking-widest text-xs transition-colors shrink-0"
               >
-                <span>Explore Engine</span> 
+                <span>Explore Performance Marketing</span> 
                 <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
               </Link>
             </div>
@@ -201,7 +199,10 @@ export default function Services() {
               <div className="relative w-full h-40 rounded-2xl overflow-hidden border border-brand-border mb-6">
                 <img 
                   src="https://i.ibb.co/cSthH6G9/IMG-20260614-120137.jpg" 
-                  alt="Facebook Ads and Instagram Marketing for Gyms" 
+                  alt="Dedicated Meta Ads dashboard and high ROAS campaign setups built specifically for local fitness clubs by Pexel Paradox" 
+                  title="Meta Facebook and Instagram Ads Custom Engine for Gyms"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
               </div>
@@ -210,7 +211,7 @@ export default function Services() {
                 to="/services/meta-ads" 
                 className="inline-flex items-center text-brand-red font-bold uppercase tracking-widest text-xs"
               >
-                <span>Explore Engine</span> 
+                <span>Explore Meta Ads Engine</span> 
                 <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
               </Link>
             </div>
@@ -244,7 +245,10 @@ export default function Services() {
               <div className="relative w-full h-40 rounded-2xl overflow-hidden border border-brand-border mb-6">
                 <img 
                   src="https://i.ibb.co/G3WLHD2Y/6a27e22a1ae5b9cd2e65d63081f3393e-1.png" 
-                  alt="Lead Generation" 
+                  alt="Pexel Paradox high-converting gym lead generation model showing membership application funnel and active metrics dashboard" 
+                  title="Pexel Paradox Gym Lead Generation Engine"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
               </div>
@@ -253,7 +257,7 @@ export default function Services() {
                 to="/services/lead-generation" 
                 className="inline-flex items-center text-brand-red font-bold uppercase tracking-widest text-xs"
               >
-                <span>Explore Engine</span> 
+                <span>Explore Lead Generation</span> 
                 <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
               </Link>
             </div>
@@ -289,7 +293,10 @@ export default function Services() {
                   <div className="relative w-full h-48 lg:h-56 rounded-[1.5rem] overflow-hidden border border-brand-border">
                     <img 
                       src="https://i.ibb.co/cKVtr10f/3a8202dd26c2fc466d2ee9db81ac2e73.jpg" 
-                      alt="Content Creation" 
+                      alt="Local fitness model captured in high-intensity boutique gym representing custom Pexel Paradox creative content assets" 
+                      title="Custom High-Conversion Original Fitness Photographic Content"
+                      loading="lazy"
+                      referrerPolicy="no-referrer"
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                     />
                   </div>
@@ -303,7 +310,7 @@ export default function Services() {
                 to="/services/content-creation" 
                 className="inline-flex items-center text-brand-red font-bold uppercase tracking-widest text-xs"
               >
-                <span>Explore Engine</span> 
+                <span>Explore Content Creation</span> 
                 <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
               </Link>
             </div>
@@ -339,7 +346,10 @@ export default function Services() {
                   <div className="relative w-full h-48 lg:h-56 rounded-[1.5rem] overflow-hidden border border-brand-border">
                     <img 
                       src="https://i.ibb.co/h12dN4pQ/IMG-20260614-133755.png" 
-                      alt="Conversion Funnels" 
+                      alt="Single-purpose customer conversion funnel UI showing targeted premium local offer signup form for fitness studio members" 
+                      title="Tailored Landing Page Conversion Funnel for Gym Offers"
+                      loading="lazy"
+                      referrerPolicy="no-referrer"
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                     />
                   </div>
@@ -353,7 +363,7 @@ export default function Services() {
                 to="/services/conversion-funnels" 
                 className="inline-flex items-center text-brand-red font-bold uppercase tracking-widest text-xs"
               >
-                <span>Explore Engine</span> 
+                <span>Explore Conversion Funnels</span> 
                 <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
               </Link>
             </div>
@@ -387,7 +397,10 @@ export default function Services() {
               <div className="relative w-full h-40 rounded-2xl overflow-hidden border border-brand-border mb-6">
                 <img 
                   src="https://i.ibb.co/k2cpMjNG/fcc07164b65ab47c5d07c34d9b2683ee.png" 
-                  alt="Follow-Up Systems" 
+                  alt="Sales follow-up automation workflow dashboard showing SMS pipeline triggers and live CRM records for qualified gym seekers" 
+                  title="Gym CRM and Automated Follow-Up Pipeline System"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
               </div>
@@ -396,7 +409,7 @@ export default function Services() {
                 to="/services/follow-up-systems" 
                 className="inline-flex items-center text-brand-red font-bold uppercase tracking-widest text-xs"
               >
-                <span>Explore Engine</span> 
+                <span>Explore Follow-Up Systems</span> 
                 <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
               </Link>
             </div>
@@ -437,7 +450,10 @@ export default function Services() {
                 <div className="relative w-full h-48 md:h-56 rounded-[1.5rem] overflow-hidden border border-neutral-800">
                   <img 
                     src="https://i.ibb.co/YBgyVcVZ/6ac15143f9b2e8de9cafadca841d4145.png" 
-                    alt="Gym Growth Strategy" 
+                    alt="Multi-location gym network expansion roadmap mapping out absolute regional dominance and strategic group price structures" 
+                    title="Enterprise Scale and Regional Gym Dominance Strategy"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   />
                 </div>
@@ -450,7 +466,7 @@ export default function Services() {
                 to="/services/gym-growth-strategy" 
                 className="inline-flex items-center text-brand-red group-hover:text-white font-bold uppercase tracking-widest text-xs transition-colors"
               >
-                <span>Explore Engine</span> 
+                <span>Explore Gym Growth Strategy</span> 
                 <ArrowRight size={14} className="ml-2 group-hover:translate-x-2 transition-transform" />
               </Link>
             </div>

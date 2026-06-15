@@ -4,7 +4,7 @@ import { PhoneCall, Search, Target, Settings, Rocket, Users, Activity, TrendingU
 import { Link } from 'react-router-dom';
 import PremiumInteractiveCard from '../components/ui/PremiumInteractiveCard';
 import SEO from '../components/ui/SEO';
-import { generateBreadcrumbSchema } from '../utils/seoSchemas';
+import { generateProcessSchema } from '../utils/seoSchemas';
 
 const steps = [
   {
@@ -59,10 +59,6 @@ const steps = [
 
 export default function Process() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home", item: "https://pexelparadox.vercel.app/" },
-    { name: "Process", item: "https://pexelparadox.vercel.app/process" }
-  ]);
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -83,7 +79,7 @@ export default function Process() {
         title="Our Process | Gym Marketing Agency Framework"
         description="Discover the 8-step process we use at Pexel Paradox to scale gyms and fitness centers across India with predictable performance marketing."
         canonicalUrl="https://pexelparadox.vercel.app/process"
-        schema={breadcrumbSchema}
+        schema={generateProcessSchema()}
       />
       {/* Hero Section */}
       <section className="pt-40 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden w-full bg-white text-black rounded-b-[3rem] md:rounded-b-[5rem] relative z-20 shadow-[0_20px_40px_rgba(0,0,0,0.02)]">

@@ -32,8 +32,22 @@ export default function HeroSection() {
           className="absolute lg:left-[-3rem] xl:left-[-6rem] 2xl:left-[-10rem] top-[22%] hidden lg:flex flex-col items-center gap-2 bg-white/85 backdrop-blur-md border border-brand-border p-3 rounded-2xl shadow-xl z-20 origin-top-left"
         >
             <div className="flex -space-x-3">
-              <img src="https://i.pravatar.cc/100?img=11" alt="avatar" className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" />
-              <img src="https://i.pravatar.cc/100?img=32" alt="avatar" className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" />
+              <img 
+                src="https://i.pravatar.cc/100?img=11" 
+                alt="Boutique gym owner in Delhi using Pexel Paradox high-ticket digital client acquisition systems" 
+                title="Boutique Gym Owner Testimonial Profile - Delhi"
+                loading="eager"
+                referrerPolicy="no-referrer"
+                className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" 
+              />
+              <img 
+                src="https://i.pravatar.cc/100?img=32" 
+                alt="Fitness studio franchise builder in Mumbai tracking real-time membership lead campaigns" 
+                title="Fitness Studio Owner Testimonial Profile - Mumbai"
+                loading="eager"
+                referrerPolicy="no-referrer"
+                className="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm" 
+              />
               <div className="w-10 h-10 rounded-full border-2 border-white bg-brand-red flex items-center justify-center shadow-sm">
                 <span className="text-white text-[10px] font-bold">+12</span>
               </div>
@@ -112,8 +126,22 @@ export default function HeroSection() {
             className="absolute -left-3 sm:-left-12 top-[-10px] flex lg:hidden flex-col items-center gap-1 bg-white/95 backdrop-blur-md border border-brand-border p-2 rounded-xl shadow-xl z-20 scale-[0.7] sm:scale-80 origin-left pointer-events-none"
           >
               <div className="flex -space-x-2">
-                <img src="https://i.pravatar.cc/100?img=11" alt="avatar" className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm" />
-                <img src="https://i.pravatar.cc/100?img=32" alt="avatar" className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm" />
+                <img 
+                  src="https://i.pravatar.cc/100?img=11" 
+                  alt="Personal trainer and gym partner in Chandigarh utilizing highly-targeted paid campaigns" 
+                  title="Fitness Professional Profile Card - Chandigarh"
+                  loading="eager"
+                  referrerPolicy="no-referrer"
+                  className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm" 
+                />
+                <img 
+                  src="https://i.pravatar.cc/100?img=32" 
+                  alt="Fitness operator in Mohali looking at real-time local customer acquisition outcomes" 
+                  title="Gym Owner Profile Card - Mohali"
+                  loading="eager"
+                  referrerPolicy="no-referrer"
+                  className="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm" 
+                />
                 <div className="w-8 h-8 rounded-full border-2 border-white bg-brand-red flex items-center justify-center shadow-sm">
                   <span className="text-white text-[9px] font-bold">+12</span>
                 </div>

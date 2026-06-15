@@ -99,7 +99,10 @@ export default function BrandIntroLoader({ onComplete }: BrandIntroLoaderProps) 
              />
              <img 
                src="https://i.ibb.co/JRMTckSp/file-0000000040047208885869e9a710d1ab.png" 
-               alt="Pexel Paradox" 
+               alt="Pexel Paradox high-performance media marketing and client acquisition brand asset" 
+               title="Pexel Paradox Media Marketing Brand Asset"
+               loading="eager"
+               referrerPolicy="no-referrer"
                className="w-full h-auto object-contain brightness-0 invert relative z-10 isolate px-2 md:px-0 max-w-[20rem] sm:max-w-[28rem] md:max-w-[34rem] pointer-events-none"
              />
           </div>

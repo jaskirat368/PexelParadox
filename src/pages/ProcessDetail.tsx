@@ -1,6 +1,8 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { PhoneCall, Search, Target, Settings, Rocket, Users, Activity, TrendingUp, ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
+import SEO from '../components/ui/SEO';
+import { generateProcessDetailSchema } from '../utils/seoSchemas';
 
 const processDataDictionary: Record<string, any> = {
   'strategy-call': {
@@ -146,12 +148,27 @@ export default function ProcessDetail() {
 
   return (
     <div className="w-full relative bg-brand-gray min-h-screen">
+      <SEO 
+        title={`${process.title} | Our Gym Lead Generation Process`}
+        description={`${process.tagline}. ${process.purpose}`}
+        canonicalUrl={`https://pexelparadox.vercel.app/process/${id}`}
+        schema={generateProcessDetailSchema(id || '', process.title, process.tagline, process.purpose)}
+      />
       {/* Dynamic Hero Section */}
       <section className="pt-40 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden w-full bg-white text-black rounded-b-[3rem] md:rounded-b-[5rem] relative z-20 shadow-[0_20px_40px_rgba(0,0,0,0.02)]">
         <div className="max-w-7xl mx-auto flex flex-col gap-10">
-          <Link to="/process" className="inline-flex items-center text-gray-500 hover:text-brand-red font-bold uppercase tracking-widest text-sm transition-colors w-max">
-            <ArrowLeft size={16} className="mr-2" /> Back to Full Process
-          </Link>
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <Link to="/process" className="inline-flex items-center text-gray-500 hover:text-brand-red font-bold uppercase tracking-widest text-sm transition-colors w-max">
+              <ArrowLeft size={16} className="mr-2" /> Back to Full Process
+            </Link>
+            <nav aria-label="Breadcrumbs" className="flex items-center gap-1.5 text-[10px] sm:text-xs font-mono tracking-wider text-gray-450 uppercase">
+              <Link to="/" className="hover:text-brand-red transition-colors">Home</Link>
+              <span>/</span>
+              <Link to="/process" className="hover:text-brand-red transition-colors">Our Process</Link>
+              <span>/</span>
+              <span className="text-gray-700 font-bold">{process.title}</span>
+            </nav>
+          </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
             <div className="lg:col-span-8">

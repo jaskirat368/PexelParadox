@@ -1,4 +1,67 @@
+# Pexel Paradox - Gym Performance Marketing Agency (India)
+# Production Robots.txt file for optimized crawl efficiency and search indexing.
+
+# ----------------------------------------------------
+# 1. Main Search Engines & AI Assistants (All-inclusive Access)
+# ----------------------------------------------------
 User-agent: *
 Allow: /
+Allow: /index.html
+Allow: /assets/
+Allow: /sitemap.xml
 
+# Prevent crawl of temporary, error, or system pages
+Disallow: /404
+Disallow: /error
+Disallow: /submission-failed
+Disallow: /private/
+Disallow: /admin/
+
+# ----------------------------------------------------
+# 2. Dedicated Rule Set for Core Search Spiders (Express Permission)
+# ----------------------------------------------------
+User-agent: Googlebot
+Allow: /
+Allow: /assets/
+Disallow: /404
+Disallow: /error
+
+User-agent: Googlebot-Image
+Allow: /
+Allow: /assets/
+
+User-agent: Bingbot
+Allow: /
+Allow: /assets/
+Disallow: /404
+Disallow: /error
+
+# ----------------------------------------------------
+# 3. AI Search Engines & LLM Web Crawlers (Unlock AI Discovery)
+# This allows Gemini, ChatGPT Search, Claude, Perplexity, and Apple AI to crawl and list Pexel Paradox.
+# ----------------------------------------------------
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# ----------------------------------------------------
+# 4. Sitemap Reference
+# ----------------------------------------------------
 Sitemap: https://pexelparadox.vercel.app/sitemap.xml

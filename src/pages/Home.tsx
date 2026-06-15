@@ -6,7 +6,7 @@ import TestimonialsSection from '../components/home/TestimonialsSection';
 import FAQSection from '../components/home/FAQSection';
 import CtaSection from '../components/home/CtaSection';
 import SEO from '../components/ui/SEO';
-import { generateOrganizationSchema, generateFAQSchema } from '../utils/seoSchemas';
+import { generateHomeSchema } from '../utils/seoSchemas';
 
 const homeFaqs = [
   {
@@ -50,7 +50,7 @@ export default function Home() {
         title="Gym Marketing Agency India | Fitness Lead Generation"
         description="Pexel Paradox is India's leading performance marketing agency for independent gyms. We specialize in gym lead generation, Facebook ads for gyms, and scalable revenue growth consulting."
         canonicalUrl="https://pexelparadox.vercel.app/"
-        schema={[generateOrganizationSchema(), generateFAQSchema(homeFaqs)]}
+        schema={generateHomeSchema(homeFaqs)}
       />
       <HeroSection />
       <ProblemSolutionSection />

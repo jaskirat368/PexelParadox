@@ -3,21 +3,16 @@ import { ArrowRight, BarChart3, LineChart, Target, ShieldCheck, TrendingUp } fro
 import { Link } from 'react-router-dom';
 import PremiumInteractiveCard from '../components/ui/PremiumInteractiveCard';
 import SEO from '../components/ui/SEO';
-import { generateBreadcrumbSchema } from '../utils/seoSchemas';
+import { generateResultsSchema } from '../utils/seoSchemas';
 
 export default function Results() {
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home", item: "https://pexelparadox.vercel.app/" },
-    { name: "Results", item: "https://pexelparadox.vercel.app/results" }
-  ]);
-
   return (
     <div className="w-full relative bg-brand-gray min-h-screen pb-20">
       <SEO 
         title="Client Results & Metrics | Gym Ad Agency"
         description="See how Pexel Paradox tracks and measures profitable foot traffic and signed contracts for gyms through predictable performance marketing."
         canonicalUrl="https://pexelparadox.vercel.app/results"
-        schema={breadcrumbSchema}
+        schema={generateResultsSchema()}
       />
       {/* Hero Section */}
       <section className="pt-40 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden w-full bg-white text-black rounded-b-[3rem] md:rounded-b-[5rem] relative z-20 shadow-[0_20px_40px_rgba(0,0,0,0.02)]">
@@ -94,7 +89,7 @@ export default function Results() {
               What Success <br/>Looks Like
             </h3>
             <p className="text-lg text-gray-600 font-medium leading-relaxed">
-              Success is not a sudden, unmanageable spike in traffic. True success is engineered predictability. When our systems are fully integrated, you will know exactly how much it costs to acquire a new member. You will know your show rates. More importantly, you will have a mechanical lever to pull when you have capacity to fill—turning marketing from a random expense into a predictable investment.
+              Success is not a sudden, unmanageable spike in traffic. True success is engineered predictability. When our <Link to="/services/performance-marketing" className="text-brand-red font-bold hover:underline">performance marketing</Link> systems are fully integrated, you will know exactly how much it costs to acquire a new member. You will know your show rates. More importantly, you will have a mechanical lever to pull when you have capacity to fill—turning marketing from a random expense into a predictable investment.
             </p>
           </motion.div>
 
@@ -131,7 +126,7 @@ export default function Results() {
               Growth Is <br/>A System
             </h3>
             <p className="text-lg text-gray-600 font-medium leading-relaxed">
-              High-quality leads mean nothing if your retention model is broken. Acquisition is only the first step. By combining hyper-local ad strategies with robust speed-to-lead follow-up mechanisms, we ensure maximum ROI. We also analyze churn to ensure the members we put in your gym stay in your gym, allowing your Monthly Recurring Revenue to compound over time.
+              High-quality leads mean nothing if your retention model is broken. Acquisition is only the first step. By combining hyper-local <Link to="/services/meta-ads" className="text-brand-red font-bold hover:underline">Meta ads campaigns</Link> with robust speed-to-lead <Link to="/services/follow-up-systems" className="text-brand-red font-bold hover:underline">automated follow-up systems</Link>, we ensure maximum ROI. We also analyze churn to ensure the members we put in your gym stay in your gym, allowing your Monthly Recurring Revenue to compound over time.
             </p>
           </motion.div>
 

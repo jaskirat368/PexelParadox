@@ -1,8 +1,16 @@
 import { motion } from 'motion/react';
+import SEO from '../../components/ui/SEO';
+import { generateLegalPageSchema } from '../../utils/seoSchemas';
 
 export default function RefundPolicy() {
   return (
     <section className="pt-40 pb-20 px-6 max-w-4xl mx-auto w-full min-h-[70vh]">
+      <SEO 
+        title="Refund Policy | B2B Commercial Performance Commitments"
+        description="Review the service guarantees and commercial payment rules for Pexel Paradox performance contracts in India."
+        canonicalUrl="https://pexelparadox.vercel.app/legal/refund-policy"
+        schema={generateLegalPageSchema("Refund Policy", "Refund Policy", "B2B performance commitments and cancellation terms.")}
+      />
       <motion.h1 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

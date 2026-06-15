@@ -1,10 +1,17 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight, Terminal } from 'lucide-react';
+import SEO from '../components/ui/SEO';
 
 export default function NotFound() {
   return (
     <div className="flex-1 flex flex-col justify-center items-center text-center px-6 py-24 md:py-40 bg-white relative overflow-hidden">
+      <SEO 
+        title="Page Not Found (404)"
+        description="The page you are looking for does not exist on Pexel Paradox."
+        canonicalUrl="https://pexelparadox.vercel.app/404"
+        noindex={true}
+      />
       {/* Background technical elements */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,1)_1px,transparent_1px)] bg-[size:64px_64px]" />

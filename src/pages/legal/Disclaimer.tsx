@@ -1,8 +1,16 @@
 import { motion } from 'motion/react';
+import SEO from '../../components/ui/SEO';
+import { generateLegalPageSchema } from '../../utils/seoSchemas';
 
 export default function Disclaimer() {
   return (
     <section className="pt-40 pb-20 px-6 max-w-4xl mx-auto w-full min-h-[70vh]">
+      <SEO 
+        title="Disclaimer | Results & Earnings Disclosure"
+        description="Review the marketing outcomes, earnings, and result representation disclosures of Pexel Paradox regarding gym lead systems in India."
+        canonicalUrl="https://pexelparadox.vercel.app/legal/disclaimer"
+        schema={generateLegalPageSchema("Disclaimer", "Disclaimer", "Earnings and marketing outcomes representation statement.")}
+      />
       <motion.h1 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

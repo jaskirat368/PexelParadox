@@ -1,0 +1,25 @@
+{
+  "name": "Pexel Paradox Gym Performance Marketing Agency",
+  "short_name": "Pexel Paradox",
+  "description": "We don't just run ads. We fill gyms. High-performance agency mapping systems for fitness gyms across India.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#DC3535",
+  "orientation": "portrait-primary",
+  "categories": ["business", "fitness", "services"],
+  "icons": [
+    {
+      "src": "https://i.ibb.co/B59srRQx/file-00000000f48c720794722f82911a2d5e.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://i.ibb.co/B59srRQx/file-00000000f48c720794722f82911a2d5e.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

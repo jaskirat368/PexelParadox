@@ -1,8 +1,16 @@
 import { motion } from 'motion/react';
+import SEO from '../../components/ui/SEO';
+import { generateLegalPageSchema } from '../../utils/seoSchemas';
 
 export default function PrivacyPolicy() {
   return (
     <section className="pt-40 pb-20 px-6 max-w-4xl mx-auto w-full min-h-[70vh]">
+      <SEO 
+        title="Privacy Policy | Gym Performance Marketing Solutions"
+        description="Learn how Pexel Paradox gathers, secures, and handles information for our clients and gym owners in compliance with Indian regulations."
+        canonicalUrl="https://pexelparadox.vercel.app/legal/privacy-policy"
+        schema={generateLegalPageSchema("Privacy Policy", "Privacy Policy", "Client and user privacy protocols and information safeguards in India")}
+      />
       <motion.h1 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

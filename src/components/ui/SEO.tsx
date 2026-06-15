@@ -8,6 +8,7 @@ interface SEOProps {
   ogType?: string;
   ogImage?: string;
   schema?: Record<string, any> | Record<string, any>[];
+  noindex?: boolean;
 }
 
 export default function SEO({
@@ -17,9 +18,10 @@ export default function SEO({
   keywords = "gym marketing agency, fitness marketing agency, gym lead generation, gym advertising agency, facebook ads for gyms, gym growth agency",
   ogType = "website",
   ogImage = "https://i.ibb.co/8LCr5WGd/IMG-20260614-214548.png", // Using the full logo as default OG image
-  schema
+  schema,
+  noindex = false
 }: SEOProps) {
-  const fullTitle = `${title} | Pexel Paradox`;
+  const fullTitle = title.includes("Pexel Paradox") ? title : `${title} | Pexel Paradox`;
 
   return (
     <Helmet>
@@ -27,6 +29,8 @@ export default function SEO({
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={canonicalUrl} />
+      
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={ogType} />

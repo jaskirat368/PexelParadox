@@ -3,6 +3,8 @@ import { motion, useScroll, useTransform, useSpring } from 'motion/react';
 import { PhoneCall, Search, Target, Settings, Rocket, Users, Activity, TrendingUp, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PremiumInteractiveCard from '../components/ui/PremiumInteractiveCard';
+import SEO from '../components/ui/SEO';
+import { generateBreadcrumbSchema } from '../utils/seoSchemas';
 
 const steps = [
   {
@@ -57,6 +59,10 @@ const steps = [
 
 export default function Process() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", item: "https://pexelparadox.vercel.app/" },
+    { name: "Process", item: "https://pexelparadox.vercel.app/process" }
+  ]);
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -73,6 +79,12 @@ export default function Process() {
 
   return (
     <div className="w-full relative bg-brand-gray min-h-screen pb-20">
+      <SEO 
+        title="Our Process | Gym Marketing Agency Framework"
+        description="Discover the 8-step process we use at Pexel Paradox to scale gyms and fitness centers across India with predictable performance marketing."
+        canonicalUrl="https://pexelparadox.vercel.app/process"
+        schema={breadcrumbSchema}
+      />
       {/* Hero Section */}
       <section className="pt-40 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden w-full bg-white text-black rounded-b-[3rem] md:rounded-b-[5rem] relative z-20 shadow-[0_20px_40px_rgba(0,0,0,0.02)]">
         <div className="max-w-7xl mx-auto flex flex-col items-center text-center gap-6">
@@ -164,21 +176,23 @@ export default function Process() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white text-black p-12 md:p-20 text-center flex flex-col items-center shadow-[0_20px_40px_rgba(0,0,0,0.05)] border border-brand-border relative overflow-hidden"
+          className="bg-white text-black p-12 md:p-20 shadow-[0_20px_40px_rgba(0,0,0,0.05)] border border-brand-border relative overflow-hidden"
           borderRadius="3rem"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/10 rounded-full blur-[80px] pointer-events-none" />
-          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 relative z-10 font-sans">Stop the Chaos.<br/>Install the System.</h2>
-          <p className="text-xl text-gray-600 mb-12 max-w-2xl relative z-10 font-medium font-sans">
-            Ready to transition from random acts of marketing to a predictable growth machine?
-          </p>
-          <Link 
-            to="/contact#contact-form" 
-            className="inline-flex h-14 md:h-16 px-8 md:px-10 items-center justify-center rounded-full bg-brand-red text-white font-bold text-sm md:text-xl uppercase tracking-[0.15em] transition-transform hover:scale-105 hover:shadow-[0_0_30px_rgba(220,53,53,0.4)] relative z-10 whitespace-nowrap w-full sm:w-auto max-w-[280px] sm:max-w-none"
-          >
-            <span>Request Project</span>
-            <ArrowRight className="ml-3 flex-shrink-0" size={20} />
-          </Link>
+          <div className="flex flex-col items-center text-center justify-center w-full h-full relative z-10">
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 font-sans text-center">Stop the Chaos.<br/>Install the System.</h2>
+            <p className="text-xl text-gray-600 mb-12 max-w-2xl font-medium font-sans text-center mx-auto">
+              Ready to transition from random acts of marketing to a predictable growth machine?
+            </p>
+            <Link 
+              to="/contact#contact-form" 
+              className="inline-flex h-14 md:h-16 px-8 md:px-10 items-center justify-center rounded-full bg-brand-red text-white font-bold text-sm md:text-xl uppercase tracking-[0.15em] transition-transform hover:scale-105 hover:shadow-[0_0_30px_rgba(220,53,53,0.4)] whitespace-nowrap w-full sm:w-auto max-w-[280px] sm:max-w-none"
+            >
+              <span>Request Project</span>
+              <ArrowRight className="ml-3 flex-shrink-0" size={20} />
+            </Link>
+          </div>
         </PremiumInteractiveCard>
       </section>
     </div>

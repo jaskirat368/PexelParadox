@@ -3,6 +3,8 @@ import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mail, MapPin, Phone, MessageCircle, Instagram, Send, Globe, CheckCircle2 } from 'lucide-react';
 import PremiumInteractiveCard from '../components/ui/PremiumInteractiveCard';
+import SEO from '../components/ui/SEO';
+import { generateBreadcrumbSchema } from '../utils/seoSchemas';
 
 export default function Contact() {
   const location = useLocation();
@@ -24,6 +26,11 @@ export default function Contact() {
       }
     }
   }, [location]);
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", item: "https://pexelparadox.vercel.app/" },
+    { name: "Contact", item: "https://pexelparadox.vercel.app/contact" }
+  ]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -67,6 +74,12 @@ export default function Contact() {
 
   return (
     <section className="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full pt-44">
+      <SEO 
+        title="Contact Pexel Paradox | Gym Marketing Agency"
+        description="Ready to scale your gym? Request a strategy call with Pexel Paradox, the leading performance marketing agency for fitness centers in India."
+        canonicalUrl="https://pexelparadox.vercel.app/contact"
+        schema={breadcrumbSchema}
+      />
       <AnimatePresence>
         {success && (
           <motion.div

@@ -2,10 +2,23 @@ import { motion } from 'motion/react';
 import { ArrowRight, Target, Activity, Zap, ShieldCheck, BarChart, Users, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PremiumInteractiveCard from '../components/ui/PremiumInteractiveCard';
+import SEO from '../components/ui/SEO';
+import { generateBreadcrumbSchema } from '../utils/seoSchemas';
 
 export default function About() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", item: "https://pexelparadox.vercel.app/" },
+    { name: "About", item: "https://pexelparadox.vercel.app/about" }
+  ]);
+
   return (
     <div className="w-full relative bg-brand-gray min-h-screen pb-20">
+      <SEO 
+        title="About Our Gym Marketing Agency | Pexel Paradox"
+        description="Pexel Paradox is a dedicated performance marketing agency helping independent gym owners in India scale predictably through verified lead generation systems."
+        canonicalUrl="https://pexelparadox.vercel.app/about"
+        schema={breadcrumbSchema}
+      />
       {/* Hero Section */}
       <section className="pt-40 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden w-full bg-white text-black rounded-b-[3rem] md:rounded-b-[5rem] relative z-20 shadow-[0_20px_40px_rgba(0,0,0,0.02)]">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-16">

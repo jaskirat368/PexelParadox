@@ -2,6 +2,8 @@ import { motion } from 'motion/react';
 import { ArrowRight, Target, Users, Zap, LayoutDashboard, LineChart, MessageSquare, Presentation } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PremiumInteractiveCard from '../components/ui/PremiumInteractiveCard';
+import SEO from '../components/ui/SEO';
+import { generateBreadcrumbSchema } from '../utils/seoSchemas';
 
 const servicesData = [
   {
@@ -56,8 +58,19 @@ const servicesData = [
 ];
 
 export default function Services() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", item: "https://pexelparadox.vercel.app/" },
+    { name: "Services", item: "https://pexelparadox.vercel.app/services" }
+  ]);
+
   return (
     <div className="w-full relative bg-brand-gray min-h-screen pb-20">
+      <SEO 
+        title="Gym Marketing Services | Lead Generation & Ads"
+        description="Explore our specialized gym marketing services. From Facebook ads to automated follow-up systems, we provide predictable lead generation for independent fitness centers in India."
+        canonicalUrl="https://pexelparadox.vercel.app/services"
+        schema={breadcrumbSchema}
+      />
       {/* Hero Section */}
       <section className="pt-40 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden w-full bg-white text-black rounded-b-[3rem] md:rounded-b-[5rem] relative z-20 shadow-[0_20px_40px_rgba(0,0,0,0.02)]">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-end justify-between gap-12">
@@ -188,7 +201,7 @@ export default function Services() {
               <div className="relative w-full h-40 rounded-2xl overflow-hidden border border-brand-border mb-6">
                 <img 
                   src="https://i.ibb.co/cSthH6G9/IMG-20260614-120137.jpg" 
-                  alt="Meta Ads" 
+                  alt="Facebook Ads and Instagram Marketing for Gyms" 
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
               </div>
@@ -450,20 +463,22 @@ export default function Services() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-32 bg-white text-black p-12 md:p-20 text-center flex flex-col items-center shadow-[0_20px_40px_rgba(0,0,0,0.05)] border border-brand-border relative overflow-hidden"
+          className="mt-32 bg-white text-black p-12 md:p-20 shadow-[0_20px_40px_rgba(0,0,0,0.05)] border border-brand-border relative overflow-hidden"
           borderRadius="3rem"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/10 rounded-full blur-[80px] pointer-events-none" />
-          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6 relative z-10 font-sans">Stop Guessing. <br/>Start Scaling.</h2>
-          <p className="text-xl text-gray-600 font-medium max-w-2xl mb-10 relative z-10">
-            Stop relying on hope as a strategy. Let's install a predictable client acquisition system in your facility today.
-          </p>
-          <Link 
-            to="/contact#contact-form" 
-            className="inline-flex h-16 w-full sm:w-auto px-10 items-center justify-center rounded-full bg-brand-red text-white font-bold text-lg transition-transform hover:scale-105 hover:shadow-[0_0_20px_rgba(220,53,53,0.3)] gap-2 relative z-10 whitespace-nowrap"
-          >
-            Request Project <ArrowRight size={20} />
-          </Link>
+          <div className="flex flex-col items-center text-center justify-center w-full h-full relative z-10">
+            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-6 font-sans text-center">Stop Guessing. <br/>Start Scaling.</h2>
+            <p className="text-xl text-gray-600 font-medium max-w-2xl mb-10 text-center mx-auto">
+              Stop relying on hope as a strategy. Let's install a predictable client acquisition system in your facility today.
+            </p>
+            <Link 
+              to="/contact#contact-form" 
+              className="inline-flex h-16 w-full sm:w-auto px-10 items-center justify-center rounded-full bg-brand-red text-white font-bold text-lg transition-transform hover:scale-105 hover:shadow-[0_0_20px_rgba(220,53,53,0.3)] gap-2 whitespace-nowrap"
+            >
+              Request Project <ArrowRight size={20} />
+            </Link>
+          </div>
         </PremiumInteractiveCard>
       </section>
     </div>

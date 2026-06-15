@@ -2,10 +2,23 @@ import { motion } from 'motion/react';
 import { ArrowRight, BarChart3, LineChart, Target, ShieldCheck, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PremiumInteractiveCard from '../components/ui/PremiumInteractiveCard';
+import SEO from '../components/ui/SEO';
+import { generateBreadcrumbSchema } from '../utils/seoSchemas';
 
 export default function Results() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", item: "https://pexelparadox.vercel.app/" },
+    { name: "Results", item: "https://pexelparadox.vercel.app/results" }
+  ]);
+
   return (
     <div className="w-full relative bg-brand-gray min-h-screen pb-20">
+      <SEO 
+        title="Client Results & Metrics | Gym Ad Agency"
+        description="See how Pexel Paradox tracks and measures profitable foot traffic and signed contracts for gyms through predictable performance marketing."
+        canonicalUrl="https://pexelparadox.vercel.app/results"
+        schema={breadcrumbSchema}
+      />
       {/* Hero Section */}
       <section className="pt-40 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden w-full bg-white text-black rounded-b-[3rem] md:rounded-b-[5rem] relative z-20 shadow-[0_20px_40px_rgba(0,0,0,0.02)]">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-end justify-between gap-12">
@@ -131,22 +144,24 @@ export default function Results() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white text-black p-12 md:p-20 text-center flex flex-col items-center shadow-[0_20px_40px_rgba(0,0,0,0.05)] border border-brand-border relative overflow-hidden"
+          className="bg-white text-black p-12 md:p-20 shadow-[0_20px_40px_rgba(0,0,0,0.05)] border border-brand-border relative overflow-hidden"
           borderRadius="3rem"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/10 rounded-full blur-[80px] pointer-events-none" />
-          <ShieldCheck className="text-brand-red mb-8" size={64} />
-          <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 relative z-10 font-sans">Stop Paying For Promises.<br/>Pay For Predictability.</h2>
-          <p className="text-xl text-gray-600 mb-12 max-w-2xl relative z-10 font-medium font-sans">
-            If you are ready to implement a data-backed acquisition engine that scales your facility to capacity, it's time to talk.
-          </p>
-          <Link 
-            to="/contact#contact-form" 
-            className="inline-flex h-16 px-10 items-center justify-center rounded-full bg-brand-red text-white font-bold text-xl uppercase tracking-widest transition-transform hover:scale-105 hover:shadow-[0_0_30px_rgba(220,53,53,0.4)] relative z-10 whitespace-nowrap"
-          >
-            Request Project
-            <ArrowRight className="ml-3" size={24} />
-          </Link>
+          <div className="flex flex-col items-center text-center justify-center w-full h-full relative z-10">
+            <ShieldCheck className="text-brand-red mb-8" size={64} />
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 font-sans text-center">Stop Paying For Promises.<br/>Pay For Predictability.</h2>
+            <p className="text-xl text-gray-600 mb-12 max-w-2xl font-medium font-sans text-center mx-auto">
+              If you are ready to implement a data-backed acquisition engine that scales your facility to capacity, it's time to talk.
+            </p>
+            <Link 
+              to="/contact#contact-form" 
+              className="inline-flex h-16 px-10 items-center justify-center rounded-full bg-brand-red text-white font-bold text-xl uppercase tracking-widest transition-transform hover:scale-105 hover:shadow-[0_0_30px_rgba(220,53,53,0.4)] whitespace-nowrap"
+            >
+              Request Project
+              <ArrowRight className="ml-3" size={24} />
+            </Link>
+          </div>
         </PremiumInteractiveCard>
       </section>
     </div>
